@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>KB국민카드</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+    * { margin:0; padding:0; }
+    body, html { width:100%; height:100%; overflow-x:hidden; }
+    ul { list-style:none; }
+    a { text-decoration:none; }
+        
+        .wrap {
+            overflow-x:hidden;
+        }
+    /* 헤더부분 */
+        #hd {
+            width:100%;
+            height:60px; 
+            background:#fff;
+            position:relative;
+            z-index:98;
+        }
+        #hd .logo {
+            width:100px;
+            display:block;
+            padding-top:10px;
+            margin-left:10px;
+        }
+        #hd .logo img {
+            width:90px;
+            height:50px;
+        }
+        #hd .lstbar { 
+            position:absolute;
+            top:20px;
+            right:20px;
+        }
+        #hd .lstbar img {
+            width:35px;
+            height:20px;
+        }
+        
+    /* 메뉴 리스트 */
+        #navi {
+            position:fixed;
+            top:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.8); 
+            right:-100%;
+            transition:0.4s;
+            z-index:100;
+        }
+        #navi.on {
+            right:0;
+        }
+        .navi {
+            position:absolute;
+            width:65%;
+            height:330px;
+            top:0;
+            right:0;
+            background:#fff;
+        }
+        
+    /* 로그인 및 회원가입 */
+        .tnb {
+            width:100%; 
+            height:40px;
+            background:#505056;
+        }
+        .tnb li {
+            width:30%;
+            float:left; 
+            line-height:40px;
+            padding-left:10px;
+        }
+        .tnb li a {
+            display:block;
+            text-align:center;
+            color:#fff; 
+            font-size:12px;
+        }
+        .closeBtn {
+            position:absolute;
+            right:22px;
+            top:12px;
+            border:0;
+            outline:0;
+            color:#fff;
+            font-weight:bold;
+            background-color:transparent;
+            cursor:pointer;
+        }
+        
+    /* 메뉴 */
+        .gnb {
+            width:100%;
+            height:50px;
+            line-height:30px;
+        }
+        .gnb li {
+            display:block;
+            width:49%;
+            float:left;
+            padding-right:1px;
+        }
+        .gnb li:nth-child(1), .gnb li:nth-child(3) {
+            border-right:1px solid #f3f3f3; 
+        }
+        .gnb > li:nth-child(3), .gnb > li:nth-child(4) {
+            margin-top:10px;
+        }
+        .gnb > li > a {
+            display:block;
+            color:#333; 
+            background:#f3f3f3;
+            font-size:16px;
+            line-height:40px;
+            text-indent:18px;
+        }
+        
+    /* 메뉴 안에 서브메뉴 */
+        .gnb li .subMenu {
+            width:100%;
+            margin-top:5px;
+        }
+        .gnb li .subMenu li {
+            width:100%;
+            float:left;
+        }
+        .gnb li .subMenu li a {
+            display:block;
+            line-height:20px;
+            color:#333; 
+            font-size:13px;
+            text-indent:18px;
+        }
+        
+    /* 비주얼(메인이미지) */
+        #contents {
+            clear:both;
+            width:100%;
+            height:100%;
+        }
+        #visual {
+            width:100%;
+            position:relative;
+        }
+        #visual .vsBtn {
+            clear:both;
+            display:block;
+            position:absolute;
+            float:left;
+            top:240px;
+            width:10px;
+            height:10px;
+            border:1px solid #f7aa0d;
+            background:#fff;
+            outline:0;
+            border-radius:20px;
+            left:45%;
+            z-index:99;
+            cursor:pointer;
+        }
+        #visual .btn-bg {
+            background:#f7aa0d;
+            border:1px solid #fff;
+        }
+        #visual .vsBtn:nth-child(2) {
+            left:50%;
+        }
+        #visual .vsBtn:nth-child(3) {
+            left:55%;
+        }
+        #visual ul {
+            width:300%;
+        }
+        #visual ul li {
+            width:33%;
+            float:left;
+        }
+        #visual ul li img {
+            width:100%;
+        }
+        
+    /* 바로가기 */
+        #short {
+            clear:both;
+            width:100%;
+            height:60px;
+        }
+        #short .shBox {
+            width:100%;
+            height:50px;
+            border-top:10px solid #eee; 
+            border-bottom:10px solid #eee; 
+        }
+        #short .shBox li {
+            width:50%;
+            line-height:50px;
+            float:left;
+            text-align:center;
+        }
+        #short .shBox li a {
+            color:#333; 
+        }
+        #short .shBox li a:hover {
+            color:#f7aa0d;
+        }
+        
+    /* product 카드 소개 */
+        #product {
+            clear:both;
+            width:100%; 
+            height:180px;
+            margin-top:25px;
+        }
+        #product .proTitle {
+            text-indent:20px;
+        }
+        #product .cardBox {
+            width:9000px;
+            margin-top:20px;
+            margin-left:20px;
+        }
+        #product .cardBox li {
+            float:left;
+            padding-right:25px;
+        }
+        #product .cardBox li a {
+            display:block;
+            position:relative;
+            color:#333;
+            box-sizing:border-box;
+        }
+        #product .cardBox li a span.cardName {
+            display:block;
+            position:absolute;
+            bottom:-20px;
+            text-indent:55px;
+        }
+        #product .cardBox li img {
+            width:150px;
+            height:100px;
+        }
+        
+    /* 임시 공간 배너*/
+        #banner {
+            clear:both;
+            width:100%;
+            margin-top:20px;
+        }
+        #banner img {
+            width:100%;
+        }
+        
+    /* #pay 영역 - 머니 인더스카이 */
+        #pay {
+            clear:both;
+            width:100%;
+            margin-top:20px;
+        }
+        #pay .payTitle {
+            margin-bottom:15px;
+            text-indent:20px;
+        }
+        #pay .payBox {
+            width:100%;
+            height:230px;
+            box-sizing:border-box;
+            border:1px solid #e8e6e6; 
+        }
+        #pay .payBox li { 
+            float:left;
+            line-height:100px;
+            padding-top:14px;
+            width:33%;
+        }
+        #pay .payBox li:nth-child(2), #pay .payBox li:nth-child(5) {
+            border-left:1px solid #e8e6e6;
+            border-right:1px solid #e8e6e6;
+        }
+        #pay .payBox li:nth-child(1), #pay .payBox li:nth-child(2), #pay .payBox li:nth-child(3) {
+            border-bottom:1px solid #e8e6e6;
+        }
+        #pay .payBox li a {
+            display:block;
+            position:relative;
+            color:#333; 
+            text-align:center;
+        }
+        #pay .payBox li a span.payName {
+            display:block;
+            position:absolute;
+            bottom:-20px;
+            font-size:12px;
+            left:22px;
+        }
+        
+    /* 푸터 */
+        #ft {
+            clear:both;
+            margin-top:30px;
+            width:100%;
+            height:120px;
+            background:#eee;
+        }
+        #ft .fnb {
+            width:100%;
+            height:35px;
+            background:#333;
+        }
+        #ft .fnb ul li {
+            float:left;
+            width:33%;
+        }
+        #ft .fnb ul li a {
+            display:block;
+            color:#fff;
+            font-size:12px;
+            line-height:35px;
+            text-align:center;
+        }
+        .copyright {
+            margin-top:20px;
+            line-height:20px;
+            font-size:12px;
+            text-align:center;
+        }
+    </style>
+    <script src="./js/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+        $(".lstbar").click(function(){
+          $("#navi").addClass("on"); 
+       });
+        $(".closeBtn").click(function(){
+           $("#navi").removeClass("on"); 
+        });
+        
+        //메인 이미지 슬라이드
+        var wd=parseInt($("#visual").width());
+        
+        function nAni(){
+            $("#visual ul").not(":animated").animate({"margin-left" : -wd+"px"}, 2000, function(){
+                $("#visual ul li").eq(0).appendTo("#visual ul");
+                $("#visual ul").css("margin-left", "0px");
+            });
+        }
+        var intv=setInterval(function(){ nAni(); }, 2000);
+    });  
+    </script>
+    <script>
+    $(document).ready(function(){
+        var vswd=parseInt($("#visual > ul").width())*-1; 
+        var btn=$(this).attr("data-value")-1;
+        
+        $(".vsBtn").click(function(){
+            $(this).siblings().removeClass("btn-bg");
+            $(this).addClass("btn-bg");
+            $(this).not(":animated").animate({"margin-left" : vswd*btn}, 2000); 
+        });
+    });  
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <header id="hd">
+            <a href="index.html" class="logo">
+                <img src="./image/logo.png" alt="로고">
+            </a>
+            <a href="#" class="lstbar">
+                <img src="./image/lstbar.png" alt="메뉴">
+            </a>
+        </header>
+        <nav id="navi">
+           <div class="navi">
+            <ul class="tnb">
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">회원가입</a></li>
+                <button class="closeBtn">콕</button>
+            </ul>
+            <ul class="gnb">
+                <li><a href="#">KB국민카드</a>
+                    <ul class="subMenu">
+                        <li><a href="#">혜택가맹점</a></li>
+                        <li><a href="#">KB스타클럽</a></li>
+                        <li><a href="#">카드관리</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">서비스</a>
+                    <ul class="subMenu">
+                        <li><a href="#">생활대금납부</a></li>
+                        <li><a href="#">해외이용</a></li>
+                        <li><a href="#">안심서비스</a></li>
+                        <li><a href="#">자동납부추천</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">금융</a>
+                    <ul class="subMenu">
+                        <li><a href="#">장기카드대출</a></li>
+                        <li><a href="#">단기카드대출</a></li>
+                        <li><a href="#">자동차대출</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">고객센터</a>
+                    <ul class="subMenu">
+                        <li><a href="#">새소식</a></li>
+                        <li><a href="#">영업점찾기</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">1:1고객문의</a></li>
+                    </ul>
+                </li>
+            </ul>
+           </div>
+         </nav>
+        <section id="contents">
+            <div id="visual">
+                <button class="vsBtn btn-bg" data-value="1"></button>
+                <button class="vsBtn" data-value="2"></button>
+                <button class="vsBtn" data-value="3"></button>
+                <ul>
+                    <li><img src="./image/psj.jpg" alt="메인이미지1"></li>
+                    <li><img src="./image/main2.jpg" alt="메인이미지2"></li>
+                    <li><img src="./image/main3.jpg" alt="메인이미지3"></li>
+                </ul>
+            </div>
+            <div id="short">
+                <ul class=shBox>
+                    <li class="guid"><a href="#">카드안내/신청</a></li>
+                    <li class="req"><a href="#">간편신청</a></li>
+                </ul>
+            </div>
+            <div id="product">
+                <h3 class="proTitle">추천카드</h3>
+                <ul class="cardBox">
+                    <li><a href="#"><img src="./image/card1.png" alt="꿀맛a"><span class="cardName">꿀맛a</span></a></li>
+                    <li><a href="#"><img src="./image/card2.png" alt="톡톡"><span class="cardName">톡톡</span></a></li>
+                    <li><a href="#"><img src="./image/card3.png" alt="꿀잠a"><span class="cardName">꿀잠a</span></a></li>
+                    <li><a href="#"><img src="./image/card4.png" alt="청춘대로"><span class="cardName">청춘대로</span></a></li>
+                    <li><a href="#"><img src="./image/card5.png" alt="올쇼핑"><span class="cardName">올쇼핑</span></a></li>
+                    <li><a href="#"><img src="./image/card6.png" alt="11Pay"><span class="cardName">11Pay</span></a></li>
+                </ul>
+            </div>
+            <div id="banner"><img src="./image/banner.jpg" alt="임시배너이미지"></div>
+            <div id="pay">
+                <h3 class="payTitle">생활대금 납부</h3>
+                <ul class="payBox">
+                    <li><a href="#"><img src="./image/pay01.png" alt="아파트관리비"><span class="payName">아파트관리비</span></a></li>
+                    <li><a href="#"><img src="./image/pay02.png" alt="4대사회보험"><span class="payName">4대사회보험</span></a></li>
+                    <li><a href="#"><img src="./image/pay03.png" alt="도시가스요금"><span class="payName">도시가스요금</span></a></li>
+                    <li><a href="#"><img src="./image/pay04.png" alt="전화요금"><span class="payName">전화요금</span></a></li>
+                    <li><a href="#"><img src="./image/pay05.png" alt="전기요금"><span class="payName">전기요금</span></a></li>
+                    <li><a href="#"><img src="./image/pay06.png" alt="부동산임대료"><span class="payName">부동산임대료</span></a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <footer id="ft">
+        <nav class="fnb">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보·처리방침</a></li>
+            </ul>
+        </nav>
+        <p class="copyright">
+            서울특별시 종로구 새문안로 3길 30<br>
+            (C) KB KOOKMINCARD
+        </p>
+    </footer>
+</body>
+</html>
