@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, 
+     minimum-scale=1, maximun-scale=1, user-scalable=no, target-densilydpi=medium-dpi">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"> <!-- IE를 최신 버전으로 -->
+    <meta name="keywords" content="">
+    <meta name="keywords" content="">
+    <!-- [if IE]>
+    <<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js></script>
+    <![endif] -->
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16 32x32 48x48 64x64 72x72 96x96 114x114 128x128" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="./images/favicon.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="./images/favicon.png">
+    <title>사무용품의 메카 리레코~!</title>
+    <script src="./js/jquery.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR">
+    <style>
+/* 초기화 */
+    * { margin:0; padding:0; }
+    body, html { width:100%; height:100%; font-family: 'Noto Sans KR', sans-serif; overflow-x:hidden; }
+    ul { list-style:none; }
+    a { text-decoration:none; color:#333; }
+    img { border:0; }
+    button, label, input, a { outline:0; border:0; background:transparent; }
+        
+      
+        .wrap {
+            width:100%;
+        }
+        #hd {
+            position:relative;
+            padding:20px;
+            border:2px solid #eee;
+            height:100px;
+            margin-bottom:95px;
+            width:100%;
+        }
+        .searchBtn {
+            position:absolute;
+            right:23%;
+            top:63px;
+        }
+        .logo {
+            position:absolute;
+            left:45%;
+        }
+        #sns {
+            position:absolute;
+            left:20%;
+            top:40px;
+        }
+        #sns li {
+            float:left;
+            padding:10px;
+        }
+        #sns li a img {
+            width:60px;
+            height:50px;
+        }
+        #top {
+            position:absolute;
+            right:25%;
+            top:50px;
+        }
+        #top li {
+            float:left;
+            padding:10px;
+        }
+        #gnb {
+            position:relative;
+            width:100%;
+            left:20%;
+            top:100px;
+        }
+        #m_menu {
+            display:none;
+        }
+        #gnb ul {
+            position:absolute;
+        }
+        #gnb li {
+            float:left; 
+            padding:50px;
+        }
+        #gnb ul li.menu > a {
+            display:block;
+            font-size:24px;
+            font-weight:bold;
+        }
+        .sub {
+            clear:both;
+            display:none;
+            border-top:2px solid #eee; 
+            position:absolute;
+            background:#fff;
+            width:100%;
+            left:0;
+            height:400px;
+            top:116px;
+            z-index:99;
+        }
+        .subBox {
+            float:left;
+            width:100%;
+        }
+        .subTit, .subCom {
+            margin-bottom:20px;
+        }
+        .subImg img {
+            width:300px;
+        }
+        .subMenu {
+            width:750px;
+            position:absolute;
+            right:0;
+            top:20px;
+            border-left:1px solid #eee; 
+        }
+        .subMenu li {
+            width:140px;
+        }
+    /* 콘텐츠 */
+        #content {
+            clear:both;
+            height:100%;
+        }
+        #content > div {
+            border-bottom:1px solid #eee; 
+        }
+        #content > div:nth-child(1) {
+            border:0;
+        }
+        .main {
+            width:100%;
+            position:relative;
+            height:550px;
+        }
+        .vsBtn {
+            width:14px;
+            height:14px;
+            border-radius:20px;
+            background:#fff;
+            border:1px solid #ffba02;
+            position:absolute;
+            top:450px;
+            cursor:pointer;
+        }
+        .vsBtn.active {
+            border:0;
+            background:#ffba02;
+        }
+        .vsBtn:nth-child(1) {
+            left:900px;
+        }
+        .vsBtn:nth-child(2) {
+            left:930px;
+        }
+        .vsBtn:nth-child(3) {
+            left:960px;
+        }
+        .vsBtn:nth-child(4) {
+            left:990px;
+        }
+        .visual {
+            width:400%;
+        }
+        .visual li {
+            width:25%;
+            float:left;
+        }
+        .visual img {
+            width:100%;
+            height:500px;
+        }
+    /* 제품 */
+        .product {
+            clear:both;
+            margin-top:50px;
+            height:600px;
+            position:relative;
+        }
+        .title, .com {
+            text-align:center;
+            line-height:50px;
+        }
+        .pro {
+            width:55%;
+            margin:40px auto;
+        }
+        .pro li {
+            float:left;
+            padding:10px;
+            width:150px;
+            margin-bottom:10px;
+        }
+        .pro li a {
+            display:block;
+            border:1px solid #eee;
+            height:40px;
+            line-height:40px;
+            border-radius:20px;
+            text-align:center;
+        }
+        .pro li a:hover {
+            color:#fff;
+            background:#ffba02;
+            border:0;
+        }
+        /* 해당 제품 이미지 */
+        .proBox {
+            clear:both;
+            position:absolute;
+            bottom:70px;
+            width:100%;
+        }
+        .proBox ul {
+            margin-left:20%;
+            float:left;
+            display:none;
+            height:300px;
+            position:absolute;
+            bottom:0;
+        }
+        .proBox ul:target {
+            display:block;
+        }
+        .proBox ul li {
+            float:left;
+            line-height:50px;
+            border:1px solid #ccc; 
+            border-radius:10px;
+            padding:30px;
+            margin:20px;
+        }
+        .proBox ul li img {
+            width:200px;
+            height:250px;
+        }
+    /* SNS */
+        .sns {
+            height:700px;
+            margin-top:100px;
+        }
+        .snsIcon {
+            position:relative;
+            top:-68%;
+            left:44%;
+        }
+        .sns ul {
+            margin-left:10%;
+            margin-top:50px;
+        }
+        .sns ul li {
+            width:300px;
+            height:300px;
+            border:1px solid #ccc;
+            float:left;
+            margin:20px;
+            padding:20px;
+            border-radius:15px;
+        }
+    /* 소식 */
+        .news {
+            height:1200px;
+            position:relative;
+        }
+        .newsWrap {
+            width:50%;
+            margin:50px auto;
+        }
+        .newsWrap ul {
+            width:100%;
+        }
+        .event li {
+            width:49%;
+            height:300px;
+            float:left;
+            border:1px solid #eee;
+            margin:3px;
+            text-align:center;
+        }
+
+        .event li img {
+            width:100%;
+            height:80%;
+        }
+        .more {
+            position:absolute;
+            right:25%;
+            margin-top:30px;
+        }
+        .notice {
+            display:block;
+            float:left;
+            line-height:100px;
+        }
+        .notxt {
+            width:100%;
+            height:100px;
+            line-height:100px;
+            background:#eee;
+            text-indent:50px;
+            margin-bottom:60px;
+        }
+        .notice2 {
+            width:100%;
+        }
+        .notice2 li {
+            margin-top:20px;
+            width:48%;
+            height:400px;
+            border:1px solid #333;
+            float:left;
+            margin-right:10px;
+        }
+    /* 파트너 */
+        .partners {
+            clear:both;
+        }
+        .partners ul {
+            width:900px;
+            margin:0 auto;
+        }
+        .partners ul li {
+            float:left; 
+            padding:30px;
+        }
+    /* 푸터 */
+        #ft {
+            clear:both;
+            height:160px;
+            background:#eee;
+            text-align:center;
+        }
+        .fnb {
+            width:400px;
+            margin:0 auto;
+        }
+        .fnb li {
+            float:left;
+            margin-left:30px;
+        }
+        .fnb li a {
+            text-align:center;
+            line-height:80px;
+        }
+        .copyright {
+            clear:both;
+        }
+        
+        
+    @media screen and (max-width:767px) {
+        /* 모바일 */
+        #hd {
+            margin:0;
+            padding-top:0;
+            padding-bottom:0;
+            position:fixed;
+            z-index:10;
+            background:#fff;
+        }
+        .logo { left:24%; }
+        #top {
+            display:none;
+        }
+        #m_menu {
+            display:block;
+        }
+        #gnb {
+            display:none;
+        }
+        #sns { display:none; }
+        .main {
+            clear:both;
+            height:auto;
+            padding-top:100px;
+        }
+        .visual li.vs1 {
+            background-image:url(./images/m_main01.jpg);
+            background-position:center;
+            background-size:cover;
+            height:300px;
+        }
+        .visual img {
+            width:100%;
+            height:300px;
+        }
+        .product {
+            height:auto;
+            position:relative;
+        }
+        .pro {
+            width:100%;
+            margin-left:45px;
+        }
+        .pro li {
+            width:33.3333%;
+            display:block;
+            float:left;
+            height:auto;
+        }
+        .proBox {
+            height:auto;
+            position:absolute;
+            top:700px;
+            left:-35px;
+        }
+        
+        .proBox ul {
+            clear:both;
+            margin-top:100px;
+        }
+        .sns {
+            clear:both;
+            display:block;
+            position:relative;
+            margin-top:1800px;
+            width:100%;
+            height:auto;
+        }
+        .sns h2.title {
+            margin-top:100px;
+        }
+        .sns ul > li {
+            width:220px;
+            height:250px;
+            position:relative;
+        }
+        .sns ul > li > img {
+            position:absolute;
+            top:0;
+        }
+        .sns ul > li > a {
+            display:block;
+        }
+        .sns ul > li > a {
+            width:210px;
+        }
+        .sns ul > li > a > img {
+            width:200px;
+            margin-left:10px;
+        }
+        .news {
+            clear:both;
+            width:100%;
+            height:auto;
+        }
+        .newsWrap {
+            width:100%;
+            margin:0; 
+        }
+        .event {
+            clear:both;
+            width:100%;
+        }
+        .event li {
+            display:block;
+            width:90%;
+            margin:5px 20px;
+        }
+        .notice {
+            clear:both;
+        }
+        .notice h1.tit {
+            text-indent:18px;
+        }
+        .notice .notxt {
+            text-indent:18px;
+        }
+        .notice2 {
+            clear:both;
+            width:100%;
+            margin-left:18px;
+        }
+        .notice2 li {
+            width:90%;
+            height:200px;
+        }
+        .more {
+            position:absolute;
+            right:20px;
+        }
+        .partners {
+            width:100%;
+        }
+        .partners ul {
+            width:80%;
+            margin:0 auto;
+        }
+        .partners ul > li {
+            display:block;
+            width:25%;
+        }
+        .copyright {
+            font-size:14px;
+        }
+        
+        /* 모바일 메뉴 */
+        .searchBtn {
+            right:15%;
+            top:40px;
+        }
+        .searchBtn .btn img {
+            width:100%;
+        }
+        .m_lst {
+            width:50px;
+            height:50px;
+            position:absolute;
+            left:20px; top:25px;
+            z-index:11;
+        }
+        .m_lst span {
+            display:block;
+            margin-top:10px;
+            width:40px;
+            height:3px;
+            background:#333;
+        }
+        .m_close {
+            position:absolute;
+            right:20px;
+            width:50px;
+            height:50px;
+            font-size:30px;
+            top:10px;
+        }
+        #m_menu {
+            position:fixed;
+            width:100%;
+            height:1000px;
+            background:#fff;
+            z-index:11;
+            left:0;
+            left:100%;
+            transition:0.4s;
+        }
+        #m_menu ul {
+            margin:100px 40px;
+        }
+        #m_menu ul li {
+            line-height:60px;
+        }
+        #m_menu ul li a {
+            
+        }
+        
+    }
+    @media screen and (min-width:768px) and (max-width:959px) {
+        /* 태블릿 */
+    }
+    @media screen and (min-width:960px) and (max-width:1280px) {
+        /* 저해상도 데스크탑 */
+    }
+    @media screen and (min-width:1281px) {
+        /* 고해상도 데스크탑 */
+    }  
+    </style>
+    <script>
+    $(document).ready(function(){
+        //메뉴
+        $("#gnb li").hover(function(){
+          $(this).find(".sub").stop().slideDown(500);
+       });
+        $("#gnb li").mouseleave(function(){
+          $(this).find(".sub").stop().slideUp(500);
+       });
+        // 모바일 메뉴
+        $(".m_lst").click(function(){
+           $("#m_menu").css("left", "0");
+        });
+        $(".m_close").click(function(){
+           $("#m_menu").css("left", "100%");
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+         //메인 이미지 슬라이드
+        var wd=parseInt($(".main").width());
+        
+        function nAni(){
+            $(".visual").not(":animated").animate({"margin-left" : -wd+"px"}, 1000, function(){
+                $(".visual li").eq(0).appendTo($(".visual"));
+                $(".visual").css("margin-left", "0px");
+            });
+        }
+        var intv=setInterval(function(){ nAni(); }, 3000);
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+        var imgwd=parseInt($(".main").width())*-1;
+        var btn=parseInt($(".btnBox").attr("data-value"))-1; 
+        $(".btnBox button").click(function(){
+            $(this).not(":animated").animate({"margin-left" : imgwd*btn}, 800);
+            $(".btnBox button").removeClass("active");
+            $(this).addClass("active");
+        }); 
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+        
+    });
+    </script>
+</head>
+<body>
+    <div class="wrap">
+    <header id="hd">
+        <a href="#" class="logo">
+            <img src="./images/logo.jpg" alt="로고">
+        </a>
+        <nav id="sns">
+            <ul>
+                <li><a href="#"><img src="./images/sns_facebook.png" alt="페이스북"></a></li>
+                <li><a href="#"><img src="./images/sns_instagram.png" alt="인스타그램"></a></li>
+                <li><a href="#"><img src="./images/sns_twiter.png" alt="트위터"></a></li>
+                <li><a href="#"><img src="./images/sns_youtube.png" alt="유튜브"></a></li>
+            </ul>
+        </nav>
+        <nav id="top">
+            <ul>
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">회원가입</a></li>
+            </ul>
+        </nav>
+        <nav id="gnb">
+            <ul>
+                <li class="menu">
+                    <a href="#">회사소개</a>
+                    <div class="sub">
+                        <ul class="subBox">
+                            <li>
+                                <h2 class="subTit">회사소개</h2>
+                                <p class="subCom">
+                                    3조원의 연매출을 기록하며,
+                                    <br>
+                                    전세계 45개국 /5개 대륙에서 동일한 서비스를 제공하고 있는
+                                    <br>
+                                    유럽 사무용품 유통시장의 선도자 리레코를 소개합니다.
+                                </p>
+                                <div class="subImg"><img src="./images/group.png" alt="차"></div>
+                                <ul class="subMenu">
+                                    <li><a href="">그룹소개</a></li>
+                                    <li><a href="">주요내용</a></li>
+                                    <li><a href="">비전과 가치</a></li>
+                                    <li><a href="">윤리강령</a></li>
+                                    <li><a href="">자선활동</a></li>
+                                    <li><a href="">ISO인증&amp;관리체계</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu">
+                    <a href="#">제품</a>
+                </li>
+                <li class="menu">
+                    <a href="#">고객서비스</a>
+                    <div class="sub">
+                        <ul class="subBox">
+                            <li>
+                                <h2 class="subTit">고객서비스</h2>
+                                <p class="subCom">
+                                    온라인주문, 전화주문, 팩스주문
+                                </p>
+                                <div class="subImg"><img src="./images/order.png" alt="주문" style="width:100px;height:200px;"></div>
+                                <ul class="subMenu">
+                                    <li><a href="#">주문방법</a></li>
+                                    <li><a href="#">반품/교환/AS</a></li>
+                                    <li><a href="#">거래이용약관</a></li>
+                                    <li><a href="#">거래명세서 확인방법</a></li>
+                                    <li><a href="#">품질경영방침</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu">
+                    <a href="#">글로벌서비스</a>
+                    <div class="sub">
+                        <ul class="subBox">
+                            <li>
+                                <h2 class="subTit">글로벌서비스</h2>
+                                <p class="subCom">
+                                    유럽과 아시아 지역의 25개국에
+                                    <br>
+                                    9,000명이 넘는 직원들이 활동하고 있습니다.
+                                </p>
+                                <div class="subImg"><img src="./images/new_map.png" alt="맵"></div>
+                                <ul class="subMenu">
+                                    <li><a href="#">자사소개</a></li>
+                                    <li><a href="#">전략적파트너</a></li>
+                                    <li><a href="#">다국적 고객관리</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu">
+                    <a href="#">채용</a>
+                    <div class="sub">
+                        <ul class="subBox">
+                            <li>
+                                <h2 class="subTit">채용안내</h2>
+                                <p class="subCom">
+                                    왜 리레코 일까요?
+                                    <br>
+                                    지금 만나보세요
+                                </p>
+                                <div class="subImg"><img src="./images/why.jpg" alt="사람"></div>
+                                <ul class="subMenu">
+                                    <li><a href="#">왜 리레코일까요</a></li>
+                                    <li><a href="#">채용공고</a></li>
+                                    <li><a href="#">지금 지원하세요!</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu">
+                    <a href="#">보도기사/뉴스</a>
+                    <div class="sub">
+                        <ul class="subBox">
+                            <li>
+                                <h2 class="subTit">보도기사/뉴스</h2>
+                                <p class="subCom">
+                                    늘 새로운 리레코,
+                                    <br>
+                                    새소식 알아보러 고고싱!
+                                </p>
+                                <div class="subImg"><img src="./images/logo.jpg" alt="로고"></div>
+                                <ul class="subMenu">
+                                    <li><a href="">리레코 소식</a></li>
+                                    <li><a href="">보도기사</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="m_lst">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="m_menu">
+            <button class="m_close">X</button>
+            <ul>
+                <li><a href="#">회사소개</a></li>
+                <li><a href="#">제품</a></li>
+                <li><a href="#">고객서비스</a></li>
+                <li><a href="#">글로벌서비스</a></li>
+                <li><a href="#">채용</a></li>
+                <li><a href="#">보도기사/뉴스</a></li>
+            </ul>
+        </nav>
+        <div class="searchBtn">
+            <button class="btn"><img src="./images/icon_search.png" alt="검색"></button>
+        </div>
+    </header>
+    <section id="content">
+        <div class="main">
+            <div class="btnBox">
+             <button class="vsBtn" data-value="0"></button>
+             <button class="vsBtn" data-value="1"></button>
+             <button class="vsBtn" data-value="2"></button>
+             <button class="vsBtn" data-value="3"></button>
+            </div>
+            <ul class="visual">
+                <li class="vs1"><img src="./images/main4.jpg" alt="메인1"></li>
+                <li class="vs2"><img src="./images/main3.jpg" alt="메인2"></li>
+                <li class="vs3"><img src="./images/main01.jpg" alt="메인3"></li>
+                <li class="vs4"><img src="./images/main2.jpg" alt="메인4"></li>
+            </ul>
+        </div>
+        <div class="product">
+            <h2 class="title">제품소개</h2>
+            <p class="com">클릭하여 브랜드의 정보를 확인해 보세요!</p>
+            <ul class="pro">
+                <li><a href="#pro1">복사용지/지류</a></li>
+                <li><a href="#pro2">잉크/토너</a></li>
+                <li><a href="#pro3">사무용품</a></li>
+                <li><a href="#pro4">디지털용품</a></li>
+                <li><a href="#pro5">의자/데스크용품</a></li>
+                <li><a href="#pro6">생활/산업안전용품</a></li>
+            </ul>
+            <div class="proBox">
+                <ul id="pro1" style="display:block;">
+                    <li><img src="./images/pro11.jpg" alt="제품11"></li>
+                    <li><img src="./images/pro12.jpg" alt="제품12"></li>
+                    <li><img src="./images/pro13.jpg" alt="제품13"></li>
+                    <li><img src="./images/pro14.jpg" alt="제품14"></li>
+                </ul>
+                <ul id="pro2">
+                    <li><img src="./images/pro21.jpg" alt="제품21"></li>
+                    <li><img src="./images/pro22.jpg" alt="제품22"></li>
+                    <li><img src="./images/pro23.jpg" alt="제품23"></li>
+                    <li><img src="./images/pro24.jpg" alt="제품24"></li>
+                </ul>
+                <ul id="pro3">
+                    <li><img src="./images/pro31.jpg" alt="제품31"></li>
+                    <li><img src="./images/pro32.jpg" alt="제품32"></li>
+                    <li><img src="./images/pro33.jpg" alt="제품33"></li>
+                    <li><img src="./images/pro34.jpg" alt="제품34"></li>
+                </ul>
+                <ul id="pro4">
+                    <li><img src="./images/pro41.jpg" alt="제품41"></li>
+                    <li><img src="./images/pro42.jpg" alt="제품42"></li>
+                    <li><img src="./images/pro43.jpg" alt="제품43"></li>
+                    <li><img src="./images/pro44.jpg" alt="제품44"></li>
+                </ul>
+                <ul id="pro5">
+                    <li><img src="./images/pro51.jpg" alt="제품51"></li>
+                    <li><img src="./images/pro52.jpg" alt="제품52"></li>
+                    <li><img src="./images/pro53.jpg" alt="제품53"></li>
+                    <li><img src="./images/pro54.jpg" alt="제품54"></li>
+                </ul>
+                <ul id="pro6">
+                    <li><img src="./images/pro61.jpg" alt="제품61"></li>
+                    <li><img src="./images/pro62.jpg" alt="제품62"></li>
+                    <li><img src="./images/pro63.jpg" alt="제품63"></li>
+                    <li><img src="./images/pro64.jpg" alt="제품64"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sns">
+            <h2 class="title">리레코 SNS</h2>
+            <ul>
+                <li><a href="#"><img src="./images/sns_img1.jpg" alt="이미지1" style="width:300px;"></a>
+                    <img src="./images/sns_fb.png" alt="페이스북" class="snsIcon">
+                    사무∙산업안전용품의 글로벌 <br>유통기업 리레코의 환경과 미래를 위한 노력</li>
+                <li><a href="#"><img src="./images/sns_img2.jpg" alt="이미지2" style="width:300px;"></a>
+                    <img src="./images/sns_insta.png" alt="인스타그램" class="snsIcon">
+                    아이들이 배워야 나라가 성장합니다. </li>
+                <li><a href="#"><img src="./images/sns_img4.jpg" alt="이미지3" style="width:300px;"></a>
+                    <img src="./images/sns_blog.png" alt="블로그" class="snsIcon">
+                    상품강화부터  <br> 안내가이드까지 고객중심으로 맞췄습니다.</li>
+                <li><a href="#"><img src="./images/sns_img3.jpg" alt="이미지4" style="width:300px;"></a>
+                    <img src="./images/sns_ytb.png" alt="유튜브" class="snsIcon">
+                    리레코X유튜브의 콜라보레이션~! </li>
+            </ul>
+        </div>
+        <div class="news">
+            <h2 class="title">리레코 소식</h2>
+            <div class="newsWrap">
+                <ul class="event">
+                    <li><img src="./images/ss1.jpg" alt="이미지1"><p>사무·산업안전용품 글로벌 유통기업 리레코코리아, <br>2016년 세일즈 컨벤션 개최</p></li>
+                    <li><img src="./images/ss2.jpg" alt="이미지2"><p>Lyreco 초고속 성장! 전직원 단합위한 outing 떠나</p></li>
+                </ul>
+                <ul class="notice">
+                    <li>
+                        <img src="./images/more.png" alt="더보기" class="more">
+                        <h1 class="tit">공지사항</h1>
+                        <p class="notxt">
+                            리레코코리아, 2015 하반기 신상품 카탈로그 출시
+                        </p>
+                    </li>
+                </ul>
+                <ul class="notice2">
+                    <h1 class="tit">보도자료</h1>
+                    <img src="./images/more.png" alt="더보기" class="more" style="margin-top:-45px;">
+                    <li><img src="./images/news.jpg" alt="뉴스" style="width:100%;height:100%;"></li>
+                    <li><img src="./images/untitled.png" alt="행사" style="width:100%;height:100%;"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="partners">
+            <ul>
+                <li><a href="#"><img src="./images/partner1.jpg" alt="파트너1"></a></li>
+                <li><a href="#"><img src="./images/partner2.jpg" alt="파트너2"></a></li>
+                <li><a href="#"><img src="./images/partner3.jpg" alt="파트너3"></a></li>
+                <li><a href="#"><img src="./images/partner4.jpg" alt="파트너4"></a></li>
+                <li><a href="#"><img src="./images/partner5.jpg" alt="파트너5"></a></li>
+            </ul>
+        </div>
+    </section>
+    </div>
+    <footer id="ft">
+        <nav class="fnb">
+            <ul>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">SITEMAP</a></li>
+            </ul>
+        </nav>
+        <p class="copyright">
+            서울특별시 강남구 테헤란로 78번길 16 노벨빌딩 3층 | 대표이사 : 엘르베조르쥬밀쌍
+            <br>
+            사업자등록번호 : 201-81-86973 | 통신판매신고번호 : 제06096호
+        </p>
+    </footer>
+</body>
+</html>
