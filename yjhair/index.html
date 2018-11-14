@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>윤정헤어라인</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        body, html {
+            width:100%;
+            height:100%;
+        }
+        a {
+            text-decoration:none;
+        }
+        ul {
+            list-style:none; 
+        }
+        .wrap {
+            width:100%;
+            overflow-x:hidden;
+        }
+        #hd {
+            width:100%;
+            height:100px;
+            background:#000;
+            position:relative;
+        }
+        .tnb {
+            width:100%; 
+        }
+        .tnb ul {
+            float:right;
+        }
+        .tnb ul li {
+            float:left; 
+        }
+        .tnb ul li a {
+            display:block;
+            color:#fff; 
+            padding-right:30px; 
+            padding-top:10px;
+            font-size:12px;
+        }
+        .gnb {
+            width:100%;
+        }
+        .logo {
+            float:left; 
+            position:absolute;
+            left:120px; 
+            top:20px; 
+        }
+        .menu {
+            margin-left:30%;
+            padding-top:30px;
+        }
+        .menu li {
+            float:left;
+            margin-left:100px; 
+        }
+        .menu li a {
+            display:block;
+            color:#fff; 
+        }
+        .subMenu {
+            position:absolute;
+            width:100%;
+            height:200px;
+            padding-left:670px;
+            top:100px;
+            background:#060809;
+            z-index:99;
+            display:none;
+        }
+        .subMenu .sub {
+            float:left;
+        }
+        .subMenu .sub:nth-child(2) {
+            margin-left:93px;
+        }
+        .subMenu .sub:nth-child(4) {
+            margin-left:283px;
+        }
+        .sub li a {
+            display:block;
+            color:#fff;
+            line-height:40px;
+        }
+        .sub li a:hover {
+            color:darkred;
+        }
+    /* 메인 */
+        #con {
+            clear:both;
+            width:100%;
+            height:100%;
+        }
+        .visual {
+            width:100%;
+        }
+        .vs {
+            width:100%;
+        }
+        .vs li img {
+            width:100%;
+        }
+        .slide {
+            width:100%;
+            height:800px;
+        }
+        .imgBox {
+            width:80%;
+            margin-left:40%;
+            margin-top:100px;
+        }
+        .imgBox li {
+            width:25%;
+            float:left;
+        }
+        .imgBox li img {
+            width:400px;
+            
+        }
+    /* 배경 고정 */
+        .page3 {
+            background-image:url(./images/gate_bg3.jpg);
+            background-attachment:fixed; 
+            width:100%;
+            height:30%;
+        }
+        .page3 h2 {
+            text-align:center;
+            font-size:60px;
+            color:#fff;
+            line-height:300px;
+        }
+    /* page4 */
+        .page4 {
+            width:100%;
+            height:auto;
+        }
+        .imgBox2 {
+            width:80%;
+            margin:50px auto;
+            margin-left:14%;
+            box-sizing:border-box;
+        }
+        .imgBox2 li {
+            width:250px;
+            float:left;
+            margin-top:40px;
+            padding-left:30px;
+        }
+        .imgBox2 li a img {
+            width:250px;
+            height:350px;
+            transition:1s;
+        }
+        .imgBox2 li a img:hover {
+            transform: rotate(-10deg);}
+        }
+    /* 푸터 */
+        #ft {
+            clear:both;
+            display:block;
+            width:100%;
+            height:300px;
+        }
+        .fnb {
+            width:100%;
+            height:200px;
+            background:#000;
+            margin-top:100px;
+        }
+        .fnb ul {
+            width:30%;
+            margin:0 auto;
+            padding-top:50px;
+        }
+        .fnb ul li {
+            float:left; 
+            padding-left:40px;
+        }
+        .fnb ul li a {
+            color:#999;
+        } 
+        .copyright {
+            width:100%;
+            display:block;
+            float:left;
+            color:#ccc; 
+            text-align:center;
+            margin-top:40px;
+        }
+    </style>
+    <script src="./js/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+        //메뉴 슬라이드
+        $(".gnb li, .subMenu").hover(function(){
+          $(".subMenu").stop().slideDown(500); 
+       });
+        $(".gnb li, .subMenu").mouseleave(function(){
+           $(".subMenu").stop().slideUp(500); 
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <header id="hd">
+            <nav class="tnb">
+                <ul>
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                </ul>
+            </nav>
+            <nav class="gnb">
+                <a href="index.html" class="logo"><img src="./images/logo.png" alt="로고"></a>
+                <ul class="menu">
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">HAIR</a></li>
+                    <li><a href="#">RESERVATION</a></li>
+                    <li><a href="#">STORE<br>INFORMATION</a></li>
+                </ul>
+            </nav>
+            <div class="subMenu">
+                <ul class="sub">
+                    <li><a href="#">CEO소개</a></li>
+                    <li><a href="#">철학</a></li>
+                    <li><a href="press.html">PRESS</a></li>
+                </ul>
+                <ul class="sub">
+                    <li><a href="#">CUT</a></li>
+                    <li><a href="#">PERM</a></li>
+                    <li><a href="#">COLOR</a></li>
+                </ul>
+                <ul class="sub">
+                    <li><a href="#"></a></li>
+                </ul>
+                <ul class="sub">
+                    <li><a href="#">오시는 길</a></li>
+                </ul>
+            </div>
+        </header>
+        <section id="con">
+            <div class="visual">
+                <ul class="vs">
+                    <li><img src="./images/main.jpg" alt="메인"></li>
+                </ul>
+            </div>
+            <div class="slide">
+                <ul class="imgBox">
+                    <li><img src="./images/h1.jpg" alt="헤어1"></li>
+                    <li><img src="./images/h2.jpg" alt="헤어2"></li>
+                    <li><img src="./images/h3.jpg" alt="헤어3"></li>
+                    <li><img src="./images/h4.jpg" alt="헤어4"></li>
+                </ul>
+            </div>
+            <div class="page3"><h2>PRESS</h2></div>
+            <div class="page4">
+                <ul class="imgBox2">
+                    <li><a href="press.html"><img src="./images/p1.jpg" alt="스타일1"></a></li>
+                    <li><a href="press.html"><img src="./images/p2.jpg" alt="스타일2"></a></li>
+                    <li><a href="press.html"><img src="./images/p3.png" alt="스타일3"></a></li>
+                    <li><a href="press.html"><img src="./images/p4.png" alt="스타일4"></a></li>
+                    <li><a href="press.html"><img src="./images/p5.jpg" alt="스타일5"></a></li>
+                    <li><a href="press.html"><img src="./images/p6.jpg" alt="스타일6"></a></li>
+                    <li><a href="press.html"><img src="./images/p7.jpg" alt="스타일7"></a></li>
+                    <li><a href="press.html"><img src="./images/p8.jpg" alt="스타일8"></a></li>
+                    <li><a href="press.html"><img src="./images/p9.png" alt="스타일9"></a></li>
+                    <li><a href="press.html"><img src="./images/p10.jpg" alt="스타일10"></a></li>
+                    <li><a href="press.html"><img src="./images/p11.png" alt="스타일11"></a></li>
+                    <li><a href="press.html"><img src="./images/p12.jpg" alt="스타일12"></a></li>
+                    <li><a href="press.html"><img src="./images/p13.jpg" alt="스타일13"></a></li>
+                    <li><a href="press.html"><img src="./images/p8.png" alt="스타일14"></a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <footer id="ft">
+            <nav class="fnb">
+                <ul>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#"><strong style="color:darkred;">개인정보처리방침</strong></a></li>
+                    <li><a href="#">사이트맵</a></li>
+                    <li><a href="#">고객센터</a></li>
+                </ul>
+                <p class="copyright">
+                    대전 서구 도산로 280 | 지번 가장동 42-3
+                </p>
+            </nav>
+        </footer>
+</body>
+</html>
