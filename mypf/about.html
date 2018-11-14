@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title> 송미연 | 포트폴리오 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+        }
+        ul {
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        #gnb {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: none;
+            z-index: 10;
+        }
+        #gnb > ul {
+            position: absolute;
+            left: calc(100% - 55%);
+            margin: 100px auto;
+        }
+        #gnb > ul > li {
+            margin-top: 100px;
+            position: relative;
+        }
+        #gnb > ul > li > a {
+            display: block;
+            color: #fff;
+            font-size: 40px;
+            text-align: center;
+            font-weight: bold;
+            transition:0.3s;
+        }
+        #gnb > ul > li > a:hover {
+            background: -webkit-linear-gradient(#17ead9, #6078ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color:transparent;
+            font-size: 44px;
+        }
+        .line {
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 12px;
+            background: #000;
+            top: 24px;
+            left: 0;
+            transition: 0.3s;
+        }
+        #gnb > ul > li:hover .line {
+            width: 220px;
+        }
+        
+        div.list { 
+            width: 50px;
+            height: 50px;
+            float: right; 
+            position: fixed;
+            cursor: pointer;
+            z-index: 15;
+            top: 50px; right: 50px; 
+        }
+        div.list>span {
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #000;
+            transition: 0.6s;
+        }
+        div.list > span.on {
+            background: #fff;
+        }
+        div.list > span:nth-child(2) {
+            margin-top:13px;
+        }
+        div.list > span:nth-child(3) {
+            margin-top:26px;
+        } 
+        div.list > span.on:first-child {
+            transform: rotate(50deg);
+            margin-top: 5px;
+        }
+        div.list > span.on:nth-child(2) {
+            display: none;
+        }
+        div.list > span.on:last-child {
+            transform: rotate(-50deg);
+            margin-top:5px;
+        }
+
+        #main {
+            width: 100%;
+            height: auto;
+        }
+        .txt > h1::after {
+            content: " ";
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(#17ead9, #6078ea);
+            position: absolute;
+            top: 80px;
+            left: calc(100% - 50%);
+        }
+        .txt > h1 {
+            display: block;
+            position: relative;
+            padding-top: 200px;
+            font-size: 60px;
+            background: -webkit-linear-gradient(#17ead9, #6078ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color:transparent;
+        }
+        .txt > h1, .txt > p {
+            text-align: center;
+            line-height: 60px;
+        }
+        
+        .con {
+            width: 100%;
+        }
+        .container {
+            display: block;
+            width: 1200px;
+            margin: 0 auto;
+            padding-left: 200px;
+            height: 70%;
+            position: relative;
+        }
+        .ab_l {
+            position: absolute;
+            width: 35%;
+            height: 50%;
+            margin-left:265px;
+            top: 145px;
+        }
+        .ab_r {
+            position: absolute;
+            width: 65%;
+            height: 50%;
+            right: 0;
+        }
+        .ab_r > p:first-child {
+            margin-top: 30px; 
+        }
+        .ab_r > p {
+            display: block;
+            line-height: 25px;
+        }
+        .pro {
+            display: block;
+            clear: both;
+            width: 100%;
+            height: 100px;
+            height: 250px;
+        }
+
+        .pr_l {
+            display: block;
+            float: left;
+            width: 200px;
+            text-align: right;
+            margin-right: 95px;
+        }
+        .pr_r {
+            display: block;
+            float: left;
+            line-height: 30px;
+        }
+        
+        .icon_btn {
+            position: relative;
+            top: 40px;
+            right: 60px;
+        }
+        .btn {
+            border: 0;
+            outline: 0;
+            background: transparent;
+            width: 50px;
+            height: 50px;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .icon_wrap {
+            position:absolute;
+            transition:0.4s;
+            opacity:0;
+        }
+        .icon_wrap.on {
+            opacity: 1;
+        }
+        .icon_wrap > img { 
+            width: 50px;
+            position: absolute;
+            left: -10px;  top: 40px;
+        }
+        .icon_wrap > img:nth-child(2) {
+            top: 90px; left: 30px;
+            transition-delay:0.3s;
+        }
+        .icon_wrap > img:nth-child(3) {
+            top: 110px; left: 100px;
+            transition-delay:0.5s;
+        }
+        .icon_wrap > img:nth-child(4) {
+            top: 90px; left: 170px;
+            transition-delay:0.7s;
+        }
+        .icon_wrap > img:nth-child(5) {
+            top: 40px; left: 200px;
+            transition-delay:0.9s;
+        }
+        .ab_txt {
+            clear: both;
+            width:80%; height:250px;
+            background:linear-gradient(#17ead9, #6078ea);
+            margin: 0 auto;
+            
+        }
+        .ab_txt > ul {
+            width:1300px;
+            padding-top: 60px;
+            margin: 0 auto;
+            
+        }
+        .ab_txt > ul > li {
+            float:left; 
+            text-align:center; 
+            margin-right:50px; 
+            margin-left: 50px;
+        }
+        .ab_txt > ul > li > img {
+            border-radius: 30px;
+        }
+        .ab_tit {
+            line-height: 50px;
+        }
+        .ab_tit, .ab_com {
+            color: #fff; 
+        }
+        
+        .tit {
+            line-height: 50px;
+        }
+        .tit_b {
+            font-size: 24px;
+        }
+        
+        .wo_txt {
+            margin-top: 100px;
+        }
+        .work_con {
+            display:block;
+            width:1300px;
+            margin:120px auto;
+            height: 350px;
+        }
+        .work_con > li {
+            float:left; 
+            margin-left:30px;
+            width:250px;
+            height:200px;
+            border:1px solid #999; 
+            padding:20px;
+        }
+        .work_con_tit {
+            display:block;
+            text-align:center;
+            margin-top:-62px;
+            background:#fff;
+            width:auto;
+            line-height:80px;
+        }
+        .work_con_com {
+            text-align:justify;
+            margin-top:30px;
+        }
+        
+        #toTop {
+            display:none; 
+            position:fixed;
+            width:100px; height:100px; 
+            right:5%; bottom:110px; 
+            background-image:url(image/ico_top_b.png);
+            background-repeat:no-repeat;
+            background-position:center center;
+        }
+    </style>
+    <script src="js/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+       $("div.list").click(function(){
+           $(this).find("span").toggleClass("on");
+           $("#gnb").slideToggle(500);
+       });
+        
+        $(".intro2").click(function(){
+           $(".main").css("left", "-90%"); 
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+       $(window).scroll(function(){
+           var sct = $(window).scrollTop();
+           
+           if(sct>=500) {
+               $("#toTop").fadeIn(400);
+           } else {
+               $("#toTop").fadeOut(400);
+           }
+       });
+        
+        // top 버튼 클릭시 부드럽게 상단 스크롤
+            $("#toTop").click(function(){
+            $('html, body').animate({scrollTop:0}, 'slow');
+            return false;
+        });
+        
+        //좋아하는 부분 아이콘
+        $(".btn").click(function(){
+           $(".icon_wrap").toggleClass("on"); 
+        });
+    });
+    </script>
+</head>
+<body>
+    <header id="hd">
+        <div class="list">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="gnb">
+            <ul>
+                <li><a href="index.html">HOME<span class="line"></span></a></li>
+                <li><a href="about.html">ABOUT<span class="line"></span></a></li>
+                <li><a href="pf.html">PORTFOLIO<span class="line"></span></a></li>
+                <li><a href="contact.html">CONTACT<span class="line"></span></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <div class="txt">
+        <h1 class="title">About Me</h1>
+        <p>NICE TO MEET YOU</p>
+        </div>
+        <div class="con">
+           <div class="container">
+            <img src="./image/sun.jpg" alt="해바라기꽃" style="width: 1000px; height: 550px;">
+            <div class="ab_l">
+                <img src="./image/me.png" alt="나" style="width:120px;">
+            </div>
+            <div class="ab_r">
+                <p>안녕하세요, <b>송미연</b>입니다</p> <br>
+                <p>디자인의 가장 중요한 역할은 가치를 창조하는 것이라고 생각합니다</p>
+                <p>좋은 디자인이 반드시 좋은 결과로 연결된다고 생각하지 않기 때문에,</p>   
+                <p>그림을 그려내는 것뿐만이 아닌 더 큰 가치를 생각하고자 합니다.</p>   
+                <br>
+                <p>웹으로 통하는 세상 !</p> 
+                <p>이해하기 어렵고 복잡한 최고의 기술보다는 누구나 이용하는데에</p>   
+                <p>불편함이 없는 디자인과 이를 구현하는 것을 지향합니다.</p>   
+                <p> 저의 포트폴리오를 봐주셔서 감사합니다 :-) </p>   
+            </div>
+            <div class="pro" style="margin-top: 400px;">
+                <div class="pr_l">
+                    <h2>저는, </h2>
+                </div>
+                <div class="pr_r">
+                    <p>송미연</p>
+                    <p>23세 (1996.07.29)</p>
+                    <p>O형</p>
+                    <p>여자사람</p>
+                </div>
+                <div class="pr_l pr_icon" style="margin-left: 200px;">
+                    <h2>좋아하는 것은, </h2>
+                    <div class="icon_btn"><button class="btn"><img src="./image/heart.png" alt=""></button></div>
+                    <div class="icon_wrap">
+                        <img src="./image/icon_movie.png" alt="영화">
+                        <img src="./image/icon_game.png" alt="게임">
+                        <img src="./image/icon_music.png" alt="음악">
+                        <img src="./image/icon_travel.png" alt="여행">
+                        <img src="./image/icon_camera.png" alt="카메라">
+                    </div>
+                </div>
+                <div class="pr_r">
+                    <p>영화보기</p>
+                    <p>게임하기</p>
+                    <p>음악듣기</p>
+                    <p>여행계획짜기</p>
+                    <p>사진찍기</p>
+                </div>
+            </div>
+            <div class="pro">
+                <div class="pr_l">
+                    <h2>저의 스킬은, </h2>
+                </div>
+                <div class="pr_r">
+                    <p>photoshop</p>
+                    <p>illustrator</p>
+                    <p>HTML5+CSS3</p>
+                    <p>javascript/jQuery</p>
+                </div>
+            </div>
+            </div>
+            <div class="ab_txt">
+                <ul>
+                    <li><img src="http://placehold.it/60x60" alt="">
+                        <h3 class="ab_tit">WEB DEVELOPMENT</h3>
+                        <p class="ab_com">
+                            인생에서 배움의 끝은 없죠 <br> 피할수 없다면 즐겨라!
+                        </p>
+                    </li>
+                    <li><img src="http://placehold.it/60x60" alt="">
+                        <h3 class="ab_tit">VISUALISTATION</h3>
+                        <p class="ab_com">
+                            듣는 것보다 빠른 건 보는 것이죠 <br>
+                            눈을 매료시킬 디자인을 연구합니다
+                        </p>
+                    </li>
+                    <li><img src="http://placehold.it/60x60" alt="">
+                        <h3 class="ab_tit">PHOTOGRAPHY</h3>
+                        <p class="ab_com">
+                            사진에 많은 추억을 담습니다 <br> 좋아하는 부분이죠
+                        </p>
+                    </li>
+                    <li><img src="http://placehold.it/60x60" alt="">
+                        <h3 class="ab_tit">UI/UX DESIGN</h3>
+                        <p class="ab_com">
+                            설명서를 잘 읽는 사람은 없죠 <br> 편리함을 생각합니다
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="txt wo_txt">
+            <h1 class="title">I Can't do it</h1>
+            <p>꾸준히 지식을 쌓고, 발전중 입니다.</p>
+            <ul class="work_con">
+                <li>
+                    <h3 class="work_con_tit">html5/css3</h3>
+                    <p class="work_con_com">
+                        데스크탑(기업형, 브랜드형), 태블릿, 모바일, 반응형(그리드, 미디어퀴리, 셀), 부트스트랩, 포트폴리오형, 소셜커머스형 레이아웃
+                    </p>
+                </li>
+                <li>
+                    <h3 class="work_con_tit">javascript/jQuery</h3>
+                    <p class="work_con_com">
+                        비주얼 슬라이드 위젯, 토글 위젯, 부분 애니메이션, 상품배치 및 슬라이더 위젯, 텍스트 애니메이션, 이미지 애니메이션, 패럴럭스 스크롤링, 이미지 줌 애니메이션 등
+                    </p>
+                </li>
+                <li>
+                    <h3 class="work_con_tit">photoshop</h3>
+                    <p class="work_con_com">
+                        제품 디자인 시안, 웹 사이트 시안 템플릿, 그래픽(글자, 이미지)합성, 타이포그래피, 아이콘 스키마, 그래픽 패턴, 제품 누끼, 인물보정, 컬러보정, 비주얼 배너 제작 등
+                    </p>
+                </li>
+                <li>
+                    <h3 class="work_con_tit">illustrator</h3>
+                    <p class="work_con_com">
+                        벡터(vector)캐릭터, 배경, 일반 아이콘, 로고, 패턴, 심볼, 그래픽 명함 제작, CI/BI 일러스트레이션, 뉴스레터
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <a href="#main" id="toTop"></a>
+</body>
+</html>

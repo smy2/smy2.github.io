@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title> 송미연 | 포트폴리오 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        ul {
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        
+        #hd {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 12;
+            
+        }
+        #gnb {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: none;
+            z-index: 10;
+        }
+        #gnb > ul {
+            position: absolute;
+            left: calc(100% - 55%);
+            margin: 100px auto;
+        }
+        #gnb > ul > li {
+            width: 300px;
+            margin-top: 100px;
+            position: relative;
+        }
+        #gnb > ul > li > a {
+            display: block;
+            color: #fff;
+            font-size: 40px;
+            text-align: center;
+            font-weight: bold;
+            transition:0.3s;
+        }
+        #gnb > ul > li > a:hover {
+            background: -webkit-linear-gradient(#17ead9, #6078ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color:transparent;
+            font-size: 44px;
+        }
+        .line {
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 12px;
+            background: #000;
+            top: 26px;
+            left: 0;
+            transition: 0.3s;
+        }
+        #gnb > ul > li:hover .line {
+            width: 220px;
+        }
+        
+        div.list { 
+            width: 50px;
+            height: 50px;
+            float: right; 
+            position: relative;
+            cursor: pointer;
+            z-index: 15;
+            top: 50px; right: 50px; 
+        }
+
+        div.list>span {
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #000;
+            transition: 0.6s;
+        }
+        div.list > span.on {
+            background: #fff;
+        }
+        div.list > span:nth-child(2) {
+            margin-top:13px;
+        }
+        div.list > span:nth-child(3) {
+            margin-top:26px;
+        } 
+        div.list > span.on:first-child {
+            transform: rotate(50deg);
+            margin-top: 5px;
+        }
+        div.list > span.on:nth-child(2) {
+            display: none;
+        }
+        div.list > span.on:last-child {
+            transform: rotate(-50deg);
+            margin-top:5px;
+        }
+
+        .content {
+            position: relative;
+            display: grid;
+            grid-auto-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(7, 1fr);
+            height: 100vh;
+            min-height: 500px;
+            padding-top: 5vh;
+            overflow: hidden;
+            --pieces-height: calc(95vh - (95vh / 7) - 5em);
+        }
+
+        .text {
+            font-size: 10vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            pointer-events: none;
+            font-weight: bold;
+        }
+        .text:before {
+            content: " ";
+            position: absolute;
+            width: 10px;
+            height: 1.5em;
+            top: 50%;
+            left: 50%;
+            margin: -0.75em 0 0 -5px;
+            transform: rotate(30deg);
+            background: #fff;
+/*            background: linear-gradient(#65799b, #5e2563);
+            z-index: -1; */
+            
+        }
+        
+        .text:first-child {
+            grid-area: 2 / 1 / 1 / 2;
+        }
+
+        .text:nth-child(2) {
+            grid-area: 1 / 2 / 2 / 3;
+        }
+
+        .text:nth-child(3) {
+            grid-area: 2 / 1 / 4 / 1;
+        }
+
+        .text:nth-child(4) {
+            grid-area: 2 / 2 / 2 / 2;
+        }
+
+        .text:nth-child(5) {
+            grid-area: 4 / 1 / 5 / 1;
+        }
+
+        .text:nth-child(6) {
+            grid-area: 4 / 2 / 4 / 2;
+        }
+
+        .text:nth-child(7) {
+            grid-area: 1 / 5 / 2 / 4;
+        }
+
+        .text:nth-child(8) {
+            grid-area: 1 / 5 / 1 / 6;
+        }
+
+        .text:nth-child(9) {
+            grid-area: 2 / 4 / 3 / 4;
+        }
+
+        .text:last-child {
+            grid-area: 4 / 5 / 1 / 1;
+        }
+        .gal {
+            width: 400px;
+            margin: 100px auto;
+            grid-area: 1 / 4 / 5 / 3;
+        }
+        .gal > img {
+            width: 400px;
+            height: 600px;
+        }
+        
+
+    </style>
+    <script src="js/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+       $("div.list").click(function(){
+           $(this).find("span").toggleClass("on");
+           $("#gnb").slideToggle(500);
+       });
+    });
+    </script>
+</head>
+
+<body>
+    <header id="hd">
+        <div class="list">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="gnb">
+            <ul>
+                <li><a href="index.html">HOME<span class="line"></span></a></li>
+                <li><a href="about.html">ABOUT<span class="line"></span></a></li>
+                <li><a href="pf.html">PORTFOLIO<span class="line"></span></a></li>
+                <li><a href="contact.html">CONTACT<span class="line"></span></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="home">
+        <div class="content">
+            <div class="text">S</div>
+            <div class="text">O</div>
+            <div class="text">N</div>
+            <div class="text">G</div>
+            <div class="text">M</div>
+            <div class="text">I</div>
+            <div class="text">Y</div>
+            <div class="text">E</div>
+            <div class="text">O</div>
+            <div class="text">N</div>
+            <div class="gal">
+                <img src="./image/1.jpg" alt="">
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

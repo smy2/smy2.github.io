@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title> 송미연 | 포트폴리오 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+        }
+        ul {
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        
+        
+        #gnb {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: none;
+            z-index: 10;
+        }
+        #gnb > ul {
+            position: absolute;
+            left: calc(100% - 55%);
+            margin: 100px auto;
+        }
+        #gnb > ul > li {
+            margin-top: 100px;
+            position: relative;
+        }
+        #gnb > ul > li > a {
+            display: block;
+            color: #fff;
+            font-size: 40px;
+            text-align: center;
+            font-weight: bold;
+            transition:0.3s;
+        }
+        #gnb > ul > li > a:hover {
+            background: -webkit-linear-gradient(#17ead9, #6078ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color:transparent;
+            font-size: 44px;
+        }
+        .line {
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 12px;
+            background: #000;
+            top: 24px;
+            left: 0;
+            transition: 0.3s;
+        }
+        #gnb > ul > li:hover .line {
+            width: 220px;
+        }
+        
+        div.list { 
+            width: 50px;
+            height: 50px;
+            float: right; 
+            position: fixed;
+            cursor: pointer;
+            z-index: 15;
+            top: 50px; right: 50px; 
+        }
+        div.list>span {
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #000;
+            transition: 0.6s;
+        }
+        div.list>span.on {
+            background: #fff;
+        }
+        div.list > span:nth-child(2) {
+            margin-top:13px;
+        }
+        div.list > span:nth-child(3) {
+            margin-top:26px;
+        } 
+        div.list > span.on:first-child {
+            transform: rotate(50deg);
+            margin-top: 5px;
+        }
+        div.list > span.on:nth-child(2) {
+            display: none;
+        }
+        div.list > span.on:last-child {
+            transform: rotate(-50deg);
+            margin-top:5px;
+        }
+        
+        
+        #main { width: 100%; 
+            height: auto;
+            position: relative;
+        }
+        .txt > h1::after {
+            content: " ";
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(#17ead9, #6078ea);
+            position: absolute;
+            top: 80px;
+            left: calc(100% - 50%);
+        }
+        .txt > h1 {
+            display: block;
+            position: relative;
+            padding-top: 200px;
+            font-size: 60px;
+            background: -webkit-linear-gradient(#17ead9, #6078ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color:transparent;
+        }
+        .txt > h1, .txt > p {
+            text-align: center;
+            line-height: 60px;
+        }
+        
+        [data-columns]::before {
+            display: block;
+            visibility: hidden;
+            position: absolute;
+            font-size: 1px;
+        }
+        .grid_wrap {
+            position: relative;
+            padding-bottom: 2em;
+            margin: -1.8em auto 0;
+            text-align: center;
+            transition: padding .5s;
+        }
+        .grid {
+            width: 100%;
+            max-width: 1600px;
+            position: relative;
+            box-sizing: border-box;
+            height: 100%;
+            margin: 0 auto;
+            padding: 1em 3.5em;
+            padding-top: 5em;
+            transition: margin-top .5s;
+        }
+        .column {
+            float: left;
+            padding: 1em .65em;
+            box-sizing: border-box;
+        }
+        img, figure {
+            margin: 0; 
+            padding: 0;
+            border: 0;
+            vertical-align: baseline;
+            font-style: normal;
+        }
+        .col { width: 33.333%; }
+        
+        .item {
+            position: relative;
+            width: 100%;
+            height: auto;
+            margin-bottom: 1.3em;
+            transition: margin-bottom .5s; 
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        .black {
+            width: 100%;
+            height: 100%;
+            background:linear-gradient(#17ead9, #6078ea);
+            position: absolute;
+            transition: 0.4s;
+            opacity:0;
+        }
+        .black.on {
+            opacity: 0.9;
+        }
+        .h_line {
+            position: absolute;
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            transition: 0.4s;  
+            right: 20px;
+            margin-top: 20px;
+        }
+        .h_line.on {
+            width: 90%; 
+        }
+        .h_line:nth-child(2){
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+        .item .work_img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .work_cap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: #fff; 
+        }
+
+/*
+        .work_cap:before {
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #fff;
+            transform: scale(0,1);
+            transition: opacity 0.45s, transform 0.5s;
+        }
+        .work_cap:after {
+            border-left: 1px solid #fff;
+            border-right: 1px solid #fff;
+            transform: scale(1,0);
+            transition: opacity 0.35s, transform 0.5s;
+        }
+
+        .grid .item .work_cap:before, .grid .item .work_cap:after {
+            opacity: 1;
+            display: block;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            left: 20px;
+            bottom: 20px;
+            content: ' ';
+        }
+        */
+        .cap_txt {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            letter-spacing: 0.05em;
+            transition: 0.4s;
+            transition-delay:0.3s;
+            opacity: 0;
+            font-size: 24px;
+            line-height: 40px;
+        }
+        .cap_txt.on {
+            opacity: 1;
+        }
+        .cap_tit {
+            position: relative;
+        }
+        .cap_com {
+            letter-spacing: -0.01rem; 
+            font-size: 20px;
+        }
+        .host {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            transition: 0.4s;
+            opacity: 0;
+        }
+        .host.on {
+            opacity:1;
+        }
+        .host > a {
+            display: block;
+            text-align: center;
+            margin: 10px;
+            width: 40px;
+        }
+        .host > a > img {
+            width: 100%; 
+        }
+        
+        #toTop {
+            display:none; 
+            position:fixed;
+            width:100px; height:100px; 
+            right:5%; bottom:110px; 
+            background-image:url(image/ico_top_b.png);
+            background-repeat:no-repeat;
+            background-position:center center;
+        }
+        
+    </style>
+    <script src="js/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+       $("div.list").click(function(){
+           $(this).find("span").toggleClass("on");
+           $("#gnb").slideToggle(500);
+       });
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+       $(window).scroll(function(){
+           var sct = $(window).scrollTop();
+           
+           if(sct>=500) {
+               $("#toTop").fadeIn(400);
+           } else {
+               $("#toTop").fadeOut(400);
+           }
+       });
+        
+        // top 버튼 클릭시 부드럽게 상단 스크롤
+            $("#toTop").click(function(){
+            $('html, body').animate({scrollTop:0}, 'slow');
+            return false;
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+        $(".item").hover(function(){
+           $(this).find(".black, .h_line, .cap_txt, .host").addClass("on");
+        });
+        
+        $(".item").mouseleave(function(){
+           $(this).find(".black, .h_line, .cap_txt, .host").removeClass("on");
+          
+       });
+    });
+    </script>
+</head>
+<body>
+    <header id="hd">
+        <div class="list">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="gnb">
+            <ul>
+                <li><a href="index.html">HOME<span class="line"></span></a></li>
+                <li><a href="about.html">ABOUT<span class="line"></span></a></li>
+                <li><a href="pf.html">PORTFOLIO<span class="line"></span></a></li>
+                <li><a href="contact.html">CONTACT<span class="line"></span></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <div class="txt">
+        <h1 class="title">PORTFOLIO</h1>
+        <p>애정 듬뿍 담아 만든 작업물입니다</p>
+        </div>
+        <div class="grid_wrap">
+            <div class="grid" data-column="3">
+                <div class="column col">
+                    <div class="item">
+                        <div class="black">
+                           <span class="h_line"></span>
+                           <span class="h_line"></span>
+                        </div>
+                        <figure>
+                            <img src="./image/edu.jpg" alt="교육부" class="work_img">
+                            <figcaption class="work_cap">
+                                <div class="cap_txt">
+                                    <strong class="cap_tit">EDUCATION</strong>
+                                    <p class="cap_com">모바일</p>
+                                </div>
+                                <div class="host">
+                                    <a href="http://smy2.github.io/"><img src="./image/git_w.png" alt="깃허브" class="git"></a>
+                                    <a href="http://ming143.dothome.co.kr/"><img src="./image/dot_w.png" alt="닷홈"></a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="item">
+                        <div class="black">
+                           <span class="h_line"></span>
+                           <span class="h_line"></span>
+                        </div>
+                        <figure>
+                            <img src="./image/carhartt.jpg" alt="칼하트" class="work_img">
+                            <figcaption class="work_cap">
+                            <div class="cap_txt">
+                                <strong class="cap_tit">CARHARTT</strong>
+                                <p class="cap_com">모바일</p>
+                            </div>
+                            <div class="host">
+                                    <a href="http://smy2.github.io/"><img src="./image/git_w.png" alt="깃허브"></a>
+                                    <a href="http://ming143.dothome.co.kr/"><img src="./image/dot_w.png" alt="닷홈"></a>
+                                </div>
+                        </figcaption>
+                        </figure>
+                    </div>
+                    <div class="item">
+                       <div class="black">
+                           <span class="h_line"></span>
+                           <span class="h_line"></span>
+                        </div>
+                        <figure>
+                            <img src="./image/lady.jpg" alt="레이디가구" class="work_img">
+                            <figcaption class="work_cap">
+                            <div class="cap_txt">
+                                <strong class="cap_tit">LADY FURNITURE</strong>
+                                <p class="cap_com">모바일</p>
+                            </div>
+                            <div class="host">
+                                    <a href="http://smy2.github.io/"><img src="./image/git_w.png" alt="깃허브"></a>
+                                    <a href="http://ming143.dothome.co.kr/"><img src="./image/dot_w.png" alt="닷홈"></a>
+                                </div>
+                        </figcaption>
+                        </figure>
+                    </div>
+                    <div class="item">
+                       <div class="black">
+                           <span class="h_line"></span>
+                           <span class="h_line"></span>
+                        </div>
+                        <figure>
+                            <img src="./image/mac.jpg" alt="맥" class="work_img">
+                            <figcaption class="work_cap">
+                            <div class="cap_txt">
+                                <strong class="cap_tit">M·A·C</strong>
+                                <p class="cap_com">모바일</p>
+                            </div>
+                            <div class="host">
+                                    <a href="http://smy2.github.io/"><img src="./image/git_w.png" alt="깃허브"></a>
+                                    <a href="http://ming143.dothome.co.kr/"><img src="./image/dot_w.png" alt="닷홈"></a>
+                                </div>
+                        </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="column col">
+                    <div class="item">
+                       <div class="black">
+                           <span class="h_line"></span>
+                           <span class="h_line"></span>
+                        </div>
+                        <figure>
+                            <img src="./image/ah.jpg" alt="어도비하우스" class="work_img">
+                            <figcaption class="work_cap">
+                            <div class="cap_txt">
+                                <strong class="cap_tit">ADOBE HOUSE</strong>
+                                <p class="cap_com">데스크탑</p>
+                            </div>
+                            <div class="host">
+                                    <a href="http://smy2.github.io/"><img src="./image/git_w.png" alt="깃허브"></a>
+                                    <a href="http://ming143.dothome.co.kr/"><img src="./image/dot_w.png" alt="닷홈"></a>
+                                </div>
+                        </figcaption>
+                        </figure>
+                    </div>
+                    <div class="item">
+                       <div class="black">
+                           <span class="h_line"></span>
+                           <span class="h_line"></span>
+                        </div>
+                        <figure>
+                            <img src="./image/hc.png" alt="화천기계" class="work_img">
+                            <figcaption class="work_cap">
+                            <div class="cap_txt">
+                                <strong class="cap_tit">HWACHEON MACHINE</strong>
+                                <p class="cap_com">반응형</p>
+                            </div>
+                            <div class="host">
+                                    <a href="http://smy2.github.io/"><img src="./image/git_w.png" alt="깃허브"></a>
+                                    <a href="http://ming143.dothome.co.kr/"><img src="./image/dot_w.png" alt="닷홈"></a>
+                                </div>
+                        </figcaption>
+                        </figure>
+                    </div>
+                    <div class="item">
+                       <div class="black">
+                           <span class="h_line"></span>
+                           <span class="h_line"></span>
+                        </div>
+                        <figure>
+                            <img src="./image/yj_m.jpg" alt="윤정헤어라인모바일" class="work_img">
+                            <figcaption class="work_cap">
+                            <div class="cap_txt">
+                                <strong class="cap_tit">YOONJEONG HAIRLINE</strong>
+                                <p class="cap_com">모바일</p>
+                            </div>
+                            <div class="host">
+                                    <a href="http://smy2.github.io/"><img src="./image/git_w.png" alt="깃허브"></a>
+                                    <a href="http://ming143.dothome.co.kr/"><img src="./image/dot_w.png" alt="닷홈"></a>
+                                </div>
+                        </figcaption>
+                        </figure>
+                    </div>
+                    <div class="item">
+                       <div class="black">
+                           <span class="h_line"></span>
+                           <span class="h_line"></span>
+                        </div>
+                        <figure>
+                            <img src="./image/cjo.png" alt="청정원" class="work_img">
+                            <figcaption class="work_cap">
+                            <div class="cap_txt">
+                                <strong class="cap_tit">CHUNGJUNGONE</strong>
+                                <p class="cap_com">반응형</p>
+                            </div>
+                            <div class="host">
+                                    <a href="http://smy2.github.io/"><img src="./image/git_w.png" alt="깃허브"></a>
+                                    <a href="http://ming143.dothome.co.kr/"><img src="./image/dot_w.png" alt="닷홈"></a>
+                                </div>
+                        </figcaption>
+                        </figure>
+                    </div>
+                    <div class="item">
+                       <div class="black">
+                           <span class="h_line"></span>
+                           <span class="h_line"></span>
+                        </div>
+                        <figure>
+                            <img src="./image/eland.jpg" alt="이랜드월드패션" class="work_img">
+                            <figcaption class="work_cap">
+                            <div class="cap_txt">
+                                <strong class="cap_tit">E-LAND WORLD FASHION</strong>
+                                <p class="cap_com">데스크탑</p>
+                            </div>
+                            <div class="host">
+                                    <a href="http://smy2.github.io/"><img src="./image/git_w.png" alt="깃허브"></a>
+                                    <a href="http://ming143.dothome.co.kr/"><img src="./image/dot_w.png" alt="닷홈"></a>
+                                </div>
+                        </figcaption>
+                        </figure>
+                    </div>
+                    <div class="item">
+                       <div class="black">
+                           <span class="h_line"></span>
+                           <span class="h_line"></span>
+                        </div>
+                        <figure>
+                            <img src="./image/lyreco.jpg" alt="리레코" class="work_img">
+                            <figcaption class="work_cap">
+                            <div class="cap_txt">
+                                <strong class="cap_tit">LYRECO</strong>
+                                <p class="cap_com">반응형</p>
+                            </div>
+                            <div class="host">
+                                    <a href="http://smy2.github.io/"><img src="./image/git_w.png" alt="깃허브"></a>
+                                    <a href="http://ming143.dothome.co.kr/"><img src="./image/dot_w.png" alt="닷홈"></a>
+                                </div>
+                        </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="column col">
+                    <div class="item">
+                       <div class="black">
+                           <span class="h_line"></span>
+                           <span class="h_line"></span>
+                        </div>
+                        <figure>
+                            <img src="./image/yj.jpg" alt="윤정헤어라인" class="work_img">
+                            <figcaption class="work_cap">
+                            <div class="cap_txt">
+                                <strong class="cap_tit">YOONJEONG HAIRLINE</strong>
+                                <p class="cap_com">데스크탑</p>
+                            </div>
+                            <div class="host">
+                                    <a href="http://smy2.github.io/"><img src="./image/git_w.png" alt="깃허브"></a>
+                                    <a href="http://ming143.dothome.co.kr/"><img src="./image/dot_w.png" alt="닷홈"></a>
+                                </div>
+                        </figcaption>
+                        </figure>
+                    </div>
+                    <div class="item">
+                       <div class="black">
+                           <span class="h_line"></span>
+                           <span class="h_line"></span>
+                        </div>
+                        <figure>
+                            <img src="./image/police.jpg" alt="사이버경찰청" class="work_img">
+                            <figcaption class="work_cap">
+                            <div class="cap_txt">
+                                <strong class="cap_tit">POLICE</strong>
+                                <p class="cap_com">반응형</p>
+                            </div>
+                            <div class="host">
+                                    <a href="http://smy2.github.io/"><img src="./image/git_w.png" alt="깃허브"></a>
+                                    <a href="http://ming143.dothome.co.kr/"><img src="./image/dot_w.png" alt="닷홈"></a>
+                                </div>
+                        </figcaption>
+                        </figure>
+                    </div>
+                    <div class="item">
+                       <div class="black">
+                           <span class="h_line"></span>
+                           <span class="h_line"></span>
+                        </div>
+                        <figure>
+                            <img src="./image/psr.jpg" alt="펜션으로튀어라" class="work_img">
+                            <figcaption class="work_cap">
+                            <div class="cap_txt">
+                                <strong class="cap_tit">PENSION RUN</strong>
+                                <p class="cap_com">반응형</p>
+                            </div>
+                            <div class="host">
+                                    <a href="http://smy2.github.io/"><img src="./image/git_w.png" alt="깃허브"></a>
+                                    <a href="http://ming143.dothome.co.kr/"><img src="./image/dot_w.png" alt="닷홈"></a>
+                                </div>
+                        </figcaption>
+                        </figure>
+                    </div>
+                    <div class="item">
+                       <div class="black">
+                           <span class="h_line"></span>
+                           <span class="h_line"></span>
+                        </div>
+                        <figure>
+                            <img src="./image/kb.jpg" alt="KB국민카드" class="work_img">
+                            <figcaption class="work_cap">
+                            <div class="cap_txt">
+                                <strong class="cap_tit">KB CARD</strong>
+                                <p class="cap_com">모바일</p>
+                            </div>
+                            <div class="host">
+                                    <a href="http://smy2.github.io/"><img src="./image/git_w.png" alt="깃허브"></a>
+                                    <a href="http://ming143.dothome.co.kr/"><img src="./image/dot_w.png" alt="닷홈"></a>
+                                </div>
+                        </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <a href="#main" id="toTop"></a>
+</body>
+</html>

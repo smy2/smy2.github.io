@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title> 송미연 | 포트폴리오 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        ul {
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        #gnb {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: none;
+            z-index: 10;
+        }
+        #gnb > ul {
+            position: absolute;
+            left: calc(100% - 55%);
+            margin: 100px auto;
+        }
+        #gnb > ul > li {
+            margin-top: 100px;
+            position: relative;
+        }
+        #gnb > ul > li > a {
+            display: block;
+            color: #fff;
+            font-size: 40px;
+            text-align: center;
+            font-weight: bold;
+            transition:0.3s;
+        }
+        #gnb > ul > li > a:hover {
+            background: -webkit-linear-gradient(#17ead9, #6078ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color:transparent;
+            font-size: 44px;
+        }
+        .line {
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 12px;
+            background: #000;
+            top: 24px;
+            left: 0;
+            transition: 0.3s;
+        }
+        #gnb > ul > li:hover .line {
+            width: 220px;
+        }
+        
+        div.list { 
+            width: 50px;
+            height: 50px;
+            float: right; 
+            position: relative;
+            cursor: pointer;
+            z-index: 15;
+            top: 50px; right: 50px; 
+        }
+        div.list>span {
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #000;
+            transition: 0.6s;
+        }
+        div.list > span.on {
+            background: #fff;
+        }
+        div.list > span:nth-child(2) {
+            margin-top:13px;
+        }
+        div.list > span:nth-child(3) {
+            margin-top:26px;
+        } 
+        div.list > span.on:first-child {
+            transform: rotate(50deg);
+            margin-top: 5px;
+        }
+        div.list > span.on:nth-child(2) {
+            display: none;
+        }
+        div.list > span.on:last-child {
+            transform: rotate(-50deg);
+            margin-top:5px;
+        }
+
+        .txt > h1::after {
+            content: " ";
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(#17ead9, #6078ea);
+            position: absolute;
+            top: 30px;
+            left: calc(100% - 50%);
+        }
+        .txt > h1 {
+            display: block;
+            position: relative;
+            padding-top: 150px;
+            font-size: 60px;
+            background: -webkit-linear-gradient(#17ead9, #6078ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color:transparent;
+        }
+        .txt > h1, .txt > p {
+            text-align: center;
+            line-height: 60px;
+        }
+        #contact { width:100%; height:100%; background:#fff; position:relative; }
+        .ct { position:absolute; top:0; 
+            width:100%; height:100%;
+        }
+        .con_box { width:1000px; height:500px; margin:80px auto; }
+        .cb_l { width:490px; height:500px; float:left; }
+        .cb_l > form > dl { width:400px; height:400px; border:1px solid #ccc; padding:50px; }
+        .cb_l > form > dl > dt { float:left; width:60px; text-align:right; line-height:50px; margin-right:15px; font-size:16px; }
+        .cf { line-height:50px; }
+        .cf input { width:300px; padding:10px; }
+        .txtara textarea { margin-top:10px; width:321px; height:200px; }
+        .cb_r { width:490px; height:500px; float:right; position:relative; }
+        .cb_r_con { margin-left:30px; }
+        .cb_r_con > h3 { line-height:50px; }
+        .cb_r_con > p { font-size:14px; line-height:22px; }
+        .cb_r_tit { margin-top:100px; }
+        .send { position:absolute; bottom:0; border:3px solid #ccc; outline:0; background:transparent; width:100px; height:40px; border-radius:20px; margin-left:30px; cursor:pointer; font-weight:bold; transition:0.5s; }
+        .send:hover { background:#fdcf09; color:#fff; border-color:#fdcf09; }
+
+    </style>
+    <script src="js/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+       $("div.list").click(function(){
+           $(this).find("span").toggleClass("on");
+           $("#gnb").slideToggle(500);
+       });
+    });
+    </script>
+</head>
+
+<body>
+    <header id="hd">
+        <div class="list">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="gnb">
+            <ul>
+                <li><a href="index.html">HOME<span class="line"></span></a></li>
+                <li><a href="about.html">ABOUT<span class="line"></span></a></li>
+                <li><a href="pf.html">PORTFOLIO<span class="line"></span></a></li>
+                <li><a href="contact.html">CONTACT<span class="line"></span></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="home">
+        <div id="contact">
+            <div class="container">
+            <div class="ct">
+               <div class="txt">
+                    <h1 class="title">CONTACT</h1>
+                    <p>옷깃만 스쳐도 인연</p>
+                </div>
+               <div class="con_box">
+                   <div class="cb_l">
+                       <form action="">
+                           <dl>
+                               <dt>제목</dt>
+                               <dd><div class="cf"><input type="text" name="title" placeholder="제목을 입력해주세요"></div></dd>
+                               <dt>이름</dt>
+                               <dd><div class="cf"><input type="text" name="name" placeholder="이름을 입력해주세요"></div></dd>
+                               <dt>연락처</dt>
+                               <dd><div class="cf"><input type="text" name="tel" placeholder="연락처를 입력해주세요"></div></dd>
+                               <dt>이메일</dt>
+                               <dd><div class="cf"><input type="text" name="email" placeholder="이메일을 입력해주세요"></div></dd>
+                               <dt>내용</dt>
+                               <dd><div class="txtara"><textarea name="body" placeholder="내용을 입력해주세요."></textarea></div></dd>
+                           </dl>
+                       </form>
+                   </div>
+                   <div class="cb_r">
+                       <div class="cb_r_con">
+                       <h3>LET'S GET IN TOUCH</h3>
+                       <p>빠른 적응력과 스펀지 같은 흡수력, <br> 원활한 커뮤니케이션이 가능한 융통성 있는 성격</p>
+                        <p>센스있는 디자인 감각을 가진, 행복하고 즐겁게 일하는 디자이너</p>
+                        <p>저에게 보내주시는 모든 메시지는 다 환영합니다.</p>
+                        <p>어쩌면 우리는 멋진 파트너, 혹은 친구가 될 수 있을지도 몰라요.</p>
+                       <h3 class="cb_r_tit">INFORMATION</h3>
+                       <p>송미연</p>
+                       <p>010-2486-2XXX</p>
+                       <p>e_haha@naver.com</p>
+                       <p>대전광역시 서구에 거주</p>
+                       </div>
+                       <button class="send">SEND</button>
+                   </div>
+               </div>
+            </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
