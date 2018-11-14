@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>청정원</title>
+    <meata name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        body, html {
+            width:100%;
+            height:100%;
+            overflow-x:hidden;
+        }
+        ul { list-style:none; }
+        a { text-decoration:none; }
+        
+    /* wrap */
+        .wrap {
+            text-align:center;
+        }
+        #header {
+            position:relative;
+            height:auto;
+        }
+        .logo {
+            position:relative;
+            top:10px;
+            width:200px;
+        }
+        .logo img {
+            width:150px;
+        }
+        .tnb {
+            position:absolute;
+            right:50px;
+            top:10px;
+        }
+        .tnb li {
+            float:left;
+            padding:10px;
+        }
+        .tnb li a {
+            color:#333;
+            font-size:12px;
+        }
+        .gnb {
+            width:100%;
+            position:relative;
+        }
+        .gnb ul {
+            width:900px;
+            margin:0 auto;
+            
+            padding-left:30px;
+        }
+        .gnb li {
+            float:left;
+            padding:20px;
+            width:100px;
+        }
+        .gnb li a {
+            display:block;
+            text-align:center;
+            line-height:50px;
+            color:#333;
+        }
+        .gnb li a:hover {
+            color:#00b5d7;
+            font-weight:bold;
+        }
+        #content {
+            height:2500px;
+        }
+        .visual {
+            width:100%;
+        }
+        .con1 .txt h2.conTit, .con1 .txt p.c_com { text-align:right; }
+        div.con1 {
+            clear:both;
+            width:1400px;
+            height:auto;
+            margin:0 auto;
+        }
+        .con1 div.txt {
+            width:500px;
+            float:left;
+            margin-top:200px;
+        }
+        h2.conTit { line-height:40px; margin-bottom:30px;}
+        p.c_com { line-height:30px; }
+        .imgBox {
+            width:700px;
+            float:right;
+            margin-top: 30px;
+        }
+        .imgBox li {
+            width:330px;
+            float:left;
+            line-height:60px;
+        }
+        .imgBox li img {
+            width:300px;
+            height:300px;
+        }
+        .con2 .txt h2.conTit, .con2 .txt p.c_com { text-align:left; }
+        div.con2 {
+            clear:both;
+            width:1400px;
+            height:auto;
+            margin:30px auto;
+            border-bottom:1px solid #eee; 
+        }
+        .con2 div.txt {
+            width:500px;
+            float:right;
+            margin-top:200px;
+        }
+        .imgBox2 {
+            width:900px;
+            float:left;
+            margin-top: 30px;
+        }
+        .imgBox2 li {
+            width:430px;
+            float:left;
+            line-height:60px;
+        }
+        .imgBox2 li img {
+            width:400px;
+            height:300px;
+        }
+        .con3 {
+            clear:both;
+            width:1400px;
+            border-top:1px solid #eee; 
+            margin:0 auto;
+        }
+        .con3 h2 {
+            margin-top:80px;
+            line-height:80px;
+        }
+        .snsIcon {
+            margin-top:30px;
+        }
+        .snsIcon a {
+            display:block;
+            padding:10px;
+        }
+        #footer {
+            clear:both;
+            position:relative;
+            width:100%;
+            height:200px;
+            background:#eee; 
+            padding-left:10%;
+            margin-top:30px;
+        }
+        .fnb li {
+            float:left; 
+            padding:10px;
+            margin-top:30px;
+            margin-bottom:10px;
+        }
+        .fnb li a {
+            color:#333;
+        }
+        #footer p {
+            clear:both;
+            text-align:left;
+            text-indent:10px;
+            line-height:20px;
+            color:#999;
+        }
+        
+        @media screen and (max-width:400px) {
+            .imgBox2 li {
+                width:100px;
+            }
+            div.con1 {
+                width:0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header id="header">
+            <a href="index.html" class="logo"><img src="./image/logo.png" alt="로고"></a>
+            <nav class="tnb">
+                <ul>
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                    <li><a href="#">고객센터</a></li>
+                </ul>
+            </nav>
+            <nav class="gnb">
+                <ul>
+                    <li><a href="sub1.html">브랜드스토리</a></li>
+                    <li><a href="#">푸드캐스트</a></li>
+                    <li><a href="#">푸드노하우</a></li>
+                    <li><a href="#">청정원SNS</a></li>
+                    <li><a href="#">청정원프렌즈</a></li>
+                    <li><a href="#">이벤트</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="content">
+            <div class="visual">
+                <img src="./image/visual.jpg" alt="비주얼">
+            </div>
+            <div class="con1">
+                <div class="txt">
+                    <h2 class="conTit">청정원 노하우킷</h2>
+                    <p class="c_com">
+                        청정원은 식품 노하우를 기반으로 맛있고 건강한 요리를 <br> 더 즐겁게 즐길 수 있는 새로운 푸드 라이프 스타일을 제안합니다.
+                    </p>
+                </div>
+                <ul class="imgBox">
+                    <li><img src="./image/img4.jpg" alt="이미지11"></li>
+                    <li><img src="./image/img3.jpg" alt="이미지12"></li>
+                    <li><img src="./image/img2.jpg" alt="이미지13"></li>
+                    <li><img src="./image/img1.jpg" alt="이미지14"></li>
+                </ul>
+            </div>
+            <div class="con2">
+                <ul class="imgBox2">
+                    <li><img src="./image/img01.jpg" alt="이미지21"></li>
+                    <li><img src="./image/img02.jpg" alt="이미지22"></li>
+                    <li><img src="./image/img03.jpg" alt="이미지23"></li>
+                    <li><img src="./image/img04.jpg" alt="이미지24"></li>
+                </ul>
+                <div class="txt">
+                    <h2 class="conTit">
+                    손 쉬운 계량법부터 재료선택Tip,
+                    <br>
+                    푸드에 대한 모든 것
+                    </h2>
+                    <p class="c_com">
+                        정원이가 알려줄게! 클릭하여 따라해봐~
+                        <br>
+                        푸드캐스트 지금 대!공!개!
+                    </p>
+                </div>
+            </div>
+            <!-- sns -->
+            <div class="con3">
+                <h2 class="snsTit">청정원 SNS 바로가기</h2>
+                <p class="snsCom">푸드를 아는 사람들, 청정원의 생생한 푸드이야기를 만나보세요~</p>
+                <div class="snsIcon">
+                    <a href="#"><img src="./image/btn_facebook.png" alt="페이스북"></a>
+                    <a href="#"><img src="./image/btn_instagram.png" alt="인스타그램"></a>
+                    <a href="#"><img src="./image/btn_kakaostory.png" alt="카카오스토리"></a>
+                    <a href="#"><img src="./image/btn_naverblog.png" alt="네이버블로그"></a>
+                    <a href="#"><img src="./image/btn_twiter.png" alt="트위터"></a>
+                    <a href="#"><img src="./image/btn_youtube.png" alt="유튜브"></a>
+                </div>
+            </div>
+        </main>
+        <footer id="footer">
+            <nav class="fnb">
+                <ul>
+                    <li><a href="#"><strong>개인정보처리방침</strong></a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">이메일무단수집거부</a></li>
+                    <li><a href="#">뉴스레터신청</a></li>
+                    <li><a href="#">사이트맵</a></li>
+                </ul>
+            </nav>
+            <div class="copyright">
+                <p>
+                    대상(주) | 사업자 등록번호 109-81-14886 | 대표이사 임정배, 정홍언 | 주소 서울특별시 동대문구 천호대로 26 (신설동) 대상빌딩
+                </p>
+                <p>
+                    제품관련 고객상담 080-019-9119 | 웹사이트문의 042-000-0000 | 상담시간 평일 09:00 ~ 17:30 (토, 일요일, 공휴일 휴무) | 개인정보 관리책임자 오연택
+                </p>
+                <p>
+                    COPYRIGHT 청정원커뮤니티. ALL RIGHTS RESERVED.
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

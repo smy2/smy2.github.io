@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>청정원</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        body, html {
+            width:100%;
+            height:100%;
+            overflow-x:hidden;
+            background:#fff;
+        }
+        ul { list-style:none; }
+        a { text-decoration:none; }
+        
+        .container {
+            width:100%;
+        }
+        #hd {
+            position:relative;
+            width:100%;
+            padding-top:30px;
+        }
+        #tnb {
+            margin-left:400px;
+        }
+        #tnb li {
+            float:left;
+            padding:20px;
+        }
+        #tnb li a {
+            color:#999;
+        }
+        .logo {
+            display:block;
+            float:left;
+            width:200px;
+            margin-left:280px;
+        }
+        .logo img {
+            text-align:center;
+        }
+        div.short {
+            position:absolute;
+            right:500px;
+            top:50px;
+        }
+        div.short a {
+            color:#333;
+        }
+        #gnb {
+            clear:both;
+        }
+        #gnb ul {
+            width:800px;
+            margin:0 auto;
+            padding-top:30px;
+            height:70px;
+        }
+        #gnb ul li {
+            float:left;
+            padding:20px;
+        }
+        #gnb ul li a {
+            display:block;
+            color:#333;
+            width:auto;
+            text-align:center;
+        }
+        #gnb ul li a:hover {
+            font-weight:bold;
+            border-bottom:2px solid #02b4d8;
+        }
+        
+        .visual .vs {
+            background-image:url(./image/abbg.jpg);
+            width:100%;
+            height:300px;
+            background-repeat:no-repeat;
+            background-position: bottom center;
+            
+        }
+        .visual {
+            clear:both;
+            position:relative;
+        }
+        .visual h2 {
+            position:absolute;
+            top:140px;
+            left:calc(100% - 53%);
+        }
+
+        #ft {
+            clear:both;
+            position:fixed;
+            bottom:0;
+            left:0;
+            width:100%;
+            height:200px;
+            background:#eee; 
+            padding-left:10%;
+            margin-top:30px;
+        }
+        .fnb li {
+            float:left; 
+            padding:10px;
+            margin-top:30px;
+            margin-bottom:10px;
+        }
+        .fnb li a {
+            color:#333;
+        }
+        #ft {
+            padding-left:10px;
+        }
+        #ft p {
+            clear:both;
+            text-align:left;
+            text-indent:10px;
+            line-height:20px;
+            color:#999;
+            font-size:14px;
+        }
+    </style>
+    <script src="./js/jquery.js"></script>
+    <script>
+    </script>
+</head>
+<body class="container">
+    <header id="hd">
+        <nav id="tnb">
+            <ul>
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">회원가입</a></li>
+            </ul>
+        </nav>
+        <a href="index.html" class="logo"><img src="./image/logo.jpg" alt="청정원로고"></a>
+        <div class="short">
+            <a href="">정원e샵</a>
+        </div>
+        <nav id="gnb">
+            <ul>
+                <li><a href="#">브랜드스토리</a></li>
+                <li><a href="#">푸드캐스트</a></li>
+                <li><a href="#">푸드노하우</a></li>
+                <li><a href="#">청정원SNS</a></li>
+                <li><a href="#">청정원프렌즈</a></li>
+                <li><a href="#">이벤트</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="visual">
+        <div class="vs">
+            <img src="" alt="">
+        </div>
+        <h2>A B O U T</h2>
+        <div class="con">
+            <h2 class="title">청정원의 어제와 오늘</h2>
+            <p class="com">청정원의 브랜드 히스토리와 BI변화</p>
+        </div>
+    </main>
+    <footer id="ft">
+        <nav class="fnb">
+                <ul>
+                    <li><a href="#"><strong>개인정보처리방침</strong></a></li>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">이메일무단수집거부</a></li>
+                    <li><a href="#">뉴스레터신청</a></li>
+                    <li><a href="#">사이트맵</a></li>
+                </ul>
+            </nav>
+            <div class="copyright">
+                <p>
+                    대상(주) | 사업자 등록번호 109-81-14886 | 대표이사 임정배, 정홍언 | 주소 서울특별시 동대문구 천호대로 26 (신설동) 대상빌딩
+                </p>
+                <p>
+                    제품관련 고객상담 080-019-9119 | 웹사이트문의 042-000-0000 | 상담시간 평일 09:00 ~ 17:30 (토, 일요일, 공휴일 휴무) | 개인정보 관리책임자 오연택
+                </p>
+                <p>
+                    COPYRIGHT 청정원커뮤니티. ALL RIGHTS RESERVED.
+                </p>
+            </div>
+    </footer>
+</body>
+</html>
