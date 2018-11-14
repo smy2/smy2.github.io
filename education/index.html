@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>교육부</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+    * { margin:0; padding:0; }
+    body, html { width:100%; height:100%; }
+    ul { list-style:none; }
+    a { text-decoration:none; }
+    .wrap {
+        width:100%;
+        height:100%;
+        }
+/* 헤더 */
+    #hd {
+        width:100%;
+        height:60px;
+        background:#fff;
+        }   
+    #hd .logo {
+        position:absolute;
+        float:left; 
+        left:30%; 
+        top:10px;
+        }
+    #hd .store {
+        position:absolute;
+        top:18px;
+        left:15px;
+        }
+    #hd .lstBtn {
+        position:absolute;
+        right:15px;
+        top:20px;
+        }
+/* 메뉴 */
+    #gnb {
+        width:100%;
+        position:fixed;
+        z-index:999;
+        display:none;
+    }
+    #gnb ul {
+        width:70%;
+        height:1000px;
+        background:#053762;
+        padding-top:80px;
+        position:absolute;
+        right:0;    
+    }
+    #gnb ul li {
+        width:110px;
+        line-height:50px;
+        padding-left:30px;
+    }
+    #gnb ul li a {
+        display:block;
+        color:#fff;
+        border-bottom:1px solid #cbcbcb;
+    }
+/* 메인 */
+    #container {
+        clear:both;
+        display:block;
+        position:relative;
+        }
+    #visual .imgBox li a img {
+        width:100%;
+        height:100%;
+        }
+    #quick_link {
+        width:100%;
+        margin-top:-46px;
+        height:60px;
+        background:#333;
+        }
+    #quick_link div {
+        float:left;
+        }
+    #quick_link div a {
+        display:block;
+        color:#333;
+        text-align:center;
+        line-height:60px;
+        }
+    #quick_link .edu {
+        width:50%;
+        height:60px;
+        background:#ccc;
+        }
+    #quick_link .dream {
+        width:50%;
+        height:60px;
+        background:#eee;
+        }
+/* 콘텐츠 부분 */
+    #content {
+        text-align:center;
+        height:auto;
+        border-bottom:1px solid #333; 
+        }
+    #content ul {
+        width:100%;
+        margin-top:30px;
+        }
+    #content ul.tab li { 
+        margin-top:10px;
+        margin-bottom:20px;
+        float:left;
+        width:25%;
+        cursor:pointer;
+        }
+    #content .imgBox2 li img {
+        width:70%;
+        height:70%;
+        }
+    #content .imgBox2 li span {
+        display:block; 
+        margin-top:10px;
+        }
+/* what's new 부분 */
+    .new {
+        width:100%;
+        height:200px;
+    }
+    .new h2 {
+        text-indent:30px;
+        line-height:70px;
+    }
+    .new p a { 
+        display:block;
+        color:#333; 
+        line-height:30px;
+        width:300px;
+        border-bottom:1px solid #999; 
+        margin-left:20px;
+        font-weight:500;
+    }
+/* 그리드 */
+    .grid {
+        clear:both;
+        width:100%;
+    }
+    .grid ul {
+        width:100%;
+        height:200px;
+        background:#999; 
+    }
+    .grid ul li {
+        float:left;
+        margin-top:20px;
+    }
+    .grid ul li:nth-child(3), .grid ul li:nth-child(4) {
+        margin-bottom:20px;
+    }
+    .grid ul li a {
+        display:block;
+        text-align:center;
+        width:120px;
+        padding:20px;
+        background:#fff;
+        margin-left:10px;
+        color:#333;
+    }
+/* 푸터 */
+    #ft {
+        clear:both;
+        width:100%;
+        height:210px;
+        background:#333;
+    }
+    #ft .fnb ul {
+        width:80%;
+        margin:0 auto;
+    }
+    #ft .fnb ul li {
+        float:left;
+        border-bottom:1px solid #999; 
+        padding:10px;
+        margin-top:10px;
+    }
+    #ft .fnb ul li a {
+        display:block;
+        color:#999; 
+        font-size:14px;
+    }
+    .copyright {
+        float:left;
+        font-size:13px;
+        text-align:center;
+        color:#999;
+        margin-top:20px;
+    }
+    </style>
+    <script src="./js/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+       $(".lstBtn").click(function(){
+          $("#gnb").css("display", "block");
+       });
+    });
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <header id="hd">
+            <a href="#" class="logo"><img src="./image/logo0309.gif" alt="로고"></a>
+            <a href="#" class="store"><img src="./image/store.png" alt="매장검색"></a>
+            <a href="#" class="lstBtn"><img src="./image/list.png" alt="메뉴"></a>
+            <nav id="gnb">
+                <ul>
+                    <li><a href="#">교육부소개</a></li>
+                    <li><a href="#">교육부소식</a></li>
+                    <li><a href="#">정보공개</a></li>
+                    <li><a href="#">정책</a></li>
+                    <li><a href="#">정책홍보</a></li>
+                    <li><a href="#">국민참여·민원</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="container">
+            <div id="visual">
+                <ul class="imgBox">
+                    <li><a href="#"><img src="./image/vs1.jpg" alt="비주얼1"></a></li>
+                </ul>
+            </div>
+            <div id="quick_link">
+                <div class="edu">
+                    <a href="#">원클릭신청</a>
+                </div>
+                <div class="dream">
+                    <a href="#">진로체험망</a>
+                </div>
+            </div>
+            <div id="content">
+                <ul class="tab">
+                    <h3 class="title">Ministry of Education</h3>
+                    <li class="edu1" style="font-weight:bold;">유아교육</li>
+                    <li class="edu2">초·중·고교육</li>
+                    <li class="edu3">대학교육</li>
+                    <li class="edu4">평생교육</li>
+                </ul>
+                <ul class="imgBox2">
+                    <li><img src="./image/edu1.jpg" alt="유아교육">
+                    <span>국가 책임을 강화해 더 폭넓은<br>유아 교육 기회를 제공하겠습니다.</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="new">
+            <h2>What's New</h2>
+            <p><a href="#">2022학년도 대입 개편 권고안</a></p>
+            <p><a href="#">평생직업교육훈련 혁신 방안</a></p>
+            <p><a href="#">고객 경험 설문조사 프로그램 안내</a></p>
+        </div>
+        <div class="grid">
+            <ul>
+                <li><a href="#">유아교육</a></li>
+                <li><a href="#">초중고교육</a></li>
+                <li><a href="#">대학교육</a></li>
+                <li><a href="#">평생교육</a></li>
+            </ul>
+        </div>
+    </div>
+    <footer id="ft">
+        <nav class="fnb">
+            <ul>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보취급방침</a></li>
+                <li><a href="#">PC버전</a></li>
+            </ul>
+        </nav>
+        <p class="copyright">
+            세종특별자치시 갈매로 408, 14동(어진동) <br>정부세종청사 교육부
+            국민콜 110 / 교육부 민원콜센터 02-6222-6060 / 당직실. 044-203-6118 / FAX. 044-203-6133, 6144 (공휴일, 야간)
+            <br> COPYRIGHT ⓒ 2016 MINISTRY OF EDUCATION . ALL RIGHT RESERVED.
+        </p>
+    </footer>
+</body>
+</html>
