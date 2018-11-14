@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>carhartt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+        * { margin:0; padding:0; }
+        body, html {
+            width:100%;
+            height:100%;
+            overflow-x:hidden;
+        }
+        ul { list-style:none; }
+        a { text-decoration:none; }
+        
+        .wrap {
+            width:100%;
+        }
+        #hd {
+            width:100%;
+            height:50px;
+            position:relative;
+            border-bottom:1px solid #999; 
+        }
+        #hd a.logo img {
+            position:absolute;
+            width:130px;
+            height:30px;
+            left:20px;
+            top:10px;
+        }
+        #hd img {
+            position:absolute;
+            right:20px; 
+            top:15px;
+            cursor:pointer;
+        }
+        /* 메뉴 */
+        nav.gnb {
+            width:100%;
+        }
+        .gnb ul.menu {
+            width:100%;
+            height:150px;
+            background:#fff; 
+            position:absolute;
+            top:51px;
+            border-bottom:1px solid #999;
+            display:none;
+        }
+        .gnb ul.menu li a {
+            display:block;
+            text-indent:22px;
+            color:#000;
+            font-size:14px;
+            font-weight:bold; 
+            line-height:35px;
+            transition:0.3s;
+        }
+        .gnb ul.menu li a:hover {
+            color:#fdb813;
+        }
+        /* 메인 이미지 */
+        #main {
+            width:100%;
+            border-bottom:1px solid #eee; 
+        }
+        #main img {
+            width:100%;
+            height:590px;
+        }
+        
+        #contents {
+            width:100%;
+        }
+        /* about */
+        .carhartt {
+            width:100%;
+            height:auto;
+            position:relative;
+        }
+    /* h 태그와 p태그 공통 */
+        .Tit {
+            line-height:70px;
+            text-indent:30px;
+        }
+        .pCom {
+            width:300px;
+            font-size:12px;
+            padding-left:30px;
+        }
+    /*                         */
+        .imgBox {
+            width:100%;
+        }
+        .slideImg {
+            width:400%;
+            height:160px;
+            margin-top:30px;
+            border-bottom:1px solid #999; 
+        }
+        .slideImg li {
+            width:25%;
+            float:left;
+        }
+        .slideImg li img {
+            width:100%;
+            height:150px;
+        }
+
+        /* project */
+        .project {
+            clear:both;
+            width:100%;
+            height:550px;
+            margin-top:10px;
+            border-bottom:1px solid #999; 
+        }
+        .project ul {
+            width:88%;
+            margin:20px auto;
+        }
+        .project ul li {
+            width:50%;
+            float:left;
+            margin-top:15px;
+        }
+        .project ul li img {
+            width:90%;
+            height:180px;
+            transition:1s;
+            cursor:pointer;
+        }
+        .project ul li img:hover {
+            opacity:0.6;
+        }
+        /* works */
+        .work {
+            clear:both;
+            width:100%;
+            height:330px;
+            border-bottom:1px solid #999; 
+        }
+        .work h3 {
+            padding-top:20px;
+            line-height:50px;
+            font-weight:500; 
+            font-size:16px;
+        }
+        .work h3, .work p {
+            text-align:center;
+        }
+        .work p {
+            padding-top:10px;
+            line-height:25px;
+            font-size:14px;
+            color:#999; 
+        }
+        .work span {
+            display:block;
+            text-align:center; 
+            margin-top:50px;
+            font-size:12px;
+        }
+        /* contact */
+        .contact {
+            width:100%;
+            height:550px;
+            background:#eee; 
+        }
+        .contact h3.ct {
+            line-height:40px;
+            text-indent:30px;
+            padding-top:20px;
+        }
+        .contact h4 {
+            text-indent:30px;
+            padding-top:20px;
+            line-height:30px;
+            font-weight:300;
+        }
+        .contact p {
+            padding-left:30px;
+            font-size:12px;
+        }
+        .cTit {
+            clear:both;
+            font-weight:400;
+            margin-top:50px;
+            width:280px;
+            margin-left:30px;
+            font-size:16px;
+            font-style:italic;
+            border-bottom:1px solid #999; 
+        }
+        .cCom {
+            line-height:20px;
+            font-size:6px;
+            margin-left:5px;
+            margin-top:5px;
+        }
+    /* 로고 */
+        #ft {
+            width:100%;
+            height:100px;
+            background:#000;
+            margin:0 auto;
+        }
+        #ft div {
+            width:80%;
+            margin:0 auto;
+        }
+        #ft div span {
+            display:block;
+            color:#ccc; 
+            font-size:12px;
+            font-style:italic;
+            font-weight:bold;
+            text-indent:30px;
+            padding-top:10px;
+        }
+        #ft div img {
+            width:150px;
+            height:30; 
+            margin-left:70px;
+            margin-top:10px;
+        }
+        
+    /* 메뉴 클릭시 */
+        
+    </style>
+    <script src="./js/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+         // 어바웃 하단 이미지 슬라이드
+       var wd = parseInt($(".imgBox").width());
+        
+        function nAni(){
+            $(".imgBox").not(":animated").animate({"margin-left" : -wd+"px"}, 2000, function(){
+                $(".imgBox li").eq(0).appendTo($(".slideImg"));
+                $(".imgBox").css("margin-left", "0px");
+            });
+        }
+        var intv = setInterval(function(){ nAni(); }, 2000);
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+         //메뉴 버튼 클릭시
+        var sw=true;
+        $(".lst").click(function(){
+            if(sw){    
+              $(".gnb .menu").stop().slideDown(600); 
+              $(".lst").attr("src", "./image/close.png");
+            } else {
+                $(".gnb .menu").stop().slideUp(600);
+                $(".lst").attr("src", "./image/menu.png");
+            }
+            sw=!sw;
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <header id="hd">
+            <a href="#" class="logo"><img src="./image/t_logo.png" alt="로고"></a>
+            <img src="menu.png" class="lst" alt="메뉴">
+            <nav class="gnb">
+                <ul class="menu">
+                    <li><a href="#">CARHARTT</a></li>
+                    <li><a href="#">WORKS</a></li>
+                    <li><a href="#">PROJECT</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="main">
+           <img src="./image/main3.jpg" alt="임시이미지">
+        </div>
+        <section id="contents">
+            <div class="carhartt">
+                <h3 class="Tit">CARHARTT</h3>
+                <p class="pCom">
+                ABOUT CREATIVE DESIGN CARHARTT<br>
+                -
+                <br><br>
+                Carhartt Work in Progress (이하 Carhartt WIP)는
+                Carhartt라는 브랜드가 가지고 있는 정체성을 전위적이고 현대적인 방식으로 재해석한다.<br><br><br>
+                Hamilton Carhartt는 1889년 <br>디트로이트에서 Carhartt Company를 설립했다.<br><br>
+                초기 제품들은 데님과 덕 캔버스로 만들어진 작업복들이었고, 이 중에서 Carhartt만의 브라운 색으로 대표되는 덕 캔버스는 브랜드를 상징하는 원단으로 자리 잡는다. <br><br><br>
+                설립 이래 Carhartt는<br>“Best in Class”라는 모토 아래 최상의 완성도, 내구성, 그리고 안정감을 추구하는 의류만을 공급하기 위해 헌신해오고 있다.
+                1994년에 설립된 Work in Progress는 유럽을 관통하는 유통망을 구축하며
+                Carhartt를 대표하는 클래식 제품들을 유럽시장에 소개하기 시작했다. <br><br>
+                </p>
+             <div class="imgBox">
+                <ul class="slideImg">
+                    <li><img src="./image/img1.jpg" alt="이미지1"></li>
+                    <li><img src="./image/img2.jpg" alt="이미지2"></li>
+                    <li><img src="./image/img3.jpg" alt="이미지3"></li>
+                    <li><img src="./image/img4.jpg" alt="이미지4"></li>
+                </ul>
+             </div>
+            </div>
+            <div class="project">
+                <h3 class="Tit">PROJECT</h3>
+                <p class="pCom">
+                    Creative Design Kentridge Works Project
+                    Corporation Identity Design / Brand Identity Design / Poster Design Art Works 
+                </p>
+                <ul>
+                    <li><img src="./image/st1.jpg" alt="1"></li>
+                    <li><img src="./image/st2.jpg" alt="2"></li>
+                    <li><img src="./image/st3.jpg" alt="3"></li>
+                    <li><img src="./image/st4.jpg" alt="4"></li>
+                </ul>
+            </div>
+            <div class="work">
+                <h3 class="tit">CREATIVE DESIGN CARHARTT WORKS</h3>
+                <p>
+                    Corporation Identity Design<br>
+                    Brand Identity Design<br>
+                    Logo / Stationary / Product Pakage / Application /<br>
+                    Visual Dsign  <br>
+                    Printed Matter Design<br>
+                    Poster Design / ArtWork / Graphic / Illustration<br>
+                </p>
+                <span>◇◇◇</span>
+            </div>
+            <div class="contact">
+                <h3 class="ct">CONTACT CARHARTT</h3>
+                <h4>Telephone</h4>
+                <p>1522-6717</p>
+                <h4>Contact Carhartt</h4>
+                <p>tgreenbill@naver.com</p>
+                <h4>Address</h4>
+                <p>서울특별시 중구 다산로14길 12(신당동)3,5층</p>
+                <h4>Return</h4>
+                <p>경기도 하남시 대성로 291 하남 우체국 (주)티그린 앞</p>
+            <h3 class="cTit">CREATIVE DESIGN CARHARTT WORKS</h3>
+            <p class="cCom">
+                Corporation Identity Design<br>
+                Brand Identity Design<br>
+                Logo / Stationary / Product Pakage / Application /<br>
+                Visual Dsign  <br>
+                Printed Matter Design<br>
+                Poster Design / ArtWork / Graphic / Illustration<br>
+            </p>
+            </div>
+        </section>
+    </div>
+    <footer id="ft">
+       <div>
+        <span>All Copyrights by ⒞CARHARTT @2018</span>
+        <img src="./image/ft.png" alt="로고2">
+       </div>
+    </footer>
+</body>
+</html>
