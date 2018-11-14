@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>어도비 하우스</title>
+    <style>
+    * { margin:0; padding:0; }
+    body, html { width:100%; height:100%; overflow-x:hidden; }
+    ul { list-style:none; }
+    a { text-decoration:none; color:#333; }
+    
+        .wrap {
+            width:100%;
+        }
+        #hd {
+            width:100%;
+            height:120px;
+            position:relative;
+        }
+        /* 로그인 및 회원가입 */
+        #hd ul.tnb {
+            float:right; 
+            margin-right:100px;
+            margin-top:10px;
+        }
+        #hd ul.tnb li {
+            float:left; 
+            padding-right:20px;
+        }
+        #hd ul.tnb li a {
+            font-size:14px;
+            overflow:hidden;
+            width:50px;
+        }
+        #hd ul.tnb li a:hover {
+            color:#906b3e;
+        }
+        /* 로고 및 메뉴 */
+        #hd ul.gnb {
+            width:1100px;
+            margin:0 auto;
+            margin-left:32%;
+        }
+        #hd ul.gnb a.logo {
+            position:absolute;
+            margin-top:5px;
+            left:20%;
+        }
+        #hd ul.gnb > li {
+            width:150px;
+            float:left;
+            margin-top:50px;
+            padding:10px;
+        }
+        #hd ul.gnb > li>  a {
+            display:block;
+            text-align:center;
+        }
+        ul.gnb li:hover > a {
+            color:#906b3e;
+            font-weight:bold;
+        }
+        /* 서브 메뉴 */
+        #hd ul.gnb li ul.sub {
+            position:absolute;
+            height:auto;
+            background:#fff;
+            margin-top:25px;
+            z-index:99;
+            display:none; 
+        }
+        #hd ul.gnb li .sub li {
+            float:none;
+            width:150px;
+            margin:0;
+            padding:0; 
+            line-height:40px;
+            text-align:center;
+        }
+        /* 메인 이미지 */
+        #main {
+            clear:both;
+            width:100%;
+            height:620px;
+        }
+        #main ul {
+            display:block;
+            width:5760px;
+        }
+        #main ul li {
+            width:1920px;
+            float:left; 
+        }
+        /* 메인 이미지 아래 텍스트 */
+        #mainTxt {
+            width:100%;
+            height:100px;
+            background:#beb4af;
+            color:#fff; 
+        }
+        #mainTxt ul.mTxt {
+            width:40%;
+            margin:0 auto;
+            padding-top:35px;
+        }
+        #mainTxt ul.mTxt li .tit {
+            float:left;
+            font-style:italic; 
+        }
+        #mainTxt ul.mTxt li .conTxt {
+            float:right; 
+        }
+        /* 콘텐츠 공통 */
+        section#contents {
+            clear:both;
+            width:100%;
+        }
+        div.title {
+            text-align:center; 
+            padding-top:100px;
+        }
+        /* 배너 */
+        div.banner {
+            width:100%;
+            height:200px; 
+            background-image:url(./image/adobe.jpg);
+            background-attachment:fixed;
+        }
+        .banner div.left {
+            color:#fff; 
+            width:200px;
+            height:100px;
+            padding-top:80px;
+            margin:0 500px;
+        }
+        .banner div.right {
+            color:#fff; 
+            width:330px;
+            height:100px;
+            margin:-100px 750px;
+        }
+        /* 페이지 시작 */
+        section#contents div > a {
+            display:block;
+            width:100px;
+            height:30px;
+            line-height:30px; 
+            border:2px solid #333; 
+            margin:30px auto;
+            text-align:center; 
+        }
+        /* page1 */
+        #page1 {
+            clear:both;
+            width:100%;
+            height:850px;
+        }
+        .p1Img {
+            width:100%;
+        }
+        .p1Img ul {
+            width:50%;
+            margin:80px auto;
+            padding-left:50px;
+        }
+        .p1Img ul li {
+            float:left; 
+            padding-left:20px;
+        }
+        .p1Img ul li:nth-child(2) {
+            margin-top:30px;
+        }
+        .p1Img ul li img {
+            width:400px;
+            height:400px;
+        }
+        /* page2 */
+        #page2 {
+            width:100%;
+            height:600px; 
+            border-bottom:1px solid #999; 
+        }
+        /* page3 */
+        #page3 {
+            width:100%;
+            height:700px; 
+            border-bottom:1px solid #999; 
+            background-image:url(./image/ad.jpg);
+            background-position:bottom;
+        }
+        /* page4 */
+        #page4 {
+            width:100%;
+            height:auto;
+        }
+        .p4Wrap {
+            width:1000px;
+            height:500px;
+            margin:50px auto; 
+            border-bottom:1px solid #999; 
+        }
+        .p4Wrap ul {
+            float:left;
+        }
+        .p4Wrap ul.pg4main li {
+            float:left; 
+        }
+        .p4Wrap ul.pg4main li:nth-child(2) {
+            margin-top:120px;
+            margin-left:20px; 
+        }
+        .p4Wrap ul.pg4main li:nth-child(2) a {
+            display:block;
+            width:100px;
+            height:30px;
+            line-height:30px; 
+            border:2px solid #333; 
+            margin-top:50px;
+            text-align:center; 
+        }
+        ul.sns {
+            clear:both; 
+            width:1000px;
+            height:500px;
+            margin:60px auto;
+        }
+        ul.sns li {
+            width:250px;
+            height:250px;
+            float:left; 
+        }
+        ul.sns li img {
+            width:230px;
+            height:230px;
+        }
+        /* 푸터 영역 */
+        #ft {
+            clear:both;
+            width:100%;
+            height:200px; 
+            background:#282422; 
+            margin-top:100px;
+        }
+        #ft .fnb {
+            width:600px;
+            margin:0 auto;
+        }
+        #ft .fnb ul li {
+            float:left; 
+            padding-left:20px; 
+            margin-top:50px;
+        }
+        #ft .fnb ul li a {
+            color:#999;
+        }
+        p.copyright {
+            width:100%;
+            float:left; 
+            color:#ccc;
+            text-align:center;
+            margin-top:30px;
+        }
+    </style>
+    <script src="./js/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+        //메뉴
+       $(".gnb li").hover(function(){
+          $(this).find(".sub").stop().slideDown(500); 
+       });
+        $(".gnb li").mouseleave(function(){
+           $(this).find(".sub").stop().slideUp(500);
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+       var wd=parseInt($("#main").width());
+        
+        function nAni() {
+            $("#main ul").not(":animated").animate({"margin-left" : -wd+"px"}, 1000, function(){
+                $("#main ul li").eq(0).appendTo($("#main ul"));
+                $("#main ul").css("margin-left", "0px");
+            });
+        }
+        var intv=setInterval(function(){ nAni(); }, 3000); 
+    });
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <header id="hd">
+            <ul class="tnb">
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">매장찾기</a></li>
+            </ul>
+            <ul class="gnb">
+                <a href="#" class="logo"><img src="./image/adobe.png" alt="임시로고"></a>
+                <li><a href="sub1.html">어도비하우스</a>
+                    <ul class="sub">
+                        <li><a href="sub1.html">브랜드소개</a></li>
+                        <li><a href="#">회사소개</a></li>
+                        <li><a href="#">바리스타 아카데미</a></li>
+                        <li><a href="#">광고</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">매장안내</a>
+                    <ul class="sub">
+                        <li><a href="#">매장찾기</a></li>
+                        <li><a href="#">오픈예정점</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">메뉴</a>
+                <ul class="sub">
+                        <li><a href="#">COFFEE</a></li>
+                        <li><a href="#">DESSERT</a></li>
+                        <li><a href="#">DRINK</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">즐기기</a>
+                <ul class="sub">
+                        <li><a href="#">멤버쉽</a></li>
+                        <li><a href="#">매거진</a></li>
+                        <li><a href="#">이벤트</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">뉴스</a>
+                <ul class="sub">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">언론보도</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <!-- 메인 이미지 -->
+        <div id="main">
+            <ul class="visual">
+                <li><img src="./image/main2.jpg" alt="비주얼1"></li>
+                <li><img src="./image/main3.jpg" alt="비주얼2"></li>
+                <li><img src="./image/main.jpg" alt="비주얼3"></li>
+            </ul>
+        </div>
+        <!--   -->
+        <div id="mainTxt">
+            <ul class="mTxt">
+                <li><h2 class="tit">Find a Partnership</h2><p class="conTxt">어도비하우스와 함께하는 또 다른 재미로 당신을 초대합니다.</p></li>
+            </ul>
+        </div>
+        <!-- 메뉴 -->
+        <section id="contents">
+            <div id="page1">
+                <div class="title">
+                    <h2>EVERYDAY ADOBEHOUSE</h2>
+                    <a href="#">메뉴보기</a>
+                </div>
+                <div class="p1Img">
+                    <ul>
+                        <li><img src="./image/m1.jpg" alt="메인1"></li>
+                        <li><img src="./image/m2.jpg" alt="메인2"></li>
+                    </ul>
+                </div>
+            </div>
+          <!--  <div class="banner">
+               <div class="left">
+                <h3>ADOBEHOUSE</h3>
+                <h2>CAFENERY</h2>
+               </div>
+               <div class="right">
+                <p>언제 어디서나 즐길 수 있는<br>콜롬비아 수프리모 다크 로스트 아메리카노</p>
+               </div>
+            </div>
+            <div id="page2">
+                <div class="title">
+                    <h2>MENU STORY</h2>
+                    <p>어도비하우스의 메뉴 이야기를 만나보세요</p>
+                    <a href="#">자세히보기</a>
+                </div>
+            </div> -->
+            <div id="page3">
+                <div class="title">
+                    <h2>ADOBEHOUSE ONE DAY CLASS</h2>
+                    <p>평범한 일상 속에서 소소한 즐거움과 나만을 위한 메뉴를 맛볼 수 있는 특별한 클래스</p>
+                    <a href="#">자세히보기</a>
+                </div>
+            </div>
+            <div class="banner">
+               <div class="left">
+                <h3>ADOBEHOUSE</h3>
+                <h2>EVENT</h2>
+               </div>
+               <div class="right">
+                <p>어도비하우스의 특별한<br>이벤트를 즐겨보세요</p>
+               </div>
+            </div>
+            <div id="page4">
+                <div class="title">
+                    <h2>MAGAZINE</h2>
+                    <p>어도비하우스의 다양한 이야기를 매거진에서 만나보세요</p>
+                </div>
+                <div class="p4Wrap">
+                    <ul class="pg4main">
+                        <li>
+                            <img src="./image/img1.jpg" alt="임시이미지">
+                        </li>
+                        <li>
+                            <h4>자연을 닮은 어도비하우스</h4>
+                            <p>건강한 식재료로 만든 어도비하우스 메뉴,<br>지금 바로 소개합니다!</p>
+                            <a href="#">자세히보기</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="title"><h2>어도비하우스 REVIEW</h2></div>
+                <ul class="sns">
+                    <li><a href="#"><img src="./image/re1.jpg" alt="리뷰1"></a></li>
+                    <li><a href="#"><img src="./image/re2.jpg" alt="리뷰2"></a></li>
+                    <li><a href="#"><img src="./image/re3.jpg" alt="리뷰3"></a></li>
+                    <li><a href="#"><img src="./image/re4.jpg" alt="리뷰4"></a></li>
+                    <li><a href="#"><img src="./image/re5.jpg" alt="리뷰5"></a></li>
+                    <li><a href="#"><img src="./image/re6.jpg" alt="리뷰6"></a></li>
+                    <li><a href="#"><img src="./image/re7.jpg" alt="리뷰7"></a></li>
+                    <li><a href="#"><img src="./image/re8.jpg" alt="리뷰8"></a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <footer id="ft">
+        <nav class="fnb">
+            <ul>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">고객의소리</a></li>
+                <li><a href="#">채용안내</a></li>
+                <li><a href="#">점주의 방</a></li>
+            </ul>
+        </nav>
+        <p class="copyright">
+            대전광역시 중구 대흥로169번길 대흥동 FAX. 0505-777-7777 고객상담센터 080-777-7777
+            <br>COPYRIGHT © 2017 THE ADOBEHOUSE.ALL RIGHTS RESERVED.
+        </p>
+    </footer>
+</body>
+</html>
