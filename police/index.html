@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>사이버 경찰청</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <style>
+    /* 사용자 정의 서식 */
+        .row img {
+            display:block;
+            width:100%;
+        }
+        .container-full {
+            overflow-x:hidden;
+        }
+        #carousel .carousel-inner img {
+            display:block;
+            width:100%;
+        }
+        .page_title {
+            text-indent:15px;
+        }
+
+        a {
+            color:#333;
+        }
+        .row {
+            clear:both;
+            text-align:center;
+            margin-top:30px;
+        }
+        .well {
+            background:#fff;
+        }
+        .nav>li>a:focus, .nav>li>a:hover {
+            background-color:#fbce00;
+            color:#fff;
+        }
+        .nav-header {
+            color:#999;
+            font-weight:bold;
+            font-style:italic;
+        }
+        .navbar-inverse {
+            border:0;
+            margin:5px;
+            padding-bottom:5px;
+            border-bottom:1px solid #ccc;
+        }
+        .navbar-inverse .navbar-nav>li>a:hover {
+            color:#00479d;
+        }
+        .btn-primary {
+            background-color:rgba(0,0,0,0.7);
+            border:0;
+            position:relative;
+            left:calc(100% - 30%);
+            top:10px;
+        }
+        .btn-primary:hover {
+            background-color:#00479d;
+        }
+        .navbar-inverse .navbar-toggle:hover {
+            background-color:#fbce00;
+            border:1px solid #fbce00;
+        }
+        .navbar-inverse .navbar-toggle .icon-bar {
+            background-color:#333;
+        }
+        .navbar-inverse .navbar-toggle:hover .icon-bar {
+            background-color:#fff;
+        }
+        
+        
+        
+        ul { list-style:none; }
+        #row ul {
+            text-align:left;
+            float:left;
+            width:50%;
+        }
+        #row ul li {
+            width:auto;
+            height:400px;
+            border:1px solid #333;
+        }
+        #row ul.row1 li h3, #row ul.row1 li p {
+            text-indent:20px;
+        }
+        #row ul.row1 li {
+            position:relative;
+        }
+        #row ul.row1 li input {
+            outline:0;
+            border:0;
+            width:100px;
+            height:30px;
+            background:#00479d;
+            color:#fff;
+            position:absolute;
+            right:10px;
+            bottom:10px;
+            transition:0.5s;
+        }
+        #row ul.row1 li input:hover {
+            background:transparent;
+            color:#e60021;
+            border-bottom:1px solid #e60021;
+        }
+        #row ul.row2 li img {
+            width:40%;
+            margin:40px auto;
+        }
+        .btnBox {
+            width:250px;
+            margin:10px auto;
+        }
+        .newBtn {
+            border:1px solid #999;
+            outline:0;
+            width:110px;
+            height:40px;
+            border-radius:20px;
+            background:#fff;
+            margin:5px;
+            line-height:30px;
+        }
+        .newBtn:hover {
+            border-color:transparent;
+            background:#fbce00;
+            color:#fff;
+        }
+        
+        @media screen and (max-width:414px) {
+            #row ul {
+                display:block;
+                float:none;
+                width:100%;
+                padding-left:0;
+            }
+            #row ul li {
+                height:auto;
+                padding-bottom:10px;
+            }
+        }
+        
+    /* 뉴스레터 팝업 */
+        .pop {
+            clear:both;
+            background:rgba(0,0,0,0.7);
+            display:none;
+        }
+        .popWrap {
+            width:600px;
+            height:500px;
+            margin:0 auto;
+            background:#fff;
+            border:2px solid #00479d;
+            position:fixed;
+            top:calc(75% - 600px);
+            left:calc(65% - 500px);
+        }
+        .popWrap h2 {
+            text-align:center;
+            line-height:normal;
+            margin:0;
+            padding-top:10px;
+            padding-bottom:15px;
+            margin-bottom:15px;
+            width:100%;
+            background:#00479d;
+            font-size:24px;
+            font-weight:bold;
+            color:#fff;
+        }
+        .popWrap img {
+            float:left;
+            margin-right:15px;
+        }
+        .popWrap input {
+            display:block;
+            width:330px;
+            height:30px;
+            text-indent:30px;
+            margin-top:10px;
+        }
+        .pop_vs {
+            clear:both;
+            width:100%;
+            height:220px;
+            display:block;
+            float:left;
+            margin-left:50px;
+        }
+        .popBtn {
+            float:left;
+            margin:20px 10px;
+            border:0;
+            width:80px;
+            height:30px;
+            outline:0;
+            background:#333;
+            color:#fff;
+            
+        }
+        .poplogin {
+            margin-left:140px;
+        }
+        .pop_close {
+            position:absolute;
+            right:10px;
+            top:10px;
+            border:0;
+            outline:0;
+            color:#999;
+            background:transparent;
+        }
+        .pop_close:hover {
+            color:#fff;
+        }
+    /* 뉴스레터 이미지 클릭시 팝업 */
+        .pop2 {
+            display:none;
+        }
+        .pop2wrap {
+            position:fixed;
+            width:500px;
+            height:400px;
+            top:calc(50% - 300px);
+            left:calc(60% - 400px);
+            background:#fff;
+            border:3px solid #ccc;
+            text-align:center;
+        }
+        .pop2wrap img {
+            margin-top:20px;
+        }
+        .pop2Btn {
+            border:0;
+            outline:0;
+            background:#00479d;
+            color:#fff;
+            width:100px;
+            height:30px;
+            margin-top:30px;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/bootstrap-responsive.min.css">
+    <script src="./js/jquery.js"></script>
+    <!-- IE8 에서 HTML5 요소와 미디어 쿼리르 위한 HTML5 Shim 외 Respond.js -->
+    <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
+    <!-- [if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif] -->
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 모든 컴파일된 플러그인을 포함합니다. (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요. -->
+    <script src="./js/bootstrap.min.js"></script>
+    
+    <!-- 팝업 스크립트 -->
+    <script>
+    $(document).ready(function(){
+            //팝업
+        $(".nBtn1").click(function(){
+           $(".pop").fadeIn(500);
+       });
+        $(".pop_close").click(function(){
+           $(".pop").stop().fadeOut(500); 
+        });
+            //뉴스레터 이미지
+        $(".newImg").hover(function(){
+           $(".look").css("display", "block");
+        });
+        
+        
+        $(".look").click(function(){
+            $(".pop2").fadeIn();
+        });
+        $(".pop2Btn").click(function(){
+            $(".pop2").fadeOut(); 
+        });
+    });
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse naver-fixed-top"  style="background:#fff;"> <!-- data-target : 펼쳐질 대상 -->
+        <div class="container"> 
+            <div class="navbar-header" style="color:#fff;">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand" style="padding:3px 20px;"><img src="./image/logo.png" alt="로고" style="width:150px;height:auto;"></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+            <!-- 여기부터 펼쳐진 내용 -->
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+                <!-- 여기까지 펼쳐진 내용 -->
+                <!-- 여기부터 드롭다운 -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">CHERISH
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">추모관공지</a></li>
+                        <li class="divider"></li> <!-- 구분선 넣기 -->
+                        <li><a href="#">순직경찰추모</a></li>
+                        <li><a href="#">경찰영웅</a></li>
+                        <li><a href="#">경찰기념공원</a></li>
+                        <li><a href="#">경찰유적지순례</a></li>
+                    </ul>
+                    <!-- 여기까지 드롭다운 -->
+                </li>
+            </ul>
+            <!-- 폼 태그 추가 시작 -->
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="search" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default"><img src="./image/search.png" alt=""></button>
+            </form>
+            <!-- 폼 태그 추가 끝 -->
+            </div> <!-- .nav-collapse -->
+        </div>
+    </nav>
+    <main class="container" id="content" style="height:auto;margin-bottom:50px;">
+     <!-- 2단 추가 시작 -->
+      <aside class="col-xs-12 col-sm-2 col-lg-3 col-md-3" id="sidebar">
+ <!-- 사이드바 수직 목록 변경 시작 -->
+          
+          <nav class="well" style="margin-top:40px;">
+              <ul class="nav navbar nav-list">
+    <!-- https://getbootstrap.com/docs/3.3/components/ 글리피 아이콘 주소 -->
+             <!--  수직 목록 메뉴에 아이콘 추가 시작 -->
+                  <li class="nav-header">We Are The Police</li>
+                  <li><a href="#">
+                      <i class="glyphicon glyphicon-thumbs-up"></i>
+                      <span>참여공간</span></a></li>
+                  <li><a href="#">
+                      <i class="gglyphicon glyphicon-cloud"></i>
+                      <span>연계서비스</span></a></li>
+                  <li><a href="#">
+                      <i class="glyphicon glyphicon-user"></i>
+                      <span>직원전용</span></a></li>
+                  <li class="divider"></li> <!-- 구분선 -->
+                  <li class="nav-header" style="margin-top:20px;margin-bottom:5px;">Today's BEST5</li>
+                  <li><a href="#">
+                      <i class="glyphicon glyphicon-time"></i>
+                      <span>PBN뉴스</span></a></li>
+                  <li><a href="#">
+                      <i class="glyphicon glyphicon-bullhorn"></i>
+                      <span>공지사항</span></a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">
+                      <i class="glyphicon glyphicon-facetime-video"></i>
+                      <span>순직경찰추모관</span></a></li>
+                  <li><a href="#">
+                      <i class="glyphicon glyphicon-pencil"></i>
+                      <span>자유게시판</span></a></li>
+                  <li><a href="#">
+                      <i class="glyphicon glyphicon-folder-open"></i>
+                      <span>보도자료</span></a></li>
+              </ul>
+          </nav>
+  <!-- 사이드바 수직 목록 변경 끝 -->
+      </aside>
+      <section class="col-xs-12 col-sm-10 col-lg-9 col-md-9" id="r_content" style="padding-top:40px;">
+         <!-- 새로운 문단 (헤로 유닛) 추가 시작  -->
+         <figure class="hero-unit" style="text-align:center;">
+             <h3 style="margin-top:0; margin-bottom:20px;">"<strong>도움</strong>이 필요한 그곳에 <strong>항상</strong>있겠습니다"</h3>
+             <img src="./image/visual.jpg" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" alt="">
+             <p></p>
+             <figcaption>
+                 
+             </figcaption>
+         </figure>
+         <a href="#" class="btn btn-primary btn-large">찾아오시는 길</a>
+         <!-- 새로운 문단 (헤로 유닛) 추가 끝 -->
+          <div class="row">
+              <h1><strong>경찰</strong>이 곧 <strong>시민</strong>이고, <strong>시민</strong>이 곧 <strong>경찰</strong>입니다.</h1
+          </div>
+          <hr>
+          <div id="row">
+              <ul class="row1">
+                  <h3>뉴스룸</h3>
+                  <li>
+                      <img src="./image/img1.jpg" alt="">
+                      <h3>과학치안 아이디어 공모전</h3>
+                      <p>
+                          여러분들의 아이디어를 뿜뿜~!
+                      </p>
+                      <input type="button" value="자세히보기">
+                  </li>
+              </ul>
+              <ul class="row2">
+                  <h3>뉴스레터</h3>
+                  <li>
+                      <img src="./image/img01.png" alt="경찰청뉴스레터" class="newImg">
+                      <img src="./image/look.png" style="width:60px; position:absolute; bottom:200px; right:170px; cursor:pointer; display:none;" class="look">
+                      <hr>
+                      <div class="btnBox">
+                          <button class="newBtn nBtn1"><i class="glyphicon glyphicon-edit"></i> 신청하기</button><button class="newBtn"><i class="glyphicon glyphicon-align-justify"></i> 목록보기</button>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </section>
+    </main>
+    <!-- 푸터 삽입 시작 -->
+    <footer id="footer" class="navbar-static" style="border-radius:0px;">
+        <nav class="navbar navbar-inverse" style="border-radius:0px; margin-bottom:0;">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="#" style="color:darkred;">개인정보처리방침</a></li>
+                    <li><a href="#">저작권정책</a></li>
+                    <li><a href="#">공공데이터 이용정책</a></li>
+                </ul>
+                <p class="navbar-right copyright" style="display:inline-block; color:#fff; line-height:60px; padding-right:30px; padding-left:8px;">@2018 All Copyrights by Y&amp;Y</p>
+            </div>
+        </nav>
+    </footer>
+    <!-- 뉴스레터 팝업 -->
+    <div class="pop">
+        <div class="popWrap">
+            <h2>뉴스레터</h2>
+            <button class="pop_close">사라져랑</button>
+            <div class="pop_vs">
+                <img src="./image/img01.png" alt=""><p style="margin-top:50px;">이 뉴스레터로 말하자면 ! 한달간의 주요경찰 소식 등<br> 다양한 치안행정 정보를 한눈에 볼 수 있도록 <br>매거진 형식으로 정보를 제공하는 서비스입니다.</p>
+                <p>이메일을 가지고 있는 분은 누구든지 신청하여<br>매월 발행되는 경찰청의 뉴스레터를 받아볼 수 있습니다.</p>
+            </div>
+            <h4 style="clear:both; line-height:50px;text-align:center;border-top:1px solid #00479d;">궁금하면 로그인하세용 호호~!</h4>
+            <div class="poplogin">
+                <input type="text" placeholder="아이디를 입력해주세요."><input type="text" placeholder="패스워드를 입력해주세요.">
+                <button class="popBtn" style="margin-left:80px;">로그인</button><button class="popBtn">회원가입</button>
+            </div>
+        </div>
+    </div>
+    <!-- 뉴스레터 이미지 클릭시 팝업 -->
+    <div class="pop2">
+        <div class="pop2wrap">
+            <img src="./image/img_pp.png" alt="">
+            <h2>포돌이와 포순이입니당</h2>
+            <button class="pop2Btn">닫기</button>
+        </div>
+    </div>
+</body>
+</html>
