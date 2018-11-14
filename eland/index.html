@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>이랜드</title>
+    <!-- Mobile & Tablet & Responsive on the Screen -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- Render to IE's latest version -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Refresh Interval Time -->
+    <meta http-equiv="refresh" content="180">
+    <!-- website information -->
+    <meta name="application-name" content="eland website">
+    <meta name="author" content="mingming">
+    <meta name="description" content="웹사이트 소개">
+    <meta name="keywords" content="이랜드, 패션, 월드">
+    
+    <!-- Shortcut icon Setting -->
+    <!-- Chrome, Safari, IE -->
+    <link rel="shortcut icon" href="./ico/favicon.ico">
+    <!-- Firefox, Opera (Chrome and Safari say thanks but no thanks) -->
+    <link rel="icon" href="./ico/favicon.png">
+    <!-- Still works in IE6+ series2 -->
+    <link rel="shortcut icon" href="./ico/favicon.ico" type="image/vnd.microsoft.icon">
+    <!-- Still works in IE6+ series3 -->
+    <link rel="shortcut icon" href="./ico/favicon.ico" type="image/x-icon">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="./ico/ms-ico-144.png">
+    <!-- Favicon for iOS Touch Base -->
+    
+    <style>
+    * { margin:0; padding:0; }
+    body, html { width:100%; height:100%; overflow-x:hidden; }
+    ul { list-style:none; }
+    a { text-decoration:none; }
+    </style>
+    <style>
+    .ckItem, .raItem { display:none; }
+    
+        
+    .wrap { 
+        width:100%; 
+        height:100%; 
+        padding-bottom:10%; 
+        overflow:hidden; 
+        }
+    .hd { 
+        position:absolute;
+        background-color:transparent;
+        top:0; 
+        left:0; 
+        width:100%; 
+        z-index:100; 
+        }
+    .hdContain { 
+        height:40px; 
+        background:#131220; 
+        }
+    .hdWrap { 
+        width:100%; 
+        height:86px; 
+        border-bottom:1px solid #fff; 
+        }
+    .mubg { 
+        top:40px; 
+        left:0; 
+        width:100%; 
+        z-index:-999; 
+        }
+        
+    .sub { 
+        display:block; 
+        display:none; 
+        position:absolute; 
+        width:1920px; 
+        height:550px; 
+        margin-top:60px; 
+        left:0; 
+        background-color:#f1f1f1; 
+        clear:both; 
+        color:#333; 
+        float:left;
+        padding-top:100px; 
+        z-index:9999;
+        }
+        
+    .subFrame { 
+        display:block; 
+        float:left; 
+        padding-left:100px; 
+        }
+    .subMenu { 
+        display:block; 
+        float:right; 
+        width:1200px; 
+        height:260px; 
+        }
+        .subMenuTit {
+            display:block;
+            padding-top:150px;
+            padding-left:100px;
+        }
+    .subMenu a { 
+        color:#333; 
+        font-size:14px;
+        }
+    .subMenu li { 
+        display:block; 
+        float:left; 
+        width:220px; 
+        padding-bottom:10%; 
+        padding-right:12%;
+        }
+    .subMenubox { 
+        width:500px; 
+        margin-top:-5%; 
+        }
+    .subMenu li img { 
+        width:260px; 
+        height:150px; 
+        }
+        
+    .collap, .lstBtn { 
+        display:none; 
+        }
+        
+
+    .tnb li { 
+        float:left; 
+        padding:0px 6px; 
+        }
+    .tnb li a, .tnb li label { 
+        color:#999; 
+        line-height:40px; 
+        }
+    .tnb li:first-child a:after, .tnb li:first-child label:after { 
+        content:"|"; 
+        padding-left:15px; 
+        }
+    .tnb.left { 
+        float:left; 
+        margin-left:10%; 
+        }
+    .tnb.right { 
+        float:right; 
+        margin-right:10%; 
+        }
+        
+    .gnb { 
+        width:100%; 
+        padding-top:25px; 
+        display:block; 
+        float:left; 
+        padding-left:300px; 
+        line-height:30px; 
+        }
+    .gnb li label { cursor:pointer; float:left; 
+        padding-right:50px; 
+        color:#fff; 
+        font-size:18px; 
+        font-weight:200; }
+
+    .gnb li .raItem:checked ~ .sub { 
+        display:block; 
+        overflow:hidden; 
+        }
+    .logo { 
+        clear:both; 
+        display:block; 
+        background-image:url(./images/main_logo.png); 
+        background-repeat:no-repeat; 
+        width:294px; 
+        height:21px; 
+        float:left; 
+        padding-right:150px; 
+        }
+    .content { 
+        width:100%; 
+        height:100%; 
+        }
+        
+    </style>
+    <style>
+/* 메인 비주얼 */
+    .imgFrame { 
+        width:5760px; height:770px; 
+        overflow:hidden; 
+        position:relative; 
+        display:block;
+        float:left; 
+        }
+    .imgFrame li { 
+        display:block; 
+        float:left; 
+        width:1920px; 
+        height:770px; 
+        }
+    .imgFrame li img { 
+        width:1920px; 
+        height:770px; 
+        }
+    .sliderFrame li { 
+        position:absolute; 
+        }
+    .sliderFrame li label { 
+        width:61px; 
+        height:61px; 
+        position:absolute; 
+        background-position:center center; 
+        z-index:999; 
+        }
+    .sliderFrame li label.left { 
+        background-image:url(./images/ico_prev.png); 
+        }
+    .sliderFrame li label.right { 
+        background-image:url(./images/ico_next.png); 
+        }
+    </style>
+    <style>
+/* 컨텐츠 영역 */ 
+    .gridFrame { 
+        position:relative; 
+        width:1024px;
+        margin:0 auto; 
+        top:600px; 
+        }
+    .gridWrap { 
+        position:relative;
+        width:960px;
+        height:520px; 
+        color:#fff;
+        background:orange;
+        }
+    .gridWrap li { 
+        position:absolute; 
+        text-align:center; 
+        display:block; 
+        }
+    .gridWrap li a { 
+        display:block; 
+        float:left; 
+        color:#fff; 
+        padding-top:100px;  
+        padding-left:40px; 
+        border-bottom:1px solid #ccc; 
+         }
+    .gridTit { 
+        padding-top:50px;
+        text-align:left;
+        padding-left:40px; 
+        font-weight:bold; 
+        }
+    .grid1 { 
+        clear:both; 
+        top:0;
+        left:0; 
+        width:330px;
+        height:300px; 
+        background:#000;
+        }
+    .grid2 { 
+        top:0;
+        left:330px;
+        width:300px;
+        height:300px; 
+        background-image:url("./images/grd2.jpg");
+        }
+    .grid3 { 
+        top:0;
+        left:630px;
+        width:330px;
+        height:520px; 
+        background-image:url("./images/grd4.jpg"); 
+        }
+    .grid4 { 
+        top:300px;
+        left:0;
+        width:630px;
+        height:220px; 
+        background:#57868d;
+        }
+    </style>
+    
+    
+    <style>
+    /* 컬랩 영역 */
+    .wTxt { color:#fff; 
+        font-size:12px;}
+    .collapFrame { 
+        position:fixed; 
+        z-index:999; 
+        width:100%; 
+        height:100%; 
+        top:0; 
+        left:-1920px;
+        }
+    .cnb { 
+        right:-80px; 
+        width:900px; 
+        height:400px; 
+        top:50%; 
+        background:#333; 
+        position:absolute; 
+        border-radius:0px 25px 25px 0px; 
+        }
+    .collapCol { }
+        
+    #collapCk1:checked ~ .collapFrame { left:0; }
+    #collapCk1:checked ~ .collapFrame .cnb { left:0; right:auto; }
+    </style>
+    <style>
+/* 푸터 영역 */
+    #ft { 
+        width:1920px;
+        height:154px; 
+        }
+    .ftFrame { 
+        width:960px; 
+        height:154px; 
+        margin:0 auto; 
+        }
+    .fnb li { 
+        display:block; 
+        float:left; 
+        line-height:60px; 
+        padding-right:10px; 
+        }
+    .fnb li a { color:#333; font-weight:bold; }
+    .fnb li a::after { content:" | "; width:1px; height:16px;  color:#333; }
+    .copyright { clear:both; }
+    </style>
+    <script src="./js/jquery.js"></script>
+    <script>
+        // 메인이미지 슬라이드
+    $(document).ready(function(){
+        var sl = parseInt($(window).width());
+       function rAni(){
+           $(".imgFrame").not(":animated").animate({"margin-left": -sl+"px"}, 800, function(){
+               $(".imgFrame li").eq(0).appendTo(".imgFrame");
+               $(".imgFrame").css("margin-left", "0px");
+           });
+       };
+        var intv = setInterval(function(){ rAni(); }, 2000); 
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+       $(".collapFrame").toggleClass("on"); 
+    });
+    </script>
+</head>
+<body>
+    <input type="chekbox" class="ckItem" id="collapCk1">
+    <div class="wrap">
+        <header class="hd" id="hd">
+           <input type="checkbox" id="ia_open" class="ckItem">
+            <div class="hdContain" id="hd1">
+                <ul class="tnb left">
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">회원가입</a></li>
+                </ul>
+                <ul class="tnb right">
+                    <li><label for="ia_open" class="opener">SITEMAP</label></li>
+                    <li><a href="#">ENGLISH</a></li>
+                </ul>
+            </div>
+            <input type="radio" name="subRa" class="raItem" id="subRa0" checked>
+            <div class="hdWrap">
+                <label for="ia_open" class="lstBtn">리스트</label>
+                <nav class="gnb">
+                    <a href="#" class="logo"></a>
+                    <ul class="mainMenu">
+                       <li class="mubg"></li>
+                        <li class="cate1">
+                            <input type="radio" name="subRa" class="raItem" id="subRa1">
+                            <label for="subRa1">기업소개</label>
+                            <div class="sub">
+                                <figure class="subFrame">
+                                    <h2 class="subMenuTit">나날이 발전하는<br>
+                                        <span class="bdTxt">이랜드</span>가 되겠습니다.</h2>
+                                    <img src="" alt="">
+                                </figure>
+                                <ul class="subMenu">
+                                    <li class="subMenubox">
+                                        <a href="#">
+                                        <img src="./images/world05.jpg" alt="기업정보이미지">
+                                        <h3 class="subMenuCateTit">기업정보</h3>
+                                        <p class="subMenuTxt">업계의 리더답게 모든 산업의<br>발전을 위한 이랜드가 되겠습니다.</p>
+                                        </a>
+                                    </li>
+                                    <li class="subMenubox">
+                                        <a href="#">
+                                        <img src="./images/world_map.jpg" alt="글로벌사업이미지">
+                                        <h3 class="subMenuCateTit">글로벌 사업</h3>
+                                        <p class="subMenuTxt">세계로 뻗어가는 이랜드</p>
+                                        </a>
+                                    </li>
+                                    <li class="subMenubox">
+                                        <a href="#">
+                                        <img src="./images/world06.jpg" alt="연혁이미지">
+                                        <h3 class="subMenuCateTit">연혁</h3>
+                                        <p class="subMenuTxt">1980년 설립되어 현재까지<br>한국경제의 지킴이입니다.</p>
+                                        </a>
+                                    </li>
+                                    <li class="subMenubox">
+                                        <a href="#">
+                                        <img src="./images/n1.png" alt="의식주이미지">
+                                        <h3 class="subMenuCateTit">의식주휴미락No.1</h3>
+                                        <p class="subMenuTxt">6대 사업군 23개국 진출<br>168개 법인 운영</p>
+                                        </a>
+                                    </li>
+                                    <li class="subMenubox">
+                                        <a href="#">
+                                        <img src="./images/n2.png" alt="전자공고이미지">
+                                        <h3 class="subMenuCateTit">전자공고</h3>
+                                        <p class="subMenuTxt">이랜드월드패션의<br>실적분석 자료입니다.</p>
+                                        </a>
+                                    </li>
+                                    <li class="subMenubox">
+                                        <a href="#">
+                                        <img src="./images/n3.png" alt="오시는길이미지">
+                                        <h3 class="subMenuCateTit">오시는 길</h3>
+                                        <p class="subMenuTxt">이랜드월드패션 본사로<br>오시는 길을 안내해드립니다.</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="cate2">
+                            <input type="radio" name="subRa" class="raItem" id="subRa2">
+                            <label for="subRa2">브랜드</label>
+                            <div class="sub">
+                                <figure class="subFrame">
+                                    <h2 class="subMenuTit">돌아가더라도
+                                    <span class="bdTxt">바른길</span>을<br>가는 것이 지름길입니다.</h2>
+                                    <img src="" alt="">
+                                </figure>
+                            </div>
+                        </li>
+                        <li class="cate3">
+                            <input type="radio" name="subRa" class="raItem" id="subRa3">
+                            <label for="subRa3">채용정보</label>
+                            <div class="sub">
+                                <figure class="subFrame">
+                                    <h2 class="subMenuTit">직장은
+                                    <span class="bdTxt">인생</span>의 학교입니다.</h2>
+                                    <img src="" alt="">
+                                </figure>
+                            </div>
+                        </li>
+                        <li class="cate4">
+                            <input type="radio" name="subRa" class="raItem" id="subRa4">
+                            <label for="subRa4">함께나눔</label>
+                            <div class="sub">
+                                <figure class="subFrame">
+                                    <h2 class="subMenuTit">벌기 위해서가 아니라
+                                    <span class="bdTxt">쓰기 위해서</span>일합니다.</h2>
+                                    <img src="" alt="">
+                                </figure>
+                            </div>
+                        </li>
+                        <li class="cate5">
+                            <input type="radio" name="subRa" class="raItem" id="subRa5">
+                            <label for="subRa5">고객지원</label>
+                            <div class="sub">
+                                <figure class="subFrame">
+                                    <h2 class="subMenuTit">만족한 고객이<br>
+                                    <span class="bdTxt">최선</span>의 광고입니다.</h2>
+                                    <img src="" alt="">
+                                </figure>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="collap" id="collap1">
+                <h1 class="">사이트맵펼침메뉴</h1>
+            </div>
+        </header>
+        <main class="content">
+            <input type="radio" class="raItem" name="slRa1" id="slRa01" checked>
+            <input type="radio" class="raItem" name="slRa1" id="slRa02">
+            <input type="radio" class="raItem" name="slRa1" id="slRa03">
+            <figure class="mainSlider" id="visual1">
+                <ul class="imgFrame">
+                            <li class="item1">
+                                <img src="./images/m_vs2.jpg" alt="비주얼" class="mainBg">
+                            </li>
+                            <li class="item2">
+                                <img src="./images/m_vs1.jpg" alt="비주얼" class="mainBg">
+                            </li>
+                            <li class="item3">
+                                <img src="./images/m_vs3.jpg" alt="비주얼" class="mainBg">
+                            </li>
+                        </ul>
+                        <ul class="sliderFrame">
+                            <li>
+                                <label for="slRa02" class="sl_right"></label>
+                                <label for="slRa03" class="sl_left"></label>
+                            </li>
+                            <li>
+                                <label for="slRa03" class="sl_right"></label>
+                                <label for="slRa01" class="sl_left"></label>
+                            </li>
+                        </ul>
+                        <ul class="sliderNumFrame">
+                            <li class="item1">
+                                <label for="slRa01" class="sliderNumBtn"></label>
+                            </li>
+                            <li class="item2">
+                                <label for="slRa02" class="sliderNumBtn"></label>
+                            </li>
+                            <li class="item3">
+                                <label for="slRa03" class="sliderNumBtn"></label>
+                            </li>
+                        </ul>
+                        <div class="txtFrame">
+                            
+                        </div>
+            </figure>
+                <div class="gridFrame">
+                    <ul class="gridWrap">
+                        <li class="grid1">
+                            <p class="gridTit">PRODUCT</p>
+
+                            <a href="#">제품소개 바로가기</a>
+                        </li>
+                        <li class="grid2">
+                            <p></p>
+                            <a href="#"></a>
+                        </li>
+                        <li class="grid3">
+                            <p class="gridTit">RECRUIT</p>
+
+                            <a href="#">채용정보 바로가기</a>
+                        </li>
+                        <li class="grid4">
+                            <p class="gridTit">STORY</p>
+                            
+                            <a href="#">이랜드 역사관 바로가기</a>
+                        </li>
+                    </ul>
+                </div>
+        </main>
+    </div>
+    <aside class="collapFrame">
+        <ul class="cnb">
+            <li class="collapCol">
+                <div class="collapImgFrame">
+                    <img src="./images/n4.png" alt="김수진 협력간사 이야기">
+                </div>
+            </li>
+            <li class="collapCol">
+                <a href="#">
+                 <div class="collapTxtFrame">
+                    <h3 class="collapTit wTxt">
+                        <span class="tit">"이랜드재단, 김수진 협력간사 이야기"</span>
+                        <p class="collapDesc wTxt">김수진 협력간사는 구청 사례관리자로 근무하며,<br>부산 내 어려운 가정을 돕는 일을 했다. <br>당시 지켜본 대부분 복지재단은 6개월에서 1년 정도의 지원이 끝나면 무관심했다. <br>하지만 사례관리가 끝난 후에도 대상자를 만나러 와 형편을 일일이 살피는 이랜드재단의 모습에 좋은 인상을 받았다.<br>“부산지역 인큐베이팅 대상자에게 교통사고가 난 적이 있었습니다. <br>그 소식을 듣고 재단 정영일 국장님이 직접 부산까지 내려와 대상자를 만났습니다. <br>그 모습에 ‘이렇게 현장에서 아름다운 사랑을 실천하면 좋겠다’고 생각했습니다. <br>또한 꾸준히 대상자를 찾아오는 국장님을 보고 ‘이랜드는 뭔가 다르구나’ 싶었습니다.”</p>
+                    </h3>
+                 </div>
+                </a>
+            </li>
+            
+        </ul>
+    </aside>
+    <footer id="ft">
+            <div class="ftFrame">
+                <nav class="fnb">
+                    <ul>
+                        <li><a href="#">개인정보 취급방침</a></li>
+                        <li><a href="#">사이트맵</a></li>
+                        <li><a href="#">ENGLISH</a></li>
+                    </ul>
+                </nav>
+                <p class="copyright">
+                    <span>
+                        서울특별시 금천구 가산디지털1로 159 | (주)이랜드월드패션사업부 COPYRIGHT 2017. (주)이랜드월드 ALL RIGHTS RESERVED.
+                    </span>
+                </p>
+            </div>
+        </footer>
+</body>
+</html>
