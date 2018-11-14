@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>화천기계</title>
+    <meata name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin:0; padding:0; }
+        ul {
+            list-style:none;
+        }
+        a { text-decoration:none; }
+        .header { grid-area:header;  border-bottom:1px solid #eee; }
+        .footer { grid-area:footer; background:#e4e5e8; }
+        .main { grid-area:main; background:#fff; }
+        .left { grid-area:navigation; border-right:1px solid #eee; }
+        .right { grid-area:ads; border-left:1px solid #eee; }
+        .container {
+            display:grid;
+            grid-template-areas: 
+                "header header header"
+                "navigation main ads"
+                "footer footer footer";
+            grid-template-columns: 200px 1fr 300px;
+            grid-template-rows: 
+                100px
+                1fr
+                80px;
+            min-height:100vh;
+        }
+        @media screen and (max-width:600px) {
+            .container {
+                grid-template-areas: 
+                    "header"
+                    "navigation"
+                    "main"
+                    "ads"
+                    "footer";
+                grid-template-columns:100%;
+                grid-template-rows:
+                    100px
+                    50px
+                    1fr
+                    50px
+                    30px;
+            }
+        }
+    </style>
+    <style>
+        .logo {
+            display:block;
+            width:200px;
+            margin:34px auto;
+        }
+        .logo img {
+            text-align: center;
+        }
+        #gnb {
+            clear:both;
+            margin-top:30px;
+        }
+        #gnb li {
+            line-height:50px;
+        }
+        #gnb li > a {
+            display:block;
+            color:#333;
+            text-align:center;
+        }
+        #gnb li > a.on {
+            color:#0d5cab;
+            font-weight:bold;
+        }
+        .sub {
+            display:none;
+            background:#0d5cab;
+        }
+        .sub a {
+            display:block;
+            text-align:center;
+            color:#ccc;
+        }
+        .sub a:hover {
+            color:#fff;
+            font-weight:bold;
+        }
+        
+        .main {
+            margin:20px auto;
+        }
+        
+        div.txt_l p, div.txt_r p {
+            font-size:15px;
+        }
+        
+        
+        .footer {
+            position:fixed;
+            width:100%;
+            bottom:0;
+        }
+        .ft_logo {
+            float:left; 
+            margin-left:200px;
+            line-height:80px;
+        }
+        .fnb a {
+            display:block;
+            float:left;
+            color:#999;
+            padding-top:30px;
+            padding-left:40px;
+        }
+        .copyright {
+            text-align:center;
+        }
+        p.copy {
+            color:#ccc;
+            padding-top:30px;
+        }
+    </style>
+    <script src="./js/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("#gnb li").hover(function(){
+            $(this).find("a").addClass("on");
+            $(this).find("a").siblings().removeClass("on");
+            $(this).find(".sub").slideDown(500);
+       });
+        $("#gnb li").mouseleave(function(){
+            $(this).find("a").removeClass("on"); 
+            $(this).find(".sub").slideUp(500);
+        });
+    });
+    </script>
+</head>
+<body class="container">
+    <header class="header">
+        <a href="index.html" class="logo"><img src="./image/logo_w.png" alt="로고"></a>
+    </header>
+    <main class="main">
+        <h2 class="title" style="line-height:60px;">회장 인사말</h2><hr>
+        <img src="./image/ceo.jpg" alt="ceo" style="margin-top:20px;">
+        <h3 class="txTit" style="line-height:50px;">안녕하십니까. 화천그룹 회장 권영열입니다.</h3>
+        <div class="txt_l" style="float:left;">
+            <p>
+                화천은 대한민국의 근대 발전사와 그 흐름을 같이 해온 기업으로 <br>
+                1952년 창업 이래 지난 60여년간 공작기계 전문기업으로 성장 해 왔습니다.<br>
+                이는 끈기, 성실, 정직이라는 화천의 가치관을 몸소 실천했던 <br>
+                화천의 임직원들과 고객 여러분의 아낌없는 성원 덕분이었다고 생각합니다.<br>
+            </p>
+            <p>
+                화천은 항상 고객의 입장에서 품질을 최우선으로 생각하는 "품질 제일주의"를 추구합니다. <br>
+                또한, 화천의 제품은 장인정신을 바탕으로 한, 혼(魂)이 담긴 제품으로, <br>
+                고객에게 단순한 제품으로서가 아닌 VALUE(가치)를 제공하고, <br>
+                그것을 통해 고객이 다시 VALUE를 창조시키는 VALUE의 선순환적 창조를 추구합니다.<br>
+            </p>
+            <p>
+                나아가 소통을 통한 창의적 문화 조성과 신바람 나는 일터 조성을 통해 개방적이고 <br>
+                유연한 조직문화로 승화시켜 끊임없는 혁신이 이루어지는 조직을 만들겠습니다.<br>
+                모두의 창의와 열정으로 보다 나은 경영성과를 창출하여 <br>
+                개인과 화천 그리고 고객의 성장과 발전을 실현토록 할 것입니다.<br>
+            </p>
+        </div>
+        <div class="txt_r">
+            <p>
+                이제 화천은 새로운 100년을 향해 세계로 더 뻗어 나아가려고 합니다.<br>
+                이는 단지 규모의 성장만을 추구하는 것이 아닌 사업구조, 수익구조, 핵심역량, 가치체계, 기업문화 <br>
+                즉, 경영 FRAME의 격상으로 GLOBAL 공작기계 전문 메이커로서 도약하는 것이며, <br>
+                이를 통하여 세계 최고의 제품과 서비스로 고객과 함께 성장·발전해 나가는 화천을 지켜봐 주시기 바랍니다.<br>
+            </p>
+            <p>
+                감사합니다.
+            </p>
+        </div>
+    </main>
+    <aside class="left">
+        <ul id="gnb">
+            <li><a href="ceo.html">화천소개</a>
+                <div class="sub">
+                    <a href="ceo.html">인사말</a>
+                    <a href="#">CI</a>
+                    <a href="#">화천의역사</a>
+                    <a href="#">관계사</a>
+                    <a href="#">투자정보</a>
+                    <a href="#">네트워크</a>
+                </div>
+            </li>
+            <li><a href="#">제품소개</a>
+                <div class="sub">
+                    <a href="#">신제품</a>
+                    <a href="#">머시닝센터</a>
+                    <a href="#">터닝센터</a>
+                    <a href="#">범용기종</a>
+                    <a href="#">자동차부품</a>
+                    <a href="#">소재사업</a>
+                    <a href="#">스마트검색</a>
+                </div>
+            </li>
+            <li><a href="">인재채용</a>
+                <div class="sub">
+                    <a href="">인사제도</a>
+                    <a href="">입사지원</a>
+                    <a href="">채용FAQ</a>
+                </div>
+            </li>
+            <li><a href="#">고객센터</a>
+                <div class="sub">
+                    <a href="#">교육정보</a>
+                    <a href="#">서비스</a>
+                    <a href="#">A/S신청</a>
+                    <a href="#">견적요청</a>
+                    <a href="#">1:1문의</a>
+                    <a href="#">견학신청</a>
+                </div>
+            </li>
+            <li><a href="#">홍보센터</a>
+                <div class="sub">
+                    <a href="#">화천소식</a>
+                    <a href="#">언론보도</a>
+                    <a href="#">제품소식</a>
+                    <a href="#">화천캘린더</a>
+                    <a href="#">광고홍보</a>
+                    <a href="#">HCInsight</a>
+                    <a href="#">서함문화재단</a>
+                    <a href="#">사회공헌</a>
+                </div>
+            </li>
+        </ul>
+    </aside>
+    <aside class="right">
+        
+    </aside>
+    <footer class="footer">
+       <div class="ftWrap">
+        <a href="" class="ft_logo">
+            <img src="logo_footer_sub.png" alt="">
+        </a>
+        <div class="fnb">
+            <a href="">개인정보처리방침</a>
+        </div>
+        <div class="copyright">
+            <p class="copy">
+                2018 ⓒ HWACHEONCOPYRIGHT 2018 HWACHEON TECHNOLOGY ALL RIGHTS RESERVED
+            </p>
+        </div>
+        </div>
+    </footer>
+</body>
+</html>
