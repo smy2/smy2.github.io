@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>lady furniture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style>
+    * { margin:0; padding:0; }
+    body, html { width:100%; height:100%; overflow-x:hidden; }
+    ul { list-style:none; }
+    a { text-decoration:none; color:#414143; }
+        
+        .wrap {
+            width:100%;
+            height:200%;
+            overflow-x:hidden;
+        }
+    /* 헤더부분 */
+        #hd {
+            width:100%;
+            height:60px;
+            position:relative; 
+        }
+        #hd .logo {
+            position:absolute;
+            left:120px;
+        }
+        #hd .logo img {
+            width:140px;
+            height:22px;
+        }
+        #hd .lst {
+            position:absolute;
+            left:20px;
+        }
+        #hd .lst img {
+            width:30px;
+            height:20px;
+        }
+        #hd a {
+            margin-top:18px;
+        }
+    /* 메인 메뉴 */
+        .close {
+            position:absolute;
+            top:20px;
+            z-index:100;
+            left:80%;
+            border:0;
+            outline:0;
+            font-size:18px;
+            color:#fff;
+            background-color:transparent;
+            cursor:pointer;
+        }
+        nav#gnb {
+            width:100%;
+        }
+        #gnb ul {
+            width:70%;
+            height:1000px;
+            background:#414143;
+            position:fixed;
+            z-index:99;
+            padding-top:80px;
+            transition:1s;
+            display:none;
+        }
+        #gnb ul li {
+            line-height:60px;
+            width:60%;
+            border-bottom:1px solid #999; 
+            margin-left:20px;
+        }
+        #gnb ul li a {
+            display:block;
+            color:#fff; 
+            margin:0;
+            text-indent:10px;
+        }
+        
+    /* 메인 이미지 */
+        .contents {
+            width:100%;
+        }
+        #visual {
+            width:100%;
+            position:relative;
+        }
+        #visual ul {
+            width:300%;
+        }
+        #visual ul li {
+            width:33%;
+            float:left;
+        }
+        #visual ul li img {
+            width:100%;
+        }
+    /* 스토어 검색 */
+        #store {
+            clear:both;
+            width:100%;
+            height:200px;
+            background:#eee;
+        }
+        #store p, #store h2 {
+            text-align:center; 
+            padding-top:10px;
+        }
+        .search {
+            width:250px;
+            height:35px;
+            text-align:center; 
+            margin-left:50px;
+            margin-top:25px;
+        }
+        #banner {
+            width:100%;
+        }
+        #banner img {
+            width:100%; 
+        }
+    /* product */
+        #product {
+            width:100%;
+        }
+        #product .imgBox2 {
+            width:100%;
+        }
+        #product .imgBox2 li {
+            width:40%; 
+            float:left;
+            margin-left:25px;
+            margin-top:20px;
+            margin-bottom:20px;
+            
+        }
+        #product .imgBox2 li img {
+            width:100%; 
+        }
+    /* banner2 */
+        #banner2 {
+            width:100%;
+        }
+        #banner2 img {
+            width:100%; 
+        }
+        div.title {
+            text-align:center;
+        }
+        #open {
+            width:100%;
+            z-index:999;
+        }
+        #open img {
+            width:80%;
+            margin-left:20px;
+            margin-top:20px;
+        }
+        dl {
+            position:relative;
+            width:80%;
+            height:100px;
+            background:#333;
+            margin:0 auto;
+            margin-top:-30px;
+        }
+        dt {
+            padding-top:20px;
+        }
+        dt, dd {
+            color:#fff; 
+            text-indent:20px;
+            line-height:30px;
+        }
+    /* 푸터 */
+        #ft {
+            width:100%;
+            height:100px;
+            background:#eee; 
+            margin-top:50px;
+        }
+        #ft .fnb {
+            width:90%;
+            margin:0 auto;
+        }
+        #ft .fnb ul {
+            width:100%;
+            margin-left:50px;
+        }
+        #ft .fnb ul li {
+            width:45%;
+            float:left;
+            margin-top:20px;
+        }
+        .copyright {
+            clear:both;
+            font-size:14px;
+            text-align:center;
+            line-height:40px;
+            
+        }
+    </style>
+    <script src="./js/jquery.js"></script>
+    <script>
+    $(document).ready(function(){
+       var wd=parseInt($("#visual").width());
+        
+        function nAni(){
+            $(".imgBox").not(":animated").animate({"margin-left" : -wd+"px"}, 1000, function(){
+                $(".imgBox li").eq(0).appendTo(".imgBox");
+                $(".imgBox").css("margin-left", "0px");
+            });
+        }
+        var intv=setInterval(function(){ nAni(); }, 3000); 
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+       $(".lst").click(function(){
+           $("#gnb ul").stop().fadeIn(500);
+       });
+        $(".close").click(function(){
+           $("#gnb ul").stop().fadeOut(500); 
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <header id="hd">
+            <a class="lst"><img src="./image/menu.png" alt="메뉴"></a>
+            <a href="#" class="logo"><img src="./image/logo.jpg" alt="로고"></a>
+            <nav id="gnb">
+                <ul class="menu">
+                <button class="close">X</button>
+                    <li><a href="#">레이디가구</a></li>
+                    <li><a href="#">내가있는공간</a></li>
+                    <li><a href="#">레이디몰</a></li>
+                    <li><a href="#">대리점제품/문의</a></li>
+                    <li><a href="#">공지사항</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="contents">
+            <div id="visual">
+                <ul class="imgBox">
+                    <li><img src="./image/family.jpg" alt="패밀리라이프"></li>
+                    <li><img src="./image/marriage.jpg" alt="매일신혼"></li>
+                    <li><img src="./image/junior.jpg" alt="쥬니어"></li>
+                </ul>
+            </div>
+            <div id="store">
+                <p>STORE SEARCH</p>
+                <h2>레이디가구 매장, <br>어디있죠?</h2>
+                <input type="text" value="가까운 지역명을 검색하세요" class="search">
+                <input type="image" value="검색" src="./image/search.png">
+            </div>
+            <div id="banner">
+                <img src="./image/ban2.jpg" alt="">
+            </div>
+            <div id="product">
+                <ul class="imgBox2">
+                    <li><a href="#"><img src="./image/thumn_link3_1_1.jpg" alt="패밀리라이프"></a></li>
+                    <li><a href="#"><img src="./image/thumn_link3_1_2.jpg" alt="매일신혼"></a></li>
+                    <li><a href="#"><img src="./image/thumn_link3_1_3.jpg" alt="싱글라이프"></a></li>
+                    <li><a href="#"><img src="./image/thumn_link3_1_4.jpg" alt="쥬니어"></a></li>
+                </ul>
+            </div>
+            <div id="banner2">
+                <img src="./image/ban3.jpg" alt="">
+            </div>
+            <div class="title">
+                <p style="line-height:50px;">LADY PEOPLE</p>
+                <h2 style="font-size:18px;">레이디가구와 함께 할 <br> 당신을 모십니다.</h2>
+            </div>
+            <div id="open">
+                <img src="./image/lady.jpg" alt="레이디가구">
+            </div>
+            <dl>
+                <dt>레이디가구 STORY</dt>
+                <dd>꿈을 만들어가고있는 레이디가구</dd>
+            </dl>
+        </section>
+    </div>
+    <footer id="ft">
+        <nav class="fnb">
+            <ul>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">이용약관</a></li>
+            </ul>
+        </nav>
+        <p class="copyright">
+            copyright 2018
+        </p>
+    </footer>
+</body>
+</html>
