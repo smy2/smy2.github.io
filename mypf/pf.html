@@ -327,7 +327,7 @@
         }
         .pop_wrap > button {
             position: absolute;
-            right: 20px;
+            right: 30px;
             top: 10px;
             border: 0;
             outline: 0;
@@ -335,6 +335,22 @@
             color: #999;
             cursor: pointer;
             font-size: 18px;
+        }
+        .pop_con > span {
+            display: block;
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            border: 0;
+            outline: 0;
+            background: darkred;
+            color: #eee;
+            cursor: pointer;
+            font-size: 14px;
+            width: 50px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
         }
         .pop_close:hover {
             color: #fff; 
@@ -350,9 +366,10 @@
         }
         .pop_con {
             width: 100%;
-            height: 100%;
+            height: auto;
             box-sizing: border-box;
             padding: 30px;
+            position: relative;
         }
         .pop_con > img {
             width: 100%;
@@ -778,6 +795,7 @@
                 <h2>교육부</h2>
             </div>
             <div class="pop_con">
+                <span class="pop_close">닫기</span>
                 <img src="./mockup/mo_edu.png" alt="교육부">
                 <div class="pop_txt">
                     
@@ -793,6 +811,7 @@
                 <h2>칼하트</h2>
             </div>
             <div class="pop_con">
+                <span class="pop_close">닫기</span>
                 <img src="./mockup/mo_carhartt.png" alt="칼하트">
                 <div class="pop_txt">
                     <p>한 화면에 최대한 복잡하지 않으면서도 많은 정보를 기재하고 싶었기에, 먼저 칼하트의 대표적 이미지를 배치하고, 그 아래 칼하트에 대한 소개글을 기재하였습니다.</p>
@@ -809,6 +828,7 @@
                 <h2>레이디가구</h2>
             </div>
             <div class="pop_con">
+                <span class="pop_close">닫기</span>
                 <img src="./mockup/mo_lady.png" alt="레이디가구">
                 <div class="pop_txt">
                     
@@ -824,6 +844,7 @@
                 <h2>M·A·C</h2>
             </div>
             <div class="pop_con">
+                <span class="pop_close">닫기</span>
                 <img src="./mockup/mo_mac.png" alt="맥">
                 <div class="pop_txt">
                     
@@ -839,6 +860,7 @@
                 <h2>어도비 하우스</h2>
             </div>
             <div class="pop_con">
+                <span class="pop_close">닫기</span>
                 <img src="./mockup/desk_adobe.png" alt="어도비하우스">
                 <div class="pop_txt">
                     <img src="./pf_img/adobe_house.png" alt="와이어프레임">
@@ -854,6 +876,7 @@
                 <h2>화천기계</h2>
             </div>
             <div class="pop_con">
+                <span class="pop_close">닫기</span>
                 <img src="./mockup/res_hc.png" alt="화천기계">
                 <div class="pop_txt">
                     
@@ -869,6 +892,7 @@
                 <h2>윤정헤어라인 Mobile</h2>
             </div>
             <div class="pop_con">
+                <span class="pop_close">닫기</span>
                 <img src="./mockup/mo_yj.png" alt="윤정헤어라인 모바일">
                 <div class="pop_txt">
                     
@@ -884,6 +908,7 @@
                 <h2>청정원</h2>
             </div>
             <div class="pop_con">
+                <span class="pop_close">닫기</span>
                 <img src="./mockup/res_cjo.png" alt="청정원">
                 <div class="pop_txt">
                     
@@ -899,6 +924,7 @@
                 <h2>이랜드월드패션</h2>
             </div>
             <div class="pop_con">
+                <span class="pop_close">닫기</span>
                 <img src="./mockup/desk_eland.png" alt="이랜드월드패션">
                 <div class="pop_txt">
                     
@@ -914,6 +940,7 @@
                 <h2>리레코</h2>
             </div>
             <div class="pop_con">
+                <span class="pop_close">닫기</span>
                 <img src="./mockup/res_lyreco.png" alt="리레코">
                 <div class="pop_txt">
                     
@@ -929,10 +956,10 @@
                 <h2>윤정헤어라인</h2>
             </div>
             <div class="pop_con">
+                <span class="pop_close">닫기</span>
                 <img src="./mockup/desk_yjhair.png" alt="윤정헤어라인">
                 <div class="pop_txt">
-                    <p>고급화된 컨셉으로 분위기는 어둡게 잡았습니다.</p>
-                    <p>미용이라는 느낌을 주기 위하여, 내부 사진과 다양한 스타일링 이미지를 주로 사용하였습니다. </p>
+                    <img src="./pf_img/yj_hair.png" alt="와이어프레임">
                 </div>
             </div>
         </div>
@@ -945,6 +972,7 @@
                 <h2>사이버 경찰청</h2>
             </div>
             <div class="pop_con">
+                <span class="pop_close">닫기</span>
                 <img src="./mockup/res_police.png" alt="사이버경찰청">
                 <div class="pop_txt">
                     <p>복잡하지 않은 구조와 친근감 있는 메인 이미지로 거리낌 없이 접근할 수 있도록 하였습니다.</p>
@@ -962,6 +990,7 @@
                 <h2>펜션으로튀어라</h2>
             </div>
             <div class="pop_con">
+                <span class="pop_close">닫기</span>
                 <img src="./mockup/res_psr.png" alt="펜션런">
                 <div class="pop_txt">
                     
@@ -977,6 +1006,7 @@
                 <h2>KB국민카드</h2>
             </div>
             <div class="pop_con">
+                <span class="pop_close">닫기</span>
                 <img src="./mockup/mo_kb.png" alt="kb카드">
                 <div class="pop_txt">
                     <p>국민카드의 주 컬러인 노란 계열의 컬러를 메인컬러로 잡았습니다.</p>
