@@ -16,6 +16,9 @@
             width: 100%;
             height: 100%;
         }
+        ::-webkit-scrollbar {
+                display: none;
+        }
         ul {
             list-style: none;
         }
@@ -188,8 +191,8 @@
         
         .icon_btn {
             position: relative;
-            top: 40px;
-            right: 60px;
+            top: 30px;
+            right: 55px;
         }
         .btn {
             border: 0;
@@ -197,37 +200,35 @@
             background: transparent;
             width: 50px;
             height: 50px;
-            border-radius: 30px;
             cursor: pointer;
+        }
+        .btn > img {
+            width: 60%;
         }
         .icon_wrap {
             position:absolute;
-            transition:0.4s;
+            transition:0.6s;
             opacity:0;
         }
         .icon_wrap.on {
             opacity: 1;
         }
         .icon_wrap > img { 
-            width: 50px;
+            width: 40px;
             position: absolute;
-            left: -10px;  top: 40px;
+            left: 0px;  top: 10px;
         }
         .icon_wrap > img:nth-child(2) {
-            top: 90px; left: 30px;
-            transition-delay:0.3s;
+            top: 60px; left: 40px;
         }
         .icon_wrap > img:nth-child(3) {
-            top: 110px; left: 100px;
-            transition-delay:0.5s;
+            top: 100px; left: 100px;
         }
         .icon_wrap > img:nth-child(4) {
-            top: 90px; left: 170px;
-            transition-delay:0.7s;
+            top: 60px; left: 170px;
         }
         .icon_wrap > img:nth-child(5) {
-            top: 40px; left: 200px;
-            transition-delay:0.9s;
+            top: 5px; left: 200px;
         }
         .ab_txt {
             clear: both;
@@ -393,7 +394,7 @@
                 </div>
                 <div class="pr_l pr_icon" style="margin-left: 200px;">
                     <h2>좋아하는 것은, </h2>
-                    <div class="icon_btn"><button class="btn"><img src="./image/heart.png" alt=""></button></div>
+                    <div class="icon_btn"><button class="btn"><img src="./image/icon_heart.png" alt=""></button></div>
                     <div class="icon_wrap">
                         <img src="./image/icon_movie.png" alt="영화">
                         <img src="./image/icon_game.png" alt="게임">

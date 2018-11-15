@@ -16,6 +16,9 @@
             width: 100%;
             height: 100%;
         }
+        ::-webkit-scrollbar {
+                display: none;
+        }
         ul {
             list-style: none;
         }
@@ -304,6 +307,56 @@
             background-position:center center;
         }
         
+    /* 팝업 스타일 */
+        .pop {
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            position: fixed;
+            top: 0;
+            display: none;
+        }
+        .pop_wrap {
+            width: 1000px;
+            height: 800px;
+            background: #fff; 
+            position: absolute;
+            left: calc(100% - 75%);
+            top: calc(100% - 93%);
+            overflow: auto;
+        }
+        .pop_wrap > button {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: #999;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .pop_close:hover {
+            color: #fff; 
+            border-bottom: 1px solid #fff; 
+        }
+        .pop_tit {
+            width: 100%;
+            height: 70px;
+            background: #333;
+            text-align: center;
+            line-height: 70px;
+            color: #fff; 
+        }
+        .pop_con {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 30px;
+        }
+        .pop_con > img {
+            width: 100%;
+        }
     </style>
     <script src="js/jquery.js"></script>
     <script>
@@ -345,6 +398,74 @@
        });
     });
     </script>
+    <script>
+    $(document).ready(function(){
+         $(".item11").click(function(){
+          $("#pop_edu").fadeIn(); 
+             $("body").css("overflow","hidden");//body 스크롤바 없애기
+       });
+         $(".item12").click(function(){
+          $("#pop_car").fadeIn(); 
+             $("body").css("overflow","hidden");
+       });
+         $(".item13").click(function(){
+          $("#pop_lady").fadeIn(); 
+             $("body").css("overflow","hidden");
+       });
+         $(".item14").click(function(){
+          $("#pop_mac").fadeIn(); 
+             $("body").css("overflow","hidden");
+       });
+        
+         $(".item21").click(function(){
+          $("#pop_ab").fadeIn(); 
+             $("body").css("overflow","hidden");
+       });
+         $(".item22").click(function(){
+          $("#pop_hc").fadeIn(); 
+             $("body").css("overflow","hidden");
+       });
+         $(".item23").click(function(){
+          $("#pop_yjm").fadeIn(); 
+             $("body").css("overflow","hidden");
+       });
+         $(".item24").click(function(){
+          $("#pop_cjo").fadeIn(); 
+             $("body").css("overflow","hidden");
+       });
+         $(".item25").click(function(){
+          $("#pop_eland").fadeIn(); 
+             $("body").css("overflow","hidden");
+       });
+         $(".item26").click(function(){
+          $("#pop_lyre").fadeIn(); 
+             $("body").css("overflow","hidden");
+       });
+        
+         $(".item31").click(function(){
+          $("#pop_yj").fadeIn(); 
+             $("body").css("overflow","hidden");
+       });
+         $(".item32").click(function(){
+          $("#pop_po").fadeIn(); 
+             $("body").css("overflow","hidden");
+       });
+         $(".item33").click(function(){
+          $("#pop_psr").fadeIn(); 
+             $("body").css("overflow","hidden");
+       });
+         $(".item34").click(function(){
+          $("#pop_kb").fadeIn(); 
+             $("body").css("overflow","hidden");
+       });
+        
+            //팝업 닫기
+        $(".pop_close").click(function(){
+            $(".pop").fadeOut(); 
+            $("body").css("overflow","auto");   //body 스크롤바 생성
+        });
+    });
+    </script>
 </head>
 <body>
     <header id="hd">
@@ -367,281 +488,502 @@
         </div>
         <div class="grid_wrap">
             <div class="grid" data-column="3">
-                <div class="column col">
+                <div class="column col c_box1">
                     <div class="item">
                         <div class="black">
                            <span class="h_line"></span>
                            <span class="h_line"></span>
                         </div>
-                        <figure>
+                        <figure class="item11">
                             <img src="./image/edu.jpg" alt="교육부" class="work_img">
                             <figcaption class="work_cap">
                                 <div class="cap_txt">
                                     <strong class="cap_tit">EDUCATION</strong>
                                     <p class="cap_com">모바일</p>
                                 </div>
-                                <div class="host">
-                                    <a href="http://smy2.github.io/education" target="_blank"><img src="./image/git_w.png" alt="깃허브" class="git"></a>
-                                    <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
-                                </div>
                             </figcaption>
                         </figure>
+                        <div class="host">
+                            <a href="http://smy2.github.io/" target="_blank"><img src="./image/git_w.png" alt="깃허브" class="git"></a>
+                            <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
+                        </div>
                     </div>
                     <div class="item">
                         <div class="black">
                            <span class="h_line"></span>
                            <span class="h_line"></span>
                         </div>
-                        <figure>
+                        <figure class="item12">
                             <img src="./image/carhartt.jpg" alt="칼하트" class="work_img">
                             <figcaption class="work_cap">
                             <div class="cap_txt">
                                 <strong class="cap_tit">CARHARTT</strong>
                                 <p class="cap_com">모바일</p>
                             </div>
-                            <div class="host">
-                                    <a href="http://smy2.github.io/carhartt" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
-                                    <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
-                                </div>
                         </figcaption>
                         </figure>
+                        <div class="host">
+                            <a href="http://smy2.github.io/carhartt" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
+                            <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
+                        </div>
                     </div>
                     <div class="item">
                        <div class="black">
                            <span class="h_line"></span>
                            <span class="h_line"></span>
                         </div>
-                        <figure>
+                        <figure class="item13">
                             <img src="./image/lady.jpg" alt="레이디가구" class="work_img">
                             <figcaption class="work_cap">
                             <div class="cap_txt">
                                 <strong class="cap_tit">LADY FURNITURE</strong>
                                 <p class="cap_com">모바일</p>
                             </div>
-                            <div class="host">
-                                    <a href="http://smy2.github.io/lady" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
-                                    <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
-                                </div>
                         </figcaption>
                         </figure>
+                        <div class="host">
+                            <a href="http://smy2.github.io/lady" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
+                            <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
+                        </div>
                     </div>
                     <div class="item">
                        <div class="black">
                            <span class="h_line"></span>
                            <span class="h_line"></span>
                         </div>
-                        <figure>
+                        <figure class="item14">
                             <img src="./image/mac.jpg" alt="맥" class="work_img">
                             <figcaption class="work_cap">
                             <div class="cap_txt">
                                 <strong class="cap_tit">M·A·C</strong>
                                 <p class="cap_com">모바일</p>
                             </div>
-                            <div class="host">
-                                    <a href="http://smy2.github.io/" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
-                                    <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
-                                </div>
                         </figcaption>
                         </figure>
+                        <div class="host">
+                            <a href="http://smy2.github.io/" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
+                            <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
+                        </div>
                     </div>
                 </div>
-                <div class="column col">
+                <div class="column col c_box2">
                     <div class="item">
                        <div class="black">
                            <span class="h_line"></span>
                            <span class="h_line"></span>
                         </div>
-                        <figure>
+                        <figure class="item21">
                             <img src="./image/ah.jpg" alt="어도비하우스" class="work_img">
                             <figcaption class="work_cap">
                             <div class="cap_txt">
                                 <strong class="cap_tit">ADOBE HOUSE</strong>
                                 <p class="cap_com">데스크탑</p>
                             </div>
-                            <div class="host">
-                                    <a href="http://smy2.github.io/adobehouse" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
-                                    <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
-                                </div>
                         </figcaption>
                         </figure>
+                        <div class="host">
+                            <a href="http://smy2.github.io/adobehouse" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
+                            <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
+                        </div>
                     </div>
                     <div class="item">
                        <div class="black">
                            <span class="h_line"></span>
                            <span class="h_line"></span>
                         </div>
-                        <figure>
+                        <figure class="item22">
                             <img src="./image/hc.png" alt="화천기계" class="work_img">
                             <figcaption class="work_cap">
                             <div class="cap_txt">
                                 <strong class="cap_tit">HWACHEON MACHINE</strong>
                                 <p class="cap_com">반응형</p>
                             </div>
-                            <div class="host">
-                                    <a href="http://smy2.github.io/hwacheon" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
-                                    <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
-                                </div>
                         </figcaption>
                         </figure>
+                        <div class="host">
+                            <a href="http://smy2.github.io/hwacheon" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
+                            <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
+                        </div>
                     </div>
                     <div class="item">
                        <div class="black">
                            <span class="h_line"></span>
                            <span class="h_line"></span>
                         </div>
-                        <figure>
+                        <figure class="item23">
                             <img src="./image/yj_m.jpg" alt="윤정헤어라인모바일" class="work_img">
                             <figcaption class="work_cap">
                             <div class="cap_txt">
                                 <strong class="cap_tit">YOONJEONG HAIRLINE</strong>
                                 <p class="cap_com">모바일</p>
                             </div>
-                            <div class="host">
-                                    <a href="http://smy2.github.io/" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
-                                    <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
-                                </div>
                         </figcaption>
                         </figure>
+                        <div class="host">
+                            <a href="http://smy2.github.io/" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
+                            <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
+                        </div>
                     </div>
                     <div class="item">
                        <div class="black">
                            <span class="h_line"></span>
                            <span class="h_line"></span>
                         </div>
-                        <figure>
+                        <figure class="item24">
                             <img src="./image/cjo.png" alt="청정원" class="work_img">
                             <figcaption class="work_cap">
                             <div class="cap_txt">
                                 <strong class="cap_tit">CHUNGJUNGONE</strong>
                                 <p class="cap_com">반응형</p>
                             </div>
-                            <div class="host">
-                                    <a href="http://smy2.github.io/chungjungone" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
-                                    <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
-                                </div>
                         </figcaption>
                         </figure>
+                        <div class="host">
+                            <a href="http://smy2.github.io/chungjungone" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
+                            <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
+                        </div>
                     </div>
                     <div class="item">
                        <div class="black">
                            <span class="h_line"></span>
                            <span class="h_line"></span>
                         </div>
-                        <figure>
+                        <figure class="item25">
                             <img src="./image/eland.jpg" alt="이랜드월드패션" class="work_img">
                             <figcaption class="work_cap">
                             <div class="cap_txt">
                                 <strong class="cap_tit">E-LAND WORLD FASHION</strong>
                                 <p class="cap_com">데스크탑</p>
                             </div>
-                            <div class="host">
-                                    <a href="http://smy2.github.io/eland" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
-                                    <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
-                                </div>
                         </figcaption>
                         </figure>
+                        <div class="host">
+                            <a href="http://smy2.github.io/eland" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
+                            <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
+                        </div>
                     </div>
                     <div class="item">
                        <div class="black">
                            <span class="h_line"></span>
                            <span class="h_line"></span>
                         </div>
-                        <figure>
+                        <figure class="item26">
                             <img src="./image/lyreco.jpg" alt="리레코" class="work_img">
                             <figcaption class="work_cap">
                             <div class="cap_txt">
                                 <strong class="cap_tit">LYRECO</strong>
                                 <p class="cap_com">반응형</p>
                             </div>
-                            <div class="host">
-                                    <a href="http://smy2.github.io/lyreco" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
-                                    <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
-                                </div>
                         </figcaption>
                         </figure>
+                        <div class="host">
+                            <a href="http://smy2.github.io/lyreco" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
+                            <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
+                        </div>
                     </div>
                 </div>
-                <div class="column col">
+                <div class="column col c_box3">
                     <div class="item">
                        <div class="black">
                            <span class="h_line"></span>
                            <span class="h_line"></span>
                         </div>
-                        <figure>
+                        <figure class="item31">
                             <img src="./image/yj.jpg" alt="윤정헤어라인" class="work_img">
                             <figcaption class="work_cap">
                             <div class="cap_txt">
                                 <strong class="cap_tit">YOONJEONG HAIRLINE</strong>
                                 <p class="cap_com">데스크탑</p>
                             </div>
-                            <div class="host">
-                                    <a href="http://smy2.github.io/yjhair" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
-                                    <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
-                                </div>
                         </figcaption>
                         </figure>
+                        <div class="host">
+                            <a href="http://smy2.github.io/yjhair" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
+                            <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
+                        </div>
                     </div>
                     <div class="item">
                        <div class="black">
                            <span class="h_line"></span>
                            <span class="h_line"></span>
                         </div>
-                        <figure>
+                        <figure class="item32">
                             <img src="./image/police.jpg" alt="사이버경찰청" class="work_img">
                             <figcaption class="work_cap">
                             <div class="cap_txt">
                                 <strong class="cap_tit">POLICE</strong>
                                 <p class="cap_com">반응형</p>
                             </div>
-                            <div class="host">
-                                    <a href="http://smy2.github.io/police" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
-                                    <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
-                                </div>
                         </figcaption>
                         </figure>
+                        <div class="host">
+                            <a href="http://smy2.github.io/police" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
+                            <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
+                        </div>
                     </div>
                     <div class="item">
                        <div class="black">
                            <span class="h_line"></span>
                            <span class="h_line"></span>
                         </div>
-                        <figure>
+                        <figure class="item33">
                             <img src="./image/psr.jpg" alt="펜션으로튀어라" class="work_img">
                             <figcaption class="work_cap">
                             <div class="cap_txt">
                                 <strong class="cap_tit">PENSION RUN</strong>
                                 <p class="cap_com">반응형</p>
                             </div>
-                            <div class="host">
-                                    <a href="http://smy2.github.io/pensionrun" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
-                                    <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
-                                </div>
                         </figcaption>
                         </figure>
+                        <div class="host">
+                            <a href="http://smy2.github.io/pensionrun" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
+                            <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
+                        </div>
                     </div>
                     <div class="item">
                        <div class="black">
                            <span class="h_line"></span>
                            <span class="h_line"></span>
                         </div>
-                        <figure>
+                        <figure class="item34">
                             <img src="./image/kb.jpg" alt="KB국민카드" class="work_img">
                             <figcaption class="work_cap">
                             <div class="cap_txt">
                                 <strong class="cap_tit">KB CARD</strong>
                                 <p class="cap_com">모바일</p>
                             </div>
-                            <div class="host">
-                                    <a href="http://smy2.github.io/kbcard" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
-                                    <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
-                                </div>
                         </figcaption>
                         </figure>
+                        <div class="host">
+                            <a href="http://smy2.github.io/kb" target="_blank"><img src="./image/git_w.png" alt="깃허브"></a>
+                            <a href="http://ming143.dothome.co.kr/" target="_blank"><img src="./image/dot_w.png" alt="닷홈"></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
     <a href="#main" id="toTop"></a>
+    
+<!-- 여기부터는 팝업창 --> 
+<div id="pop_box">
+    <!-- 교육부 -->
+    <div class="pop" id="pop_edu">
+        <div class="pop_wrap">
+            <button class="pop_close">close</button>
+            <div class="pop_tit">
+                <h2>교육부</h2>
+            </div>
+            <div class="pop_con">
+                <img src="./mockup/mo_edu.png" alt="교육부">
+                <div class="pop_txt">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 칼하트 -->
+    <div class="pop" id="pop_car">
+        <div class="pop_wrap">
+            <button class="pop_close">close</button>
+            <div class="pop_tit">
+                <h2>칼하트</h2>
+            </div>
+            <div class="pop_con">
+                <img src="./mockup/mo_carhartt.png" alt="칼하트">
+                <div class="pop_txt">
+                    <p>한 화면에 최대한 복잡하지 않으면서도 많은 정보를 기재하고 싶었기에, 먼저 칼하트의 대표적 이미지를 배치하고, 그 아래 칼하트에 대한 소개글을 기재하였습니다.</p>
+                    <p>칼하트의 활동성을 표현하기 위하여 직원분들의 일 하시는 모습과 평소 모습을 이미지로 담아 콘텐츠에 배치하였습니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 레이디가구 -->
+    <div class="pop" id="pop_lady">
+        <div class="pop_wrap">
+            <button class="pop_close">close</button>
+            <div class="pop_tit">
+                <h2>레이디가구</h2>
+            </div>
+            <div class="pop_con">
+                <img src="./mockup/mo_lady.png" alt="레이디가구">
+                <div class="pop_txt">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 맥 -->
+    <div class="pop" id="pop_mac">
+        <div class="pop_wrap">
+            <button class="pop_close">close</button>
+            <div class="pop_tit">
+                <h2>M·A·C</h2>
+            </div>
+            <div class="pop_con">
+                <img src="./mockup/mo_mac.png" alt="맥">
+                <div class="pop_txt">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 어도비하우스 -->
+    <div class="pop" id="pop_ab">
+        <div class="pop_wrap">
+            <button class="pop_close">close</button>
+            <div class="pop_tit">
+                <h2>어도비 하우스</h2>
+            </div>
+            <div class="pop_con">
+                <img src="./mockup/desk_adobe.png" alt="어도비하우스">
+                <div class="pop_txt">
+                    <p>분위기를 현재 계절(가을)에 맞게 기획하였고 전반적인 컬러는 black, white, brown 을 사용하였습니다. </p>
+                    <p>자연적인 느낌을 주고자 하여, 자연의 이미지를 사용하였고 동네 커피숍이므로 다소 생소한 브랜드(카페)이기 때문에 해당 카페의 SNS 이미지를 활용하였습니다. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 화천기계 -->
+    <div class="pop" id="pop_hc">
+        <div class="pop_wrap">
+            <button class="pop_close">close</button>
+            <div class="pop_tit">
+                <h2>화천기계</h2>
+            </div>
+            <div class="pop_con">
+                <img src="./mockup/res_hc.png" alt="화천기계">
+                <div class="pop_txt">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 윤정헤어라인 M  -->
+    <div class="pop" id="pop_yjm">
+        <div class="pop_wrap">
+            <button class="pop_close">close</button>
+            <div class="pop_tit">
+                <h2>윤정헤어라인 Mobile</h2>
+            </div>
+            <div class="pop_con">
+                <img src="./mockup/mo_yj.png" alt="윤정헤어라인 모바일">
+                <div class="pop_txt">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 청정원 -->
+    <div class="pop" id="pop_cjo">
+        <div class="pop_wrap">
+            <button class="pop_close">close</button>
+            <div class="pop_tit">
+                <h2>청정원</h2>
+            </div>
+            <div class="pop_con">
+                <img src="./mockup/res_cjo.png" alt="청정원">
+                <div class="pop_txt">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 이랜드월드패션 -->
+    <div class="pop" id="pop_eland">
+        <div class="pop_wrap">
+            <button class="pop_close">close</button>
+            <div class="pop_tit">
+                <h2>이랜드월드패션</h2>
+            </div>
+            <div class="pop_con">
+                <img src="./mockup/desk_eland.png" alt="이랜드월드패션">
+                <div class="pop_txt">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 리레코 -->
+    <div class="pop" id="pop_lyre">
+        <div class="pop_wrap">
+            <button class="pop_close">close</button>
+            <div class="pop_tit">
+                <h2>리레코</h2>
+            </div>
+            <div class="pop_con">
+                <img src="./mockup/res_lyreco.png" alt="리레코">
+                <div class="pop_txt">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 윤정헤어라인 -->
+    <div class="pop" id="pop_yj">
+        <div class="pop_wrap">
+            <button class="pop_close">close</button>
+            <div class="pop_tit">
+                <h2>윤정헤어라인</h2>
+            </div>
+            <div class="pop_con">
+                <img src="./mockup/desk_yjhair.png" alt="윤정헤어라인">
+                <div class="pop_txt">
+                    <p>고급화된 컨셉으로 분위기는 어둡게 잡았습니다.</p>
+                    <p>미용이라는 느낌을 주기 위하여, 내부 사진과 다양한 스타일링 이미지를 주로 사용하였습니다. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 사이버경찰청 -->
+    <div class="pop" id="pop_po">
+        <div class="pop_wrap">
+            <button class="pop_close">close</button>
+            <div class="pop_tit">
+                <h2>사이버 경찰청</h2>
+            </div>
+            <div class="pop_con">
+                <img src="./mockup/res_police.png" alt="사이버경찰청">
+                <div class="pop_txt">
+                    <p>복잡하지 않은 구조와 친근감 있는 메인 이미지로 거리낌 없이 접근할 수 있도록 하였습니다.</p>
+                    <p>불 필요한 정보들은 없애고, 사용자들이 자주 사용하는 것 위주로 구현하였습니다.</p>
+                    <p>태블릿과 모바일 중심의 사이트이지만 데스크탑에서도 무리 없이 구동 가능합니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 펜션으로튀어라 -->
+    <div class="pop" id="pop_psr">
+        <div class="pop_wrap">
+            <button class="pop_close">close</button>
+            <div class="pop_tit">
+                <h2>펜션으로튀어라</h2>
+            </div>
+            <div class="pop_con">
+                <img src="./mockup/res_psr.png" alt="펜션런">
+                <div class="pop_txt">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- kb카드 -->
+    <div class="pop" id="pop_kb">
+        <div class="pop_wrap">
+            <button class="pop_close">close</button>
+            <div class="pop_tit">
+                <h2>KB국민카드</h2>
+            </div>
+            <div class="pop_con">
+                <img src="./mockup/mo_kb.png" alt="kb카드">
+                <div class="pop_txt">
+                    <p>국민카드의 주 컬러인 노란 계열의 컬러를 메인컬러로 잡았습니다.</p>
+                    <p>사용자들에게 실용성 높은 카드를 추천 카드로 배치하고 대표적인 이벤트를 배너로 만들어 눈에 잘 띄게 하였습니다.</p>
+                    <p>생활대금 납부를 이용하는 고객님들을 위하여 번거롭게 찾는 일이 없도록 한 눈에 쉽게 볼 수 있는 자리에 아이콘과 함께 배치하였습니다. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
