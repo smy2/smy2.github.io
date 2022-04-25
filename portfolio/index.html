@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 다시, 봄 </title>
+    <link rel="shortcut icon" href="./favi/favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".work_img").hover(function(){
+                $(this).find(".white").addClass("on");
+            });
+            $(".work_img").mouseleave(function(){
+                $(this).find(".white").removeClass("on");
+            });
+        });
+    </script>
+    <script> //about 클릭시 부드럽게 스크롤
+        $(document).ready(function(){
+            $(".a_s").click(function(event){
+                event.preventDefault();
+                $('html, body').animate({ scrollTop : $(this.hash).offset().top}, 500);
+            });
+
+            //새로고침 시 첫 화면으로
+            window.onload = function(){
+                setTimeout(function(){
+                    scrollTo(0,0);
+                }, 100);
+            };
+        });
+    </script>
+    <script> //포트폴리오 팝업창
+        $(document).ready(function(){
+            $(".item1").click(function(){
+                $("#pop_car").fadeIn();
+                $("body").css("overflow","hidden");
+            });
+            $(".item2").click(function(){
+                $("#pop_crazy").fadeIn();
+                $("body").css("overflow","hidden");
+            });
+            $(".item3").click(function(){
+                $("#pop_chahong").fadeIn();
+                $("body").css("overflow","hidden");
+            });
+            $(".item4").click(function(){
+                $("#pop_yumi").fadeIn();
+                $("body").css("overflow","hidden");
+            });
+
+        //팝업 닫기
+            $(".pop_close").click(function(){
+                $(".popup").fadeOut();
+                $("body").css("overflow","auto"); //body 스크롤바 생성
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <header id="hd">
+            <a href="" class="logo"><img src="./image/y.png" alt="로고"></a>
+            <gnb id="menu">
+                <ul>
+                    <li><a href="">home</a></li>
+                    <li><a href="#about" class="a_s">about us</a></li>
+                    <li><a href="portfolio.html">portfolio</a></li>
+                </ul>
+            </gnb>
+        </header>
+        <main id="visual">
+            <h1>SPRING, AGAIN</h1>
+        </main>
+        <div class="contents">
+            <section class="page about" id="about">
+                <div class="page_left">
+                    <span class="line"></span>
+                    <p class="tit">about us</p>
+                    <h2>SONG MI YEON.</h2>
+                    <p class="more"><a href="about.html"> read more + </a></p>
+                </div>
+                <div class="page_right">
+                    <p class="page_txt">
+                        안녕하세요, 미연입니다.
+                        <br><br>
+                        디자인의 가장 중요한 역할은 가치를 창조하는 것이라 여깁니다. <br>
+                        좋은 디자인이 반드시 좋은 결과로 연결된다고 생각하지는 않기에 <br>
+                        그림을 그려내는 것뿐만이 아닌 더 큰 가치를 생각하고자 합니다.
+                        <br><br>
+                        웹으로 통하는 세상. <br><br>
+                        이해하기 어렵고 복잡한 최고의 기술보다는 누구나 이용하는데 불편함이 없는 디자인과 <br>
+                        이를 구현하는 것을 지향합니다.
+                    </p>
+                </div>
+            </section>
+            <section class="page work">
+                <div class="work_img item1">
+                    <div class="white">
+                        <p>mobile</p>
+                        <p class="work_tit">CARHARTT</p>
+                    </div>
+                    <img src="./image/carhartt.jpg" alt="칼하트">
+                </div>
+                <div class="work_img item2">
+                    <div class="white">
+                        <p>web</p>
+                        <p class="work_tit">TWOSOMEPLACE</p>
+                    </div>
+                    <img src="./image/main_brand1.jpg" alt="투썸플레이스">
+                </div>
+                <div class="work_img item3">
+                    <div class="white">
+                        <p>web</p>
+                        <p class="work_tit">CHAHONG ARDOR</p>
+                    </div>
+                    <img src="./image/chahong.jpg" alt="차홍아르더">
+                </div>
+                <div class="work_img item4">
+                    <div class="white">
+                        <p>web</p>
+                        <p class="work_tit">유미의 세포들</p>
+                    </div>
+                    <img src="./image/yumi.jpg" alt="유미의세포들">
+                </div>
+            </section>
+            <section class="page like">
+                <div class="page_left">
+                    <span class="line"></span>
+                    <p class="tit">inner peace</p>
+                </div>
+                <div class="page_like">
+                    <ul>
+                        <li>
+                            <img src="./image/name.jpg" alt="movie">
+                            <p class="like_txt">아이디어는 일상속에서</p>
+                            <p class="like_tit">MOVIE</p>
+                            <p class="like_text">짧은 시간에 많은 것을 느끼게 해줍니다. <br>뮤즈 같은 존재죠
+                            </p>
+                        </li>
+                        <li>
+                            <img src="./image/photo.jpg" alt="photo">
+                            <p class="like_txt">추억쌓기</p>
+                            <p class="like_tit">PHOTOGRAPHY</p>
+                            <p class="like_text">가장 오래 기억할 수 있는 건 <br>사진만 한 게 없죠</p>
+                        </li>
+                        <li>
+                            <img src="./image/eat.jpg" alt="eat">
+                            <p class="like_txt">설렘반 기대반</p>
+                            <p class="like_tit">EAT</p>
+                            <p class="like_text">먹는 즐거움, 소소한 행복 <br>인생의 동반자입니다.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="page art">
+                <div class="contact">
+                    <div class="con_txt">
+                        <h2>SONG MI YEON <br> PORTFOLIO</h2>
+                        <span></span>
+                        <p>
+                            다소 늦게 시작한 만큼 끊임없이 지식을 쌓고, <br>
+                            꾸준한 발전 중에 있습니다. <br>
+                            
+                            1px의 틀어짐도 소중히 여기며 작업하는 웹퍼블리셔 지망생의 <br>
+                            포트폴리오를 봐주셔서 감사합니다 :)
+
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <footer id="ft">
+                <p>COPYRIGHT MING. ALL RIGHT RESERVED.</p>
+            </footer>
+        </div>
+    </div>
+    <div id="pop"> <!-- pf popup -->
+        <div class="popup" id="pop_car">
+            <div class="pop_wrap">
+                <button class="pop_close">close</button>
+                <div class="pop_tit">
+                    <h2>칼하트</h2>
+                </div>
+                <div class="pop_con">
+                    <img src="./mockup/mo_carhartt.png" alt="">
+                </div>
+                <div class="pop_txt">
+                    <p><a href="https://smy2.github.io/carhartt/" target="_blank" class="arrow arrow--right"></a></p>
+                    <p>모바일 | 칼하트</p>
+                </div>
+            </div>
+        </div>
+        <div class="popup" id="pop_crazy">
+            <div class="pop_wrap">
+                <button class="pop_close">close</button>
+                <div class="pop_tit">
+                    <h2>투썸플레이스</h2>
+                </div>
+                <div class="pop_con">
+                    <img src="./mockup/desk_twosome.png" alt="">
+                </div>
+                <div class="pop_txt">
+                    <p><a href="" target="_blank" class="arrow arrow--right"></a></p>
+                    <p>웹 | 투썸플레이스</p>
+                </div>
+            </div>
+        </div>
+        <div class="popup" id="pop_chahong">
+            <div class="pop_wrap">
+                <button class="pop_close">close</button>
+                <div class="pop_tit">
+                    <h2>차홍아르더</h2>
+                </div>
+                <div class="pop_con">
+                    <img src="./mockup/desk_cha.png" alt="">
+                </div>
+                <div class="pop_txt">
+                    <p><a href="" target="_blank" class="arrow arrow--right"></a></p>
+                    <p>웹 | 차홍아르더</p>
+                </div>
+            </div>
+        </div>
+        <div class="popup" id="pop_yumi">
+            <div class="pop_wrap">
+                <button class="pop_close">close</button>
+                <div class="pop_tit">
+                    <h2>유미의 세포들</h2>
+                </div>
+                <div class="pop_con">
+                    <img src="./mockup/desk_yumi.png" alt="">
+                </div>
+                <div class="pop_txt">
+                    <p><a href="" target="_blank" class="arrow arrow--right"></a></p>
+                    <p>웹 | 유미의 세포들</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
