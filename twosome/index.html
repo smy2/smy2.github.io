@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>투썸플레이스</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="./js/jquery.js"></script>
+    <style>
+         /* 공통된 부분 */
+         * { margin: 0; padding: 0;}
+         body, html { width: 100%; height: 100%; overflow-x: hidden;}
+         ul { list-style: none;}
+         a { text-decoration: none; color: #000;}
+
+         .wrap { width: 100%; height: 100%;}
+
+         /* 헤더영역 */
+         #hd {
+             height: 200px;
+         }
+         .logo {
+             display: block;
+             text-align: center;
+             padding-top: 50px;
+        }
+         .tnb {
+             position: absolute;
+             top: 0; right: 50px;
+         }
+         .tnb li {
+             float: left;
+             margin: 20px;
+         }
+         .gnb {
+             width: 100%;
+             padding-top: 50px;
+             padding-left: calc(100% - 70%);
+             position: relative;
+            }
+         .gnb > li {
+             float: left;
+             width: 200px;
+             padding: 10px;
+            }
+         .gnb > li > a {
+             display: block;
+             font-weight: 800;
+             text-align: center;
+         }
+         .gnb > li a:hover {
+            color: #d60037;
+        }
+         .sub {
+             padding-top: 10px;
+             width: 100%;
+             height: auto;
+             display: none;
+        }
+         .sub li {
+             background-color: #fff;
+        }
+         .sub li a {
+             display: block;
+             line-height: 24px;
+             text-align: center;
+             padding-bottom: 10px;
+         }
+
+         /* 컨텐츠 */
+         #main {
+             height: 100%;
+             background-image: url(./images/MODS0030_20210617220407_xYuWGMXB.jpg);
+             background-position: center;
+             background-size: cover;
+             background-repeat: no-repeat;
+         }
+         .new {
+             width: 100%;
+             height: 100px;
+             position: relative;
+         }
+         .new_left, .new_right {
+             width: 49%;
+             float: left;
+        }
+        .new_line {
+            display: block;
+            width: 100px; height: 1px;
+            background-color: #333;
+            position: absolute;
+            left: calc(100% - 55%);
+            top: 50px;
+            transform: rotate(60deg);
+        }
+         .new_tit {
+             width: 100px;
+             font-size: 24px;
+             padding: 30px;
+             padding-left: 200px;
+             border-right: 1px solid #eee;
+             float: left;
+         }
+         .new_txt {
+            float: left;
+            padding-top: 30px;
+            padding-left: 40px;
+            font-size: 20px;
+            }
+         .page1 {
+             height: 100%;
+             background-image: url(./images/main_alist_pc.jpg);
+             background-position: center;
+             background-size: cover;
+             background-repeat: no-repeat;
+         }
+         .p1_txt_box {
+             max-width: 70%;
+             margin: auto;
+             padding-top: 200px;
+         }
+         .page1 h2 {
+             font-family: 'Black Han Sans', sans-serif;
+             font-size: 80px;
+         }
+         .page h3 {
+             margin-top: 50px; margin-bottom: 50px;
+        }
+        .page p {
+             width: 500px;
+        }
+        .p1_txt_box > p {
+            display: block;
+            width: 650px;
+            font-size: 24px;
+        }
+        .page2 {
+             height: 100%;
+             border-bottom: 1px solid #000;
+        }
+        .page2_box {
+             max-width: 70%;
+             height: 70%;
+             margin: auto;
+             position: relative;
+             padding-top: 200px;
+        }
+        .page2_box > h1 {
+             font-size: 74px;
+             font-family: 'Black Han Sans', sans-serif;
+        }
+        .page2_box img {
+             float: left;
+             position: absolute;
+             left: calc(100% - 75%);
+             top: 25%;
+             z-index: -1;
+             width: 600px; height: 600px;
+        }
+        .page2_box > h2 {
+             position: absolute;
+             right: 240px;
+             bottom: 240px;
+
+        }
+        .page2_box > p {
+             position: absolute;
+             width: 330px;
+             bottom: 160px;
+             right: 60px;
+        }
+        .img_txt {
+             display: block;
+             position: absolute;
+             left: 210px;
+             transform: rotate(-90deg);
+             padding-bottom: 130px;
+             font-family: 'Nanum Gothic', sans-serif;
+
+        }
+        .page2_box button {
+             width: 200px; height: 50px;
+             position: absolute;
+             right: 190px;
+             bottom: 65px;
+             border: 0;
+             background-color: #000;
+             color: #fff;
+             text-align: center;
+             font-size: 14px;
+        }
+        .page2_box button:hover {
+             color: #000;
+             background-color: #fff;
+             transition: 0.4s;
+             border: 1px solid #000;
+        }
+    /* SNS 영역 */
+        .sns {
+             height: 100%;
+        }
+        .sns_txt {
+             text-align: center;
+        }
+        .sns > h2 {
+             margin-top: 80px;
+             font-size: 54px;
+             line-height: 100px;
+        }
+        .sns > span {
+            display: block;
+            width: 100px; height: 1px; background-color: #000;
+            margin: auto;
+        }
+        .sns > p {
+            font-size: 20px;
+            margin-top: 16px;
+        }
+        .sns_box {
+             width: 1200px;
+             margin: auto;
+             margin-top: 80px;
+        }
+        .sns_box li {
+             float: left;
+             margin: 20px;
+             width: 250px;
+        }
+        .sns_box li img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        #ft {
+             height: 50px;
+             background-color: #eee;
+        }
+        #ft p {
+             color: #333;
+             padding-top: 16px;
+             text-align: center;
+             font-size: 12px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $(".gnb li").hover(function(){
+                $(this).find(".sub").stop().slideDown(500);
+            });
+            $(".gnb li").mouseleave(function(){
+                $(this).find(".sub").stop().slideUp(500);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="wrap"> <!-- wrap -->
+    <header id="hd"> <!-- header -->
+        <a href="" class="logo"><img src="./images/logo_black.svg" alt="로고"></a>
+        <ul class="tnb">
+            <li><a href="">로그인</a></li>
+            <li><a href="">회원가입</a></li>
+            <li><a href="">마이페이지</a></li>
+        </ul>
+        <ul class="gnb">
+            <li><a href="">투썸플레이스 소개</a>
+                <ul class="sub"> <!-- sub menu -->
+                    <li><a href="">비전체계</a></li>
+                    <li><a href="">연혁</a></li>
+                    <li><a href="">BI</a></li>
+                </ul>
+            </li>
+            <li><a href="">메뉴이야기</a>
+                <ul class="sub">
+                    <li><a href="">커피이야기</a></li>
+                    <li><a href="">디저트이야기</a></li>
+                    <li><a href="">델리이야기</a></li>
+                </ul>
+            </li>
+            <li><a href="">브랜드 지원</a>
+                <ul class="sub">
+                    <li><a href="">로스팅 플랜트</a></li>
+                    <li><a href="">디저트 플랜트</a></li>
+                    <li><a href="">C&D센터</a></li>
+                    <li><a href="">SEP센터</a></li>
+                </ul>
+            </li>
+            <li><a href="">가맹점 창업안내</a>
+                <ul class="sub">
+                    <li><a href="">창업설명회</a></li>
+                    <li><a href="">온라인 창업상담신청</a></li>
+                    <li><a href="">FAQ</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <div id="main"> <!-- visual -->
+
+    </div>
+    <div class="new">
+        <div class="new_left"><p class="new_tit">공지사항</p><p class="new_txt">투썸플레이스 음료 가격 조정 안내</p></div>
+        <div class="new_right"><p class="new_tit">보도자료</p><p class="new_txt">준비 중</p></div>
+        <span class="new_line"></span>
+    </div>
+    <div class="page page1">
+        <div class="p1_txt_box">
+        <h2>A LIST</h2>
+        <h3>TWOSOME <br>IN YOUR MUG, A LIST</h3>
+        <p>언제 어디서나 여유롭게 즐기는 에이리스트</p>
+        <p>
+            좋은 커피를 마셔야 비로소 하루가 시작되는 느낌이라면 하루에도 몇번씩 그윽한 커피 향이 생각난다면 마음속 우선순위에 언제나 커피가 있는 당신이라면
+            잊지 말고 챙겨야 할 단 하나의 리스트, 투썸플레이스 에이리스트.
+        </p>
+        </div>
+    </div>
+    <div class="page page2">
+        <div class="page2_box">
+        <h1>BRAND <br>SUPPORT</h1>
+        <img src="./images/main_brand1.jpg" alt="">
+        <p class="img_txt">ㅡ ROASTING PLANT</p>
+        <h2>로스팅 플랜트</h2>
+        <p>원두 로스팅부터 고객의 손에 들리는 한 잔의 커피까지, 최고의 커피 품질을 만듭니다.</p>
+        <button> read more ㅡ </button>
+        </div>
+    </div>
+    <div class="sns"> <!-- sns -->
+        <h2 class="sns_txt">투썸플레이스</h2>
+        <span></span>
+        <p class="sns_txt">Coffee moment with TWOSOME</p>
+        <ul class="sns_box">
+            <li><img src="./images/menu_coffee3.jpg" alt=""></li>
+            <li><img src="./images/img_store_02@3x.png" alt=""></li>
+            <li><img src="./images/menu_dessert1.jpg" alt=""></li>
+            <li><img src="./images/menu_dessert3.jpg" alt=""></li>
+            <li><img src="./images/img_store_04@3x.png" alt=""></li>
+            <li><img src="./images/menu_dessert5.jpg" alt=""></li>
+            <li><img src="./images/main_brand4.jpg" alt=""></li>
+            <li><img src="./images/menu_dessert6.jpg" alt=""></li>
+        </ul>
+    </div>
+    <footer id="ft"> <!-- footer -->
+        <p>COPYRIGHT MING. ALL RIGHT RESERVED.</p>
+    </footer>
+    </div>
+</body>
+</html>
